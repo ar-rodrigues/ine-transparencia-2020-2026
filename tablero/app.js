@@ -101,38 +101,20 @@ const baseTooltip = {
   backgroundColor: COLORS.tooltipBg,
   borderColor: "rgba(201, 168, 76, 0.45)",
   borderWidth: 1,
+  confine: true,
+  extraCssText: "max-width: 82vw; white-space: normal; word-break: break-word; line-height: 1.45;",
   textStyle: { color: "#f5f2ec", fontFamily: "Inter, sans-serif", fontSize: 12 },
 };
 
-// ==================== MOTOR SILENCIOSO (DUCKDB-WASM -> PARQUET) ====================
+// ==================== CARGA RÁPIDA DE DATOS (JSON LOCAL) ====================
 async function initDataEngine() {
-  try {
-    const duckdb = await import("https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.29.0/+esm");
-    const bundle = await duckdb.selectBundle(duckdb.getJsDelivrBundles());
-    const workerUrl = URL.createObjectURL(new Blob([`importScripts("${bundle.mainWorker}");`], { type: "text/javascript" }));
-    const worker = new Worker(workerUrl);
-    const db = new duckdb.AsyncDuckDB(new duckdb.ConsoleLogger(duckdb.LogLevel.ERROR), worker);
-    await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
-    state.duckdbConn = await db.connect();
-    state.engine = "duckdb";
-  } catch {
-    state.engine = "json";
-  }
+  state.engine = "json";
 }
 
 async function loadTable(item) {
   if (state.data[item.key]) return state.data[item.key];
-  if (state.engine === "duckdb" && state.duckdbConn) {
-    try {
-      const url = new URL(`${DATA_ROOT}/${item.rel}.parquet`, window.location.href).href;
-      const res = await state.duckdbConn.query(`SELECT * FROM read_parquet('${url}')`);
-      state.data[item.key] = res.toArray().map((r) => toPlainRow(r.toJSON()));
-      return state.data[item.key];
-    } catch {
-      // fallback below
-    }
-  }
   const resp = await fetch(`${DATA_ROOT}/${item.rel}.json`);
+  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
   state.data[item.key] = await resp.json();
   return state.data[item.key];
 }
@@ -1203,7 +1185,7 @@ function renderExplorerTable() {
 
   tbody.innerHTML = pageRows.length
     ? pageRows
-        .map((r) => `<tr>${schema.columns.map((c) => `<td class="${c.num ? "num" : ""}">${c.render(r)}</td>`).join("")}</tr>`)
+        .map((r) => `<tr>${schema.columns.map((c, idx) => `<td class="${c.num ? "num" : ""} ${idx === 1 ? "cell-primary" : ""}" data-label="${c.label}">${c.render(r)}</td>`).join("")}</tr>`)
         .join("")
     : `<tr><td colspan="${schema.columns.length}" style="text-align:center;color:var(--text-muted);padding:28px;">No se encontraron resultados para "${q}"</td></tr>`;
 
@@ -1362,16 +1344,37 @@ function wireUI() {
 function setupMobileCharts() {
   if (window.innerWidth > 980) return;
   if (!state.mobileCharts) state.mobileCharts = [];
+
+  const stepRevealObserver =
+    typeof IntersectionObserver !== "undefined"
+      ? new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("is-visible");
+                stepRevealObserver.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.08 }
+        )
+      : null;
+
   document.querySelectorAll(".story-step").forEach((stepEl) => {
     if (stepEl.dataset.mobileInit === "1") return;
     stepEl.dataset.mobileInit = "1";
     const stepIndex = Number(stepEl.dataset.step);
 
+    if (stepRevealObserver) stepRevealObserver.observe(stepEl);
+    else stepEl.classList.add("is-visible");
+
     const box = document.createElement("div");
     box.className = "mobile-stage-box";
     box.innerHTML = `
       <div class="mobile-stage-controls"></div>
-      <div class="mobile-stage-chart"></div>
+      <div class="mobile-stage-chart">
+        <div class="chart-loader"><span class="loader-spin"></span><span>Cargando gráfica...</span></div>
+      </div>
       <div class="mobile-stage-source"></div>
     `;
     stepEl.appendChild(box);
@@ -1383,12 +1386,15 @@ function setupMobileCharts() {
     const initThisChart = () => {
       if (chartDiv.dataset.rendered === "1") return;
       chartDiv.dataset.rendered = "1";
-      const mobileChart = echarts.init(chartDiv, null, { renderer: "canvas" });
-      state.mobileCharts.push(mobileChart);
-      renderStep(stepIndex, { chart: mobileChart, controlsEl, sourceEl });
-      if (typeof ResizeObserver !== "undefined") {
-        new ResizeObserver(() => mobileChart.resize()).observe(chartDiv);
-      }
+      chartDiv.innerHTML = "";
+      requestAnimationFrame(() => {
+        const mobileChart = echarts.init(chartDiv, null, { renderer: "canvas" });
+        state.mobileCharts.push(mobileChart);
+        renderStep(stepIndex, { chart: mobileChart, controlsEl, sourceEl });
+        if (typeof ResizeObserver !== "undefined") {
+          new ResizeObserver(() => mobileChart.resize()).observe(chartDiv);
+        }
+      });
     };
 
     if (typeof IntersectionObserver !== "undefined") {
@@ -1399,9 +1405,9 @@ function setupMobileCharts() {
             io.disconnect();
           }
         },
-        { rootMargin: "0px 0px -10% 0px", threshold: 0.12 }
+        { rootMargin: "0px 0px -40px 0px", threshold: 0.2 }
       );
-      io.observe(box);
+      io.observe(chartDiv);
     } else {
       initThisChart();
     }
@@ -1424,13 +1430,22 @@ function setupMobileCharts() {
   wireUI();
   setupWikiTooltips();
   const chartEl = document.getElementById("main-stage-chart");
+  const stageWrap = chartEl?.parentElement;
+  let desktopLoader = null;
+  if (stageWrap) {
+    desktopLoader = document.createElement("div");
+    desktopLoader.className = "chart-loader";
+    desktopLoader.innerHTML = `<span class="loader-spin"></span><span>Cargando datos del observatorio...</span>`;
+    stageWrap.appendChild(desktopLoader);
+  }
+
   state.stageChart = echarts.init(chartEl, null, { renderer: "canvas" });
   if (typeof ResizeObserver !== "undefined" && chartEl) {
     new ResizeObserver(() => state.stageChart && state.stageChart.resize()).observe(chartEl);
   }
 
-  await Promise.all([initDataEngine(), loadMexicoGeo()]);
-  await Promise.all(DATA_TABLES.map((item) => loadTable(item)));
+  await Promise.all([initDataEngine(), loadMexicoGeo(), ...DATA_TABLES.map((item) => loadTable(item))]);
+  if (desktopLoader) desktopLoader.remove();
 
   const initialStep = requestedStep !== null && !Number.isNaN(requestedStep) ? Math.max(0, Math.min(8, requestedStep)) : 0;
   renderStep(initialStep);

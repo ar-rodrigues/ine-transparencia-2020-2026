@@ -1062,6 +1062,36 @@ body.is-embed-full .scrolly-stage-col {
 .modal-actions { display: flex; align-items: center; gap: 12px; }
 .copy-feedback { font-family: var(--font-mono); font-size: 12px; color: var(--emerald); }
 
+/* ==================== LOADER DE GRÁFICAS ==================== */
+.chart-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.loader-spin {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(201, 168, 76, 0.2);
+  border-top-color: var(--gold);
+  animation: spinLoader 0.75s linear infinite;
+}
+
+@keyframes spinLoader {
+  to { transform: rotate(360deg); }
+}
+
 /* ==================== RESPONSIVE (SIN OVERLAP AL SCROLEAR) ==================== */
 @media (max-width: 980px) {
   .hero-metrics { grid-template-columns: repeat(2, 1fr); }
@@ -1079,8 +1109,13 @@ body.is-embed-full .scrolly-stage-col {
     min-height: auto;
     margin-bottom: 22px;
     padding: 22px 18px;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .story-step.is-visible {
     opacity: 1;
-    transform: none;
+    transform: translateY(0);
   }
   .mobile-stage-box {
     display: flex;
@@ -1111,4 +1146,78 @@ body.is-embed-full .scrolly-stage-col {
     line-height: 1.4;
   }
   .github-card { padding: 26px 24px; }
+}
+
+/* ==================== TABLA COMO TARJETAS EN MÓVIL ==================== */
+@media (max-width: 768px) {
+  .table-card {
+    background: transparent;
+    border: none;
+  }
+  .table-wrap {
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+  }
+  #explorer-table,
+  #explorer-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  #explorer-table thead {
+    display: none;
+  }
+  #explorer-table tbody tr {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+  #explorer-table tbody td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    text-align: right;
+    font-size: 12.5px;
+    white-space: normal;
+  }
+  #explorer-table tbody td:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  #explorer-table tbody td::before {
+    content: attr(data-label);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-faint);
+    text-align: left;
+    flex-shrink: 0;
+  }
+  #explorer-table tbody td.cell-primary {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 4px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .table-pagination {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-top: 12px;
+    padding: 12px 14px;
+  }
 }
