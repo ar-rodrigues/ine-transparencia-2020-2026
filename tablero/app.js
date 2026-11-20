@@ -1333,55 +1333,73 @@ function wireUI() {
   });
 
   window.addEventListener("resize", () => {
-    if (state.stageChart) state.stageChart.resize();
-    (state.mobileCharts || []).forEach((c) => c.resize());
-    if (window.innerWidth <= 980 && Object.keys(state.data || {}).length > 0) {
-      setupMobileCharts();
+    if (window.innerWidth > 980) {
+      ensureDesktopChart();
+      if (state.stageChart) state.stageChart.resize();
+    } else {
+      prepareMobileChartBoxes();
+      if (state.dataReady) activateMobileCharts();
+      (state.mobileCharts || []).forEach((c) => c.resize());
     }
   });
 }
 
-function setupMobileCharts() {
+function createSkeletonMarkup() {
+  return `
+    <div class="chart-skeleton" aria-label="Cargando gráfica">
+      <div class="sk-bars">
+        <span class="sk-bar" style="height:42%"></span>
+        <span class="sk-bar" style="height:78%"></span>
+        <span class="sk-bar" style="height:56%"></span>
+        <span class="sk-bar" style="height:90%"></span>
+        <span class="sk-bar" style="height:64%"></span>
+      </div>
+      <span class="sk-label">Cargando visualización...</span>
+    </div>
+  `;
+}
+
+function ensureDesktopChart() {
+  if (state.stageChart || typeof echarts === "undefined") return;
+  const chartEl = document.getElementById("main-stage-chart");
+  if (!chartEl) return;
+  if (window.innerWidth <= 980 && !document.body.classList.contains("is-embed-chart")) return;
+  state.stageChart = echarts.init(chartEl, null, { renderer: "canvas" });
+  if (typeof ResizeObserver !== "undefined") {
+    new ResizeObserver(() => state.stageChart && state.stageChart.resize()).observe(chartEl);
+  }
+  if (state.dataReady) renderStep(Math.max(0, state.activeStep));
+}
+
+function prepareMobileChartBoxes() {
   if (window.innerWidth > 980) return;
-  if (!state.mobileCharts) state.mobileCharts = [];
-
-  const stepRevealObserver =
-    typeof IntersectionObserver !== "undefined"
-      ? new IntersectionObserver(
-          (entries) => {
-            entries.forEach((e) => {
-              if (e.isIntersecting) {
-                e.target.classList.add("is-visible");
-                stepRevealObserver.unobserve(e.target);
-              }
-            });
-          },
-          { threshold: 0.08 }
-        )
-      : null;
-
   document.querySelectorAll(".story-step").forEach((stepEl) => {
-    if (stepEl.dataset.mobileInit === "1") return;
-    stepEl.dataset.mobileInit = "1";
-    const stepIndex = Number(stepEl.dataset.step);
-
-    if (stepRevealObserver) stepRevealObserver.observe(stepEl);
-    else stepEl.classList.add("is-visible");
+    if (stepEl.dataset.mobileBox === "1") return;
+    stepEl.dataset.mobileBox = "1";
 
     const box = document.createElement("div");
     box.className = "mobile-stage-box";
     box.innerHTML = `
       <div class="mobile-stage-controls"></div>
-      <div class="mobile-stage-chart">
-        <div class="chart-loader"><span class="loader-spin"></span><span>Cargando gráfica...</span></div>
-      </div>
+      <div class="mobile-stage-chart">${createSkeletonMarkup()}</div>
       <div class="mobile-stage-source"></div>
     `;
     stepEl.appendChild(box);
+  });
+}
 
+function activateMobileCharts() {
+  if (window.innerWidth > 980 || typeof echarts === "undefined") return;
+  if (!state.mobileCharts) state.mobileCharts = [];
+
+  document.querySelectorAll(".story-step").forEach((stepEl) => {
+    const stepIndex = Number(stepEl.dataset.step);
+    const box = stepEl.querySelector(".mobile-stage-box");
+    if (!box) return;
     const controlsEl = box.querySelector(".mobile-stage-controls");
     const chartDiv = box.querySelector(".mobile-stage-chart");
     const sourceEl = box.querySelector(".mobile-stage-source");
+    if (!chartDiv || chartDiv.dataset.rendered === "1") return;
 
     const initThisChart = () => {
       if (chartDiv.dataset.rendered === "1") return;
@@ -1405,7 +1423,7 @@ function setupMobileCharts() {
             io.disconnect();
           }
         },
-        { rootMargin: "0px 0px -40px 0px", threshold: 0.2 }
+        { rootMargin: "0px 0px -30px 0px", threshold: 0.15 }
       );
       io.observe(chartDiv);
     } else {
@@ -1429,31 +1447,35 @@ function setupMobileCharts() {
 
   wireUI();
   setupWikiTooltips();
+
+  // Mostrar skeletons inmediatamente antes de descargar datos
+  if (!document.body.classList.contains("is-embed-chart")) {
+    prepareMobileChartBoxes();
+  }
+
   const chartEl = document.getElementById("main-stage-chart");
   const stageWrap = chartEl?.parentElement;
   let desktopLoader = null;
-  if (stageWrap) {
+  if (stageWrap && (window.innerWidth > 980 || document.body.classList.contains("is-embed-chart"))) {
     desktopLoader = document.createElement("div");
-    desktopLoader.className = "chart-loader";
-    desktopLoader.innerHTML = `<span class="loader-spin"></span><span>Cargando datos del observatorio...</span>`;
-    stageWrap.appendChild(desktopLoader);
+    desktopLoader.innerHTML = createSkeletonMarkup();
+    stageWrap.appendChild(desktopLoader.firstElementChild);
+    desktopLoader = stageWrap.querySelector(".chart-skeleton");
   }
 
-  state.stageChart = echarts.init(chartEl, null, { renderer: "canvas" });
-  if (typeof ResizeObserver !== "undefined" && chartEl) {
-    new ResizeObserver(() => state.stageChart && state.stageChart.resize()).observe(chartEl);
-  }
+  ensureDesktopChart();
 
-  await Promise.all([initDataEngine(), loadMexicoGeo(), ...DATA_TABLES.map((item) => loadTable(item))]);
+  await Promise.allSettled([initDataEngine(), loadMexicoGeo(), ...DATA_TABLES.map((item) => loadTable(item))]);
+  state.dataReady = true;
   if (desktopLoader) desktopLoader.remove();
 
   const initialStep = requestedStep !== null && !Number.isNaN(requestedStep) ? Math.max(0, Math.min(8, requestedStep)) : 0;
-  renderStep(initialStep);
+  if (state.stageChart) renderStep(initialStep);
 
   if (!document.body.classList.contains("is-embed-chart")) {
     setupParallaxAndProgress();
     setupScrollyObserver();
-    setupMobileCharts();
+    activateMobileCharts();
     renderExplorerTable();
   }
 })();
