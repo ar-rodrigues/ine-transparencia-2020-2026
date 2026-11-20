@@ -1219,7 +1219,6 @@ function wireUI() {
               (item) => `<tr>
                 <td><span class="badge-mini">${item.dominio}</span></td>
                 <td><strong>${item.archivo}</strong></td>
-                <td><span class="badge-mini">${item.formato}</span></td>
                 <td class="num">${typeof item.tamano_mb === "number" ? item.tamano_mb + " MB" : item.tamano_mb}</td>
                 <td class="num"><a class="btn-gold btn-sm" href="${item.url}" target="_blank" rel="noopener noreferrer">↓ Descargar</a></td>
               </tr>`
