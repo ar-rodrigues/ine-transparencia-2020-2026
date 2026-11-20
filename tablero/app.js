@@ -4,7 +4,9 @@
  * Motor silencioso: DuckDB-WASM leyendo Parquet en vivo (fallback JSON transparente).
  */
 
-const DATA_ROOT = "../datos_b2/03_datos_agregados";
+const DATA_ROOT = window.location.pathname.includes("/tableros/ine")
+  ? "./datos_b2/03_datos_agregados"
+  : "../datos_b2/03_datos_agregados";
 const PNT_SOURCE = "Fuente: Plataforma Nacional de Transparencia (PNT) · INE";
 
 const DATA_TABLES = [
