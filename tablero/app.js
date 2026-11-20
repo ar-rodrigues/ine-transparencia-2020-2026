@@ -184,6 +184,7 @@ function renderStep(stepIndex, opts = {}) {
   }
 
   chart.clear();
+  const isMob = chart.getWidth() < 480;
 
   // --- 01: DESTINO DEL PRESUPUESTO (% APILADO 2020 VS 2025 EN UNA SOLA GRÁFICA) ---
   if (stepIndex === 0) {
@@ -195,11 +196,11 @@ function renderStep(stepIndex, opts = {}) {
     });
 
     const cats = [
-      { key: "1000", label: "Personal (Nómina y Honorarios)", color: COLORS.ine },
-      { key: "4000", label: "Transferencias y Partidos", color: COLORS.gold },
-      { key: "3000", label: "Servicios Generales (Rentas, TI, Operación)", color: COLORS.cyan },
-      { key: "2000", label: "Materiales y Suministros", color: COLORS.emerald },
-      { key: "5000", label: "Bienes Muebles e Inmuebles", color: COLORS.purple },
+      { key: "1000", label: isMob ? "Personal" : "Personal (Nómina y Honorarios)", color: COLORS.ine },
+      { key: "4000", label: isMob ? "Partidos y Transf." : "Transferencias y Partidos", color: COLORS.gold },
+      { key: "3000", label: isMob ? "Servicios Grales." : "Servicios Generales (Rentas, TI, Operación)", color: COLORS.cyan },
+      { key: "2000", label: isMob ? "Materiales" : "Materiales y Suministros", color: COLORS.emerald },
+      { key: "5000", label: isMob ? "Bienes" : "Bienes Muebles e Inmuebles", color: COLORS.purple },
     ];
 
     setStageMeta(
@@ -213,7 +214,7 @@ function renderStep(stepIndex, opts = {}) {
     );
 
     chart.setOption({
-      animationDuration: 650,
+      animationDuration: 750,
       tooltip: {
         ...baseTooltip,
         trigger: "axis",
@@ -228,12 +229,12 @@ function renderStep(stepIndex, opts = {}) {
           return `<b>Ejercicio ${y} · Total ejercido: ${fmtMoney(tot)}</b><br/>${lines.join("<br/>")}`;
         },
       },
-      legend: { top: 0, left: "center", itemGap: 14, textStyle: { color: "#e5e2dc", fontSize: 11.5 } },
-      grid: { left: 16, right: 20, top: 52, bottom: 20, containLabel: true },
+      legend: { top: 0, left: "center", itemGap: isMob ? 8 : 14, itemWidth: isMob ? 12 : 18, textStyle: { color: "#e5e2dc", fontSize: isMob ? 10.5 : 11.5 } },
+      grid: { left: isMob ? 6 : 16, right: isMob ? 10 : 20, top: isMob ? 64 : 52, bottom: 16, containLabel: true },
       xAxis: {
         type: "category",
         data: years.map((y) => `Ejercicio ${y}\n(${fmtMoney(totals[y])})`),
-        axisLabel: { color: "#f5f2ec", fontFamily: "JetBrains Mono", fontSize: 12 },
+        axisLabel: { color: "#f5f2ec", fontFamily: "JetBrains Mono", fontSize: isMob ? 10.5 : 12, interval: 0 },
       },
       yAxis: {
         type: "value",
@@ -287,7 +288,7 @@ function renderStep(stepIndex, opts = {}) {
 
     if (mode === "participacion") {
       chart.setOption({
-        animationDuration: 650,
+        animationDuration: 750,
         tooltip: {
           ...baseTooltip,
           trigger: "item",
@@ -296,13 +297,34 @@ function renderStep(stepIndex, opts = {}) {
             return `<b>${r.tipo_medio}</b><br/>Gasto total: <b>${fmtMoney(r.gasto_total)}</b> (${r.porcentaje_del_gasto_total}%)<br/>Pautas: ${fmtInt(r.total_pautas)}<br/>Ticket promedio: <b>${fmtExactMXN(r.gasto_promedio_por_pauta)}</b>`;
           },
         },
+        legend: isMob
+          ? {
+              bottom: 0,
+              left: "center",
+              itemWidth: 10,
+              itemHeight: 10,
+              itemGap: 8,
+              textStyle: { color: "#e5e2dc", fontSize: 10 },
+            }
+          : { show: false },
         series: [
           {
             type: "pie",
-            radius: ["44%", "74%"],
-            center: ["50%", "52%"],
+            radius: isMob ? ["36%", "62%"] : ["44%", "74%"],
+            center: isMob ? ["50%", "39%"] : ["50%", "52%"],
             itemStyle: { borderColor: "#141414", borderWidth: 3, borderRadius: 8 },
-            label: { color: "#f5f2ec", fontSize: 12, formatter: "{b}\n{d}%" },
+            label: isMob
+              ? {
+                  show: true,
+                  position: "inside",
+                  color: "#0a0a0a",
+                  fontWeight: "bold",
+                  fontFamily: "JetBrains Mono",
+                  fontSize: 10.5,
+                  formatter: (p) => (p.percent >= 7 ? `${p.percent.toFixed(0)}%` : ""),
+                }
+              : { color: "#f5f2ec", fontSize: 12, formatter: "{b}\n{d}%" },
+            labelLine: { show: !isMob },
             color: [COLORS.gold, COLORS.ine, COLORS.cyan, COLORS.emerald, COLORS.purple, COLORS.slate],
             data: pub.map((r) => ({ name: r.tipo_medio, value: r.gasto_total })),
           },
@@ -311,7 +333,7 @@ function renderStep(stepIndex, opts = {}) {
     } else {
       const sorted = [...pub].sort((a, b) => a.gasto_promedio_por_pauta - b.gasto_promedio_por_pauta);
       chart.setOption({
-        animationDuration: 650,
+        animationDuration: 750,
         tooltip: {
           ...baseTooltip,
           trigger: "axis",
@@ -321,16 +343,17 @@ function renderStep(stepIndex, opts = {}) {
             return `<b>${r.tipo_medio}</b><br/>Ticket promedio: <b>${fmtExactMXN(r.gasto_promedio_por_pauta)}</b><br/>Total de pautas: ${fmtInt(r.total_pautas)}<br/>Gasto acumulado: ${fmtMoney(r.gasto_total)}`;
           },
         },
-        grid: { left: 12, right: 64, top: 16, bottom: 16, containLabel: true },
+        grid: { left: isMob ? 6 : 12, right: isMob ? 64 : 64, top: 14, bottom: 16, containLabel: true },
         xAxis: {
           type: "value",
-          axisLabel: { color: COLORS.axis, fontFamily: "JetBrains Mono", formatter: (v) => `$${(v / 1e3).toFixed(0)}k` },
+          splitNumber: isMob ? 3 : 5,
+          axisLabel: { color: COLORS.axis, fontFamily: "JetBrains Mono", fontSize: isMob ? 10 : 11, formatter: (v) => `$${(v / 1e3).toFixed(0)}k` },
           splitLine: { lineStyle: { color: COLORS.grid } },
         },
         yAxis: {
           type: "category",
           data: sorted.map((r) => `${r.tipo_medio} (${r.total_pautas})`),
-          axisLabel: { color: "#f5f2ec", fontSize: 11.5 },
+          axisLabel: { color: "#f5f2ec", fontSize: isMob ? 10 : 11.5 },
         },
         series: [
           {
@@ -340,7 +363,7 @@ function renderStep(stepIndex, opts = {}) {
               position: "right",
               color: "#f5f2ec",
               fontFamily: "JetBrains Mono",
-              fontSize: 11,
+              fontSize: isMob ? 10 : 11,
               formatter: (p) => fmtExactMXN(p.value),
             },
             data: sorted.map((r) => ({
@@ -395,12 +418,12 @@ function renderStep(stepIndex, opts = {}) {
             return `<b>Ejercicio ${y}</b><br/>${lines.join("<br/>")}`;
           },
         },
-        legend: { top: 0, left: "center", itemGap: 14, textStyle: { color: "#e5e2dc", fontFamily: "JetBrains Mono", fontSize: 11.5 } },
-        grid: { left: 16, right: 16, top: 44, bottom: 18, containLabel: true },
+        legend: { top: 0, left: "center", itemGap: isMob ? 10 : 14, itemWidth: isMob ? 12 : 18, textStyle: { color: "#e5e2dc", fontFamily: "JetBrains Mono", fontSize: isMob ? 10.5 : 11.5 } },
+        grid: { left: isMob ? 6 : 16, right: isMob ? 10 : 16, top: isMob ? 66 : 44, bottom: 18, containLabel: true },
         xAxis: {
           type: "category",
           data: years.map((y) => (y === 2021 || y === 2024 ? `${y} ★` : `${y}`)),
-          axisLabel: { color: "#f5f2ec", fontFamily: "JetBrains Mono" },
+          axisLabel: { color: "#f5f2ec", fontFamily: "JetBrains Mono", fontSize: isMob ? 10 : 11.5, interval: 0 },
         },
         yAxis: {
           type: "value",
@@ -437,14 +460,14 @@ function renderStep(stepIndex, opts = {}) {
             return `<b>Ejercicio ${r.ejercicio}</b> (${r.es_anio_electoral ? "Año Electoral ★" : "Ordinario"})<br/>Bolsa total: <b>${fmtMoney(r.monto_total_ejercicio)}</b>`;
           },
         },
-        grid: { left: 16, right: 20, top: 24, bottom: 20, containLabel: true },
-        xAxis: { type: "category", data: ciclo.map((r) => `${r.ejercicio}${r.es_anio_electoral ? " ★" : ""}`), axisLabel: { color: "#f5f2ec", fontFamily: "JetBrains Mono" } },
-        yAxis: { type: "value", axisLabel: { color: COLORS.axis, fontFamily: "JetBrains Mono", formatter: (v) => `$${(v / 1e9).toFixed(0)}B` }, splitLine: { lineStyle: { color: COLORS.grid } } },
+        grid: { left: isMob ? 6 : 16, right: isMob ? 12 : 20, top: 28, bottom: 20, containLabel: true },
+        xAxis: { type: "category", data: ciclo.map((r) => `${r.ejercicio}${r.es_anio_electoral ? " ★" : ""}`), axisLabel: { color: "#f5f2ec", fontFamily: "JetBrains Mono", fontSize: isMob ? 9.5 : 11.5, interval: 0 } },
+        yAxis: { type: "value", axisLabel: { color: COLORS.axis, fontFamily: "JetBrains Mono", fontSize: isMob ? 10 : 11.5, formatter: (v) => `$${(v / 1e9).toFixed(0)}B` }, splitLine: { lineStyle: { color: COLORS.grid } } },
         series: [
           {
             type: "bar",
             barWidth: "46%",
-            label: { show: true, position: "top", color: "#f5f2ec", fontFamily: "JetBrains Mono", fontSize: 11, formatter: (p) => fmtMoney(p.value) },
+            label: { show: true, position: "top", color: "#f5f2ec", fontFamily: "JetBrains Mono", fontSize: isMob ? 9.5 : 11, formatter: (p) => fmtMoney(p.value) },
             data: ciclo.map((r) => ({
               value: r.monto_total_ejercicio,
               itemStyle: { color: r.es_anio_electoral ? COLORS.ine : COLORS.gold, borderRadius: [8, 8, 0, 0] },
@@ -493,12 +516,12 @@ function renderStep(stepIndex, opts = {}) {
           return `<b>${header}</b><br/>` + ps.map((p, i) => `${p.marker} ${p.seriesName}: <b>${p.value}%</b> (${isVol ? fmtInt(rawMap[i].c) + " contratos" : fmtMoney(rawMap[i].m)})`).join("<br/>");
         },
       },
-      legend: { top: 0, left: "center", itemGap: 14, textStyle: { color: "#e5e2dc", fontSize: 11.5 } },
-      grid: { left: 16, right: 24, top: 46, bottom: 18, containLabel: true },
+      legend: { top: 0, left: "center", itemGap: isMob ? 10 : 14, itemWidth: isMob ? 12 : 18, textStyle: { color: "#e5e2dc", fontSize: isMob ? 10.5 : 11.5 } },
+      grid: { left: isMob ? 6 : 16, right: isMob ? 12 : 24, top: isMob ? 68 : 46, bottom: 18, containLabel: true },
       xAxis: {
         type: "category",
         data: ["% por Número\nde Contratos", "% por Monto\nEjercido ($)"],
-        axisLabel: { color: "#f5f2ec", fontFamily: "JetBrains Mono", fontSize: 12 },
+        axisLabel: { color: "#f5f2ec", fontFamily: "JetBrains Mono", fontSize: isMob ? 10.5 : 12, interval: 0 },
       },
       yAxis: {
         type: "value",
@@ -581,9 +604,9 @@ function renderStep(stepIndex, opts = {}) {
             return `<b>${r.materia}</b><br/>Monto: <b>${fmtMoney(r.monto_total)}</b> (${r.pct_monto}%)<br/>Contratos directos: ${fmtInt(r.total_contratos)}`;
           },
         },
-        grid: { left: 12, right: 64, top: 16, bottom: 16, containLabel: true },
-        xAxis: { type: "value", axisLabel: { color: COLORS.axis, fontFamily: "JetBrains Mono", formatter: (v) => `$${(v / 1e6).toFixed(0)}M` }, splitLine: { lineStyle: { color: COLORS.grid } } },
-        yAxis: { type: "category", data: mat.map((r) => r.materia), axisLabel: { color: "#f5f2ec", fontSize: 12 } },
+        grid: { left: isMob ? 4 : 12, right: isMob ? 48 : 64, top: 14, bottom: 16, containLabel: true },
+        xAxis: { type: "value", splitNumber: isMob ? 3 : 5, axisLabel: { color: COLORS.axis, fontFamily: "JetBrains Mono", fontSize: isMob ? 10 : 11, formatter: (v) => `$${(v / 1e6).toFixed(0)}M` }, splitLine: { lineStyle: { color: COLORS.grid } } },
+        yAxis: { type: "category", data: mat.map((r) => (isMob && r.materia.length > 18 ? r.materia.slice(0, 18) + "…" : r.materia)), axisLabel: { color: "#f5f2ec", fontSize: isMob ? 10 : 12 } },
         series: [
           {
             type: "bar",
@@ -609,12 +632,15 @@ function renderStep(stepIndex, opts = {}) {
             return `<b>${r.proveedor_nombre}</b><br/>Tipo: ${r.tipo_persona} · Contratos AD: <b>${fmtInt(r.total_contratos)}</b><br/>Monto acumulado: <b>${fmtMoney(r.monto_total)}</b>`;
           },
         },
-        grid: { left: 10, right: 56, top: 10, bottom: 12, containLabel: true },
-        xAxis: { type: "value", axisLabel: { color: COLORS.axis, fontFamily: "JetBrains Mono", formatter: (v) => `$${(v / 1e6).toFixed(0)}M` }, splitLine: { lineStyle: { color: COLORS.grid } } },
+        grid: { left: isMob ? 4 : 10, right: isMob ? 54 : 56, top: 10, bottom: 12, containLabel: true },
+        xAxis: { type: "value", splitNumber: isMob ? 3 : 5, axisLabel: { color: COLORS.axis, fontFamily: "JetBrains Mono", fontSize: isMob ? 10 : 11, formatter: (v) => `$${(v / 1e6).toFixed(0)}M` }, splitLine: { lineStyle: { color: COLORS.grid } } },
         yAxis: {
           type: "category",
-          data: top.map((r) => (r.proveedor_nombre.length > 30 ? r.proveedor_nombre.slice(0, 30) + "…" : r.proveedor_nombre)),
-          axisLabel: { color: "#f5f2ec", fontSize: 10.5 },
+          data: top.map((r) => {
+            const limit = isMob ? 17 : 30;
+            return r.proveedor_nombre.length > limit ? r.proveedor_nombre.slice(0, limit) + "…" : r.proveedor_nombre;
+          }),
+          axisLabel: { color: "#f5f2ec", fontSize: isMob ? 9.5 : 10.5 },
         },
         series: [
           {
@@ -665,23 +691,38 @@ function renderStep(stepIndex, opts = {}) {
             return `<b>${p.name}</b><br/>Monto contratado: <b>${fmtMoney(d.value)}</b> (${d.pct}% nacional)<br/>Contratos: ${fmtInt(d.contratos)}<br/>Promedio/contrato: ${fmtExactMXN(d.promedio)}`;
           },
         },
-        visualMap: {
-          min: 0,
-          max: maxVal,
-          left: 14,
-          bottom: 14,
-          text: ["Mayor gasto", "Menor"],
-          textStyle: { color: COLORS.axis, fontFamily: "JetBrains Mono", fontSize: 10 },
-          inRange: { color: ["#1e1b18", "#5c4920", "#c9a84c", "#c81d4e"] },
-          formatter: (v) => fmtMoney(v),
-        },
+        visualMap: isMob
+          ? {
+              min: 0,
+              max: maxVal,
+              orient: "horizontal",
+              left: "center",
+              bottom: 0,
+              itemWidth: 12,
+              itemHeight: 80,
+              text: ["Mayor", "Menor"],
+              textStyle: { color: COLORS.axis, fontFamily: "JetBrains Mono", fontSize: 9.5 },
+              inRange: { color: ["#1e1b18", "#5c4920", "#c9a84c", "#c81d4e"] },
+              formatter: (v) => fmtMoney(v),
+            }
+          : {
+              min: 0,
+              max: maxVal,
+              left: 14,
+              bottom: 14,
+              text: ["Mayor gasto", "Menor"],
+              textStyle: { color: COLORS.axis, fontFamily: "JetBrains Mono", fontSize: 10 },
+              inRange: { color: ["#1e1b18", "#5c4920", "#c9a84c", "#c81d4e"] },
+              formatter: (v) => fmtMoney(v),
+            },
         series: [
           {
             name: "Contrataciones",
             type: "map",
             map: "mexico",
-            roam: true,
-            zoom: 1.15,
+            roam: !isMob,
+            zoom: isMob ? 1.05 : 1.15,
+            top: isMob ? 6 : "middle",
             itemStyle: { areaColor: "#1a1a1a", borderColor: "rgba(255,255,255,0.22)", borderWidth: 0.7 },
             emphasis: { label: { show: true, color: "#ffffff", fontSize: 11 }, itemStyle: { areaColor: COLORS.goldLight } },
             data: mapData,
@@ -727,12 +768,12 @@ function renderStep(stepIndex, opts = {}) {
             }).join("<br/>");
         },
       },
-      legend: { top: 0, left: "center", itemGap: 16, textStyle: { color: "#e5e2dc", fontSize: 11.5 } },
-      grid: { left: 16, right: 20, top: 44, bottom: 18, containLabel: true },
+      legend: { top: 0, left: "center", itemGap: isMob ? 10 : 16, textStyle: { color: "#e5e2dc", fontSize: isMob ? 10.5 : 11.5 } },
+      grid: { left: isMob ? 6 : 16, right: isMob ? 12 : 20, top: isMob ? 62 : 44, bottom: 18, containLabel: true },
       xAxis: {
         type: "category",
         data: ["% del Total\nde Trabajadores", "% del Costo\nMensual Bruto"],
-        axisLabel: { color: "#f5f2ec", fontFamily: "JetBrains Mono", fontSize: 12 },
+        axisLabel: { color: "#f5f2ec", fontFamily: "JetBrains Mono", fontSize: isMob ? 10.5 : 12, interval: 0 },
       },
       yAxis: {
         type: "value",
@@ -795,12 +836,12 @@ function renderStep(stepIndex, opts = {}) {
             return `<b>${r.tramo}</b><br/>Plazas reportadas: <b>${r.pct_plazas}%</b> (${fmtInt(r.plazas)})<br/>Masa salarial absorbida: <b>${r.pct_masa}%</b> (${fmtMoney(r.masa_mensual_bruta)}/mes)`;
           },
         },
-        legend: { top: 0, right: 0, textStyle: { color: COLORS.axis, fontSize: 11 } },
-        grid: { left: 16, right: 20, top: 40, bottom: 20, containLabel: true },
+        legend: { top: 0, left: isMob ? "center" : undefined, right: isMob ? undefined : 0, textStyle: { color: COLORS.axis, fontSize: isMob ? 10.5 : 11 } },
+        grid: { left: isMob ? 6 : 16, right: isMob ? 10 : 20, top: isMob ? 46 : 40, bottom: 20, containLabel: true },
         xAxis: {
           type: "category",
           data: tramos.map((r) => r.tramo.replace(" (", "\n(")),
-          axisLabel: { color: "#f5f2ec", fontSize: 11 },
+          axisLabel: { color: "#f5f2ec", fontSize: isMob ? 9.5 : 11, interval: 0 },
         },
         yAxis: {
           type: "value",
@@ -837,10 +878,17 @@ function renderStep(stepIndex, opts = {}) {
             return `<b>${r.cargo}</b><br/>Bruto mensual: <b>${fmtExactMXN(r.sueldo_bruto_promedio)}</b><br/>Neto mensual: <b>${fmtExactMXN(r.sueldo_neto_promedio)}</b>`;
           },
         },
-        legend: { top: 0, right: 0, textStyle: { color: COLORS.axis, fontSize: 11 } },
-        grid: { left: 10, right: 20, top: 34, bottom: 10, containLabel: true },
-        xAxis: { type: "value", axisLabel: { color: COLORS.axis, fontFamily: "JetBrains Mono", formatter: (v) => `$${(v / 1e3).toFixed(0)}k` }, splitLine: { lineStyle: { color: COLORS.grid } } },
-        yAxis: { type: "category", data: top.map((r) => (r.cargo.length > 30 ? r.cargo.slice(0, 30) + "…" : r.cargo)), axisLabel: { color: "#f5f2ec", fontSize: 10.5 } },
+        legend: { top: 0, left: isMob ? "center" : undefined, right: isMob ? undefined : 0, textStyle: { color: COLORS.axis, fontSize: isMob ? 10.5 : 11 } },
+        grid: { left: isMob ? 4 : 10, right: isMob ? 14 : 20, top: isMob ? 36 : 34, bottom: 10, containLabel: true },
+        xAxis: { type: "value", splitNumber: isMob ? 3 : 5, axisLabel: { color: COLORS.axis, fontFamily: "JetBrains Mono", fontSize: isMob ? 10 : 11, formatter: (v) => `$${(v / 1e3).toFixed(0)}k` }, splitLine: { lineStyle: { color: COLORS.grid } } },
+        yAxis: {
+          type: "category",
+          data: top.map((r) => {
+            const limit = isMob ? 17 : 30;
+            return r.cargo.length > limit ? r.cargo.slice(0, limit) + "…" : r.cargo;
+          }),
+          axisLabel: { color: "#f5f2ec", fontSize: isMob ? 9.5 : 10.5 },
+        },
         series: [
           { name: "Bruto Mensual", type: "bar", itemStyle: { color: "rgba(245,242,236,0.22)", borderRadius: [0, 4, 4, 0] }, data: top.map((r) => r.sueldo_bruto_promedio) },
           { name: "Neto Mensual", type: "bar", itemStyle: { color: COLORS.gold, borderRadius: [0, 4, 4, 0] }, data: top.map((r) => r.sueldo_neto_promedio) },
@@ -891,23 +939,38 @@ function renderStep(stepIndex, opts = {}) {
             return `<b>${p.name}</b><br/>Gasto viáticos: <b>${fmtMoney(d.value)}</b> (${d.pct}% nacional)<br/>Comisiones: ${fmtInt(d.viajes)}<br/>Promedio/viaje: <b>${fmtExactMXN(d.promedio)}</b>`;
           },
         },
-        visualMap: {
-          min: 0,
-          max: maxVal,
-          left: 14,
-          bottom: 14,
-          text: ["Mayor gasto", "Menor"],
-          textStyle: { color: COLORS.axis, fontFamily: "JetBrains Mono", fontSize: 10 },
-          inRange: { color: ["#141c24", "#1d4e6b", "#38bdf8", "#c81d4e"] },
-          formatter: (v) => fmtMoney(v),
-        },
+        visualMap: isMob
+          ? {
+              min: 0,
+              max: maxVal,
+              orient: "horizontal",
+              left: "center",
+              bottom: 0,
+              itemWidth: 12,
+              itemHeight: 80,
+              text: ["Mayor", "Menor"],
+              textStyle: { color: COLORS.axis, fontFamily: "JetBrains Mono", fontSize: 9.5 },
+              inRange: { color: ["#141c24", "#1d4e6b", "#38bdf8", "#c81d4e"] },
+              formatter: (v) => fmtMoney(v),
+            }
+          : {
+              min: 0,
+              max: maxVal,
+              left: 14,
+              bottom: 14,
+              text: ["Mayor gasto", "Menor"],
+              textStyle: { color: COLORS.axis, fontFamily: "JetBrains Mono", fontSize: 10 },
+              inRange: { color: ["#141c24", "#1d4e6b", "#38bdf8", "#c81d4e"] },
+              formatter: (v) => fmtMoney(v),
+            },
         series: [
           {
             name: "Viáticos",
             type: "map",
             map: "mexico",
-            roam: true,
-            zoom: 1.15,
+            roam: !isMob,
+            zoom: isMob ? 1.05 : 1.15,
+            top: isMob ? 6 : "middle",
             itemStyle: { areaColor: "#1a1a1a", borderColor: "rgba(255,255,255,0.22)", borderWidth: 0.7 },
             emphasis: { label: { show: true, color: "#ffffff", fontSize: 11 }, itemStyle: { areaColor: COLORS.goldLight } },
             data: mapData,
@@ -917,7 +980,7 @@ function renderStep(stepIndex, opts = {}) {
     } else {
       const top = (state.data.viaticosOutliers || []).slice(0, 12).reverse();
       chart.setOption({
-        animationDuration: 650,
+        animationDuration: 750,
         tooltip: {
           ...baseTooltip,
           trigger: "axis",
@@ -927,16 +990,17 @@ function renderStep(stepIndex, opts = {}) {
             return `<b>${r.ciudad_destino}, ${r.estado_destino}</b><br/>Cargo: ${r.cargo}<br/>Área: ${r.area_adscripcion}<br/>Importe: <b>${fmtExactMXN(r.importe_total_erogado)}</b> (<b>${r.veces_promedio}x</b> el promedio nacional)`;
           },
         },
-        grid: { left: 10, right: 64, top: 24, bottom: 12, containLabel: true },
+        grid: { left: isMob ? 4 : 10, right: isMob ? 50 : 64, top: 24, bottom: 12, containLabel: true },
         xAxis: {
           type: "value",
-          axisLabel: { color: COLORS.axis, fontFamily: "JetBrains Mono", formatter: (v) => `$${(v / 1e3).toFixed(0)}k` },
+          splitNumber: isMob ? 3 : 5,
+          axisLabel: { color: COLORS.axis, fontFamily: "JetBrains Mono", fontSize: isMob ? 10 : 11, formatter: (v) => `$${(v / 1e3).toFixed(0)}k` },
           splitLine: { lineStyle: { color: COLORS.grid } },
         },
         yAxis: {
           type: "category",
           data: top.map((r, i) => `#${12 - i} ${r.ciudad_destino} (${r.estado_destino.slice(0, 3).toUpperCase()})`),
-          axisLabel: { color: "#f5f2ec", fontSize: 11 },
+          axisLabel: { color: "#f5f2ec", fontSize: isMob ? 9.5 : 11 },
         },
         series: [
           {
@@ -1335,7 +1399,7 @@ function setupMobileCharts() {
             io.disconnect();
           }
         },
-        { rootMargin: "250px 0px" }
+        { rootMargin: "0px 0px -10% 0px", threshold: 0.12 }
       );
       io.observe(box);
     } else {

@@ -1100,8 +1100,8 @@ body.is-embed-full .scrolly-stage-col {
   }
   .mobile-stage-chart {
     width: 100%;
-    height: 300px;
-    min-height: 280px;
+    height: 325px;
+    min-height: 310px;
     position: relative;
   }
   .mobile-stage-source {
