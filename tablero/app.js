@@ -1249,6 +1249,23 @@ function wireUI() {
     document.getElementById("copy-feedback").textContent = "✓ Copiado al portapapeles";
   });
 
+  window.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    const vault = document.getElementById("vault-modal");
+    const embed = document.getElementById("embed-modal");
+    if (vault && !vault.hidden) {
+      vault.hidden = true;
+      return;
+    }
+    if (embed && !embed.hidden) {
+      embed.hidden = true;
+      return;
+    }
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({ type: "AGIL_CLOSE_MODAL" }, "*");
+    }
+  });
+
   window.addEventListener("resize", () => state.stageChart && state.stageChart.resize());
 }
 
