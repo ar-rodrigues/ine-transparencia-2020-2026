@@ -1,0 +1,19 @@
+[
+	{"ejercicio":2021,"materia":"Adquisiciones","total_contratos":40134,"monto_total_con_impuestos":518332713.34,"porcentaje_monto_anual":43.59},
+	{"ejercicio":2021,"materia":"Servicios","total_contratos":19841,"monto_total_con_impuestos":358319994.16,"porcentaje_monto_anual":30.14},
+	{"ejercicio":2021,"materia":"Arrendamientos","total_contratos":3905,"monto_total_con_impuestos":281903943.86,"porcentaje_monto_anual":23.71},
+	{"ejercicio":2021,"materia":"Servicios relacionados con obra pública","total_contratos":46,"monto_total_con_impuestos":23695319.37,"porcentaje_monto_anual":1.99},
+	{"ejercicio":2021,"materia":"Obra pública","total_contratos":7,"monto_total_con_impuestos":6666639.22,"porcentaje_monto_anual":0.56},
+	{"ejercicio":2021,"materia":"No especificada","total_contratos":5,"monto_total_con_impuestos":80412.0,"porcentaje_monto_anual":0.01},
+	{"ejercicio":2022,"materia":"Obra pública","total_contratos":41,"monto_total_con_impuestos":1229511744.86,"porcentaje_monto_anual":39.48},
+	{"ejercicio":2022,"materia":"Servicios","total_contratos":19383,"monto_total_con_impuestos":1049733856.36,"porcentaje_monto_anual":33.7},
+	{"ejercicio":2022,"materia":"Adquisiciones","total_contratos":31240,"monto_total_con_impuestos":400589607.24,"porcentaje_monto_anual":12.86},
+	{"ejercicio":2022,"materia":"Arrendamientos","total_contratos":4060,"monto_total_con_impuestos":348761787.12,"porcentaje_monto_anual":11.2},
+	{"ejercicio":2022,"materia":"Servicios relacionados con obra pública","total_contratos":45,"monto_total_con_impuestos":85683730.26,"porcentaje_monto_anual":2.75},
+	{"ejercicio":2022,"materia":"No especificada","total_contratos":89,"monto_total_con_impuestos":258845.67,"porcentaje_monto_anual":0.01},
+	{"ejercicio":2023,"materia":"Servicios","total_contratos":2398,"monto_total_con_impuestos":873679854.02,"porcentaje_monto_anual":44.72},
+	{"ejercicio":2023,"materia":"Obra pública","total_contratos":27,"monto_total_con_impuestos":639649624.14,"porcentaje_monto_anual":32.74},
+	{"ejercicio":2023,"materia":"Arrendamientos","total_contratos":793,"monto_total_con_impuestos":264050901.53,"porcentaje_monto_anual":13.52},
+	{"ejercicio":2023,"materia":"Adquisiciones","total_contratos":3400,"monto_total_con_impuestos":124847421.38,"porcentaje_monto_anual":6.39},
+	{"ejercicio":2023,"materia":"Servicios relacionados con obra pública","total_contratos":19,"monto_total_con_impuestos":51328229.82,"porcentaje_monto_anual":2.63}
+]

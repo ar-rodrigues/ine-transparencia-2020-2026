@@ -1,0 +1,522 @@
+[
+  {
+    "id": "43494",
+    "label": "Spots (anuncios)",
+    "count": 218293,
+    "downloaded": 218293,
+    "status": "OK",
+    "archivos": 9
+  },
+  {
+    "id": "43520",
+    "label": "Informes presentados por las organizaciones, asociaciones, agrupaciones políticas, candidatas y candidatos independientes",
+    "count": 93763,
+    "downloaded": 93763,
+    "status": "OK",
+    "archivos": 4
+  },
+  {
+    "id": "59875",
+    "label": "Resultados de procedimientos de adjudicación directa, licitación pública e invitación restringida",
+    "count": 15924,
+    "downloaded": 15924,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43492",
+    "label": "Catálogo de medios de comunicación",
+    "count": 15064,
+    "downloaded": 15064,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43319",
+    "label": "Utilización de los tiempos oficiales en radio y tv",
+    "count": 13110,
+    "downloaded": 13110,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43329",
+    "label": "Ingresos recibidos por cualquier concepto por el sujeto obligado",
+    "count": 3523,
+    "downloaded": 3523,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43320",
+    "label": "Contratación de servicios de publicidad oficial",
+    "count": 2811,
+    "downloaded": 2811,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43488",
+    "label": "Registro de candidatas y candidatos a cargos de elección popular",
+    "count": 2301,
+    "downloaded": 2301,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43508",
+    "label": "Monitoreo de encuestas electorales, sondeos de opinión y conteos rápidos no institucionales",
+    "count": 1659,
+    "downloaded": 1659,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "59959",
+    "label": "Inventarios documentales",
+    "count": 1599,
+    "downloaded": 1599,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43505",
+    "label": "Monitoreo de las pautas de transmisión en radio y televisión",
+    "count": 1152,
+    "downloaded": 1152,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43506",
+    "label": "Cómputos totales de elecciones y procesos de participación ciudadana",
+    "count": 900,
+    "downloaded": 900,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43382",
+    "label": "Indicadores de resultados",
+    "count": 689,
+    "downloaded": 689,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43309",
+    "label": "Indicadores de interés público",
+    "count": 689,
+    "downloaded": 689,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43338",
+    "label": "Gasto por Capítulo, Concepto y Partida",
+    "count": 681,
+    "downloaded": 681,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43490",
+    "label": "Candidatas y candidatos electos a cargos de elección popular ",
+    "count": 597,
+    "downloaded": 597,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43372",
+    "label": "Convenios de coordinación, de concertación con el sector social o privado",
+    "count": 498,
+    "downloaded": 498,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43517",
+    "label": "Resultados y declaración de validez de elecciones",
+    "count": 333,
+    "downloaded": 333,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43496",
+    "label": "Montos de financiamiento público y privado otorgado a partidos políticos, asociaciones y agrupaciones políticas o ciudadanas",
+    "count": 219,
+    "downloaded": 219,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43337",
+    "label": "Estadísticas generadas",
+    "count": 183,
+    "downloaded": 183,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43521",
+    "label": "Informes y dictámenes sobre auditorías, verificaciones e impugnaciones a organizaciones políticas y candidatos(as) independientes",
+    "count": 128,
+    "downloaded": 128,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43504",
+    "label": "Monitoreo de los espacios de radio y televisión que difunden noticias",
+    "count": 96,
+    "downloaded": 96,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43511",
+    "label": "Personas que pretenden efectuar encuestas o conteos electorales",
+    "count": 95,
+    "downloaded": 95,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "59891",
+    "label": "Cuadro general de clasificación archivística, Catálogo de disposición documental, Guía de archivo documental, Programa Anual de Desarrollo Archivístico, Informe Anual de cumplimiento, Actas y dictámenes de baja documental",
+    "count": 74,
+    "downloaded": 74,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43381",
+    "label": "Objetivos y metas institucionales ",
+    "count": 71,
+    "downloaded": 71,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43509",
+    "label": "Estudios o encuestas electorales recibidas",
+    "count": 69,
+    "downloaded": 69,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43510",
+    "label": "Informes presentados por la Secretaría Ejecutiva al Consejo General del INE",
+    "count": 69,
+    "downloaded": 69,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43493",
+    "label": "Acuerdos emitidos por la autoridad electoral para pautas de transmisión",
+    "count": 57,
+    "downloaded": 57,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43497",
+    "label": "Topes de los gastos de campaña",
+    "count": 34,
+    "downloaded": 34,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43512",
+    "label": "Informes presentados por los OPLE al INE",
+    "count": 32,
+    "downloaded": 32,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43333",
+    "label": "Resultados de auditorías realizadas",
+    "count": 27,
+    "downloaded": 27,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43360",
+    "label": "Ejercicio de los egresos presupuestarios",
+    "count": 20,
+    "downloaded": 20,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43354",
+    "label": "Estudios financiados con recursos públicos",
+    "count": 17,
+    "downloaded": 17,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "36783",
+    "label": "Obligaciones de transparencia de la Ley General",
+    "count": 13,
+    "downloaded": 13,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43501",
+    "label": "Procedimientos que deben llevar a cabo las personas votantes en el extranjero",
+    "count": 12,
+    "downloaded": 12,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43367",
+    "label": "Informes emitidos",
+    "count": 8,
+    "downloaded": 8,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43339",
+    "label": "Informes financieros contables, presupuestales y programáticos",
+    "count": 8,
+    "downloaded": 8,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43316",
+    "label": "Gastos por concepto de viáticos y representación",
+    "count": 6,
+    "downloaded": 6,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43348",
+    "label": "Opiniones y recomendaciones del Consejo Consultivo",
+    "count": 6,
+    "downloaded": 6,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43495",
+    "label": "Acuerdos emitidos por la autoridad administrativa electoral respecto al financiamiento",
+    "count": 5,
+    "downloaded": 5,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43332",
+    "label": "Recursos públicos entregados a sindicatos",
+    "count": 4,
+    "downloaded": 4,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43353",
+    "label": "Sanciones administrativas a las personas servidoras públicas",
+    "count": 4,
+    "downloaded": 4,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43368",
+    "label": "Personas que usan recursos públicos",
+    "count": 4,
+    "downloaded": 4,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43334",
+    "label": "Las concesiones, contratos, convenios, permisos, licencias o autorizaciones otorgadas",
+    "count": 4,
+    "downloaded": 4,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43330",
+    "label": "Responsables de recibir, administrar y ejercer los ingresos",
+    "count": 4,
+    "downloaded": 4,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43349",
+    "label": "Actas del Consejo Consultivo",
+    "count": 4,
+    "downloaded": 4,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43516",
+    "label": "Documentos de pérdida de registro de partidos políticos ",
+    "count": 4,
+    "downloaded": 4,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "36780",
+    "label": "Obligaciones que cumplirán personas físicas o morales que reciben dinero público",
+    "count": 4,
+    "downloaded": 4,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "37533",
+    "label": "Información de interés público ",
+    "count": 4,
+    "downloaded": 4,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43489",
+    "label": "Sistema de consulta de candidatas y candidatos a cargos de elección popular",
+    "count": 3,
+    "downloaded": 3,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43498",
+    "label": "Documentos sobre votación de las personas de origen mexicano en el extranjero firmados o emitidos",
+    "count": 3,
+    "downloaded": 3,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43358",
+    "label": "Cuenta pública",
+    "count": 2,
+    "downloaded": 2,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "59960",
+    "label": "Índice de expedientes clasificados como reservados",
+    "count": 2,
+    "downloaded": 2,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43507",
+    "label": "Normatividad del INE en materia de encuestas",
+    "count": 2,
+    "downloaded": 2,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43514",
+    "label": "Programa de Resultados Electorales Preliminares (PREP)",
+    "count": 2,
+    "downloaded": 2,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43499",
+    "label": "Resultados de las votaciones de las personas de origen mexicano residentes en el extranjero",
+    "count": 2,
+    "downloaded": 2,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43502",
+    "label": "Informes, convenios, contratos y datos del monitoreo de radio y televisión",
+    "count": 2,
+    "downloaded": 2,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43503",
+    "label": "Resultados, metodología y catálogo para el monitoreo de radio y televisión",
+    "count": 2,
+    "downloaded": 2,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43352",
+    "label": "Información curricular y las sanciones administrativas definitivas de las personas servidoras públicas y/o personas que desempeñen un empleo, cargo o comisión",
+    "count": 1,
+    "downloaded": 1,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43359",
+    "label": "Presupuesto asignado anual",
+    "count": 1,
+    "downloaded": 1,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43305",
+    "label": "Resultados de la dictaminación de los estados financieros",
+    "count": 1,
+    "downloaded": 1,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43491",
+    "label": "Sistema de consulta de candidatas y candidatos electos a cargos de elección popular",
+    "count": 1,
+    "downloaded": 1,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43513",
+    "label": "Metodología del Programa de Resultados Electorales Preliminares",
+    "count": 1,
+    "downloaded": 1,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43500",
+    "label": "Resultados de las pruebas piloto de votación de las personas de origen mexicano en el extranjero",
+    "count": 1,
+    "downloaded": 1,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "37516",
+    "label": "Personas físicas y morales que son sujetos obligados",
+    "count": 1,
+    "downloaded": 1,
+    "status": "OK",
+    "archivos": 1
+  }
+]

@@ -1,0 +1,453 @@
+{
+  "ok": true,
+  "ejercicio": 2021,
+  "entidad": {
+    "id": 34,
+    "nombre": "Federación"
+  },
+  "sujeto": {
+    "id": 314,
+    "nombre": "FED - Instituto Nacional Electoral (INE)"
+  },
+  "total_formatos": 27,
+  "total_obligaciones": 15,
+  "total_registros": 105305,
+  "facets_hist": {
+    "id_formato": {
+      "43381": {
+        "count": 83,
+        "label": "Objetivos y metas institucionales ",
+        "idObligacion": "4",
+        "descripcionObligacion": "METAS Y OBJETIVOS DE LAS ÁREAS"
+      },
+      "43382": {
+        "count": 744,
+        "label": "Indicadores de resultados",
+        "idObligacion": "5",
+        "descripcionObligacion": "INDICADORES DE DESEMPEÑO Y DE INTERÉS PÚBLICO"
+      },
+      "43358": {
+        "count": 1,
+        "label": "Cuenta pública",
+        "idObligacion": "19",
+        "descripcionObligacion": "PRESUPUESTO DEL GASTO PÚBLICO"
+      },
+      "43359": {
+        "count": 1,
+        "label": "Presupuesto asignado anual",
+        "idObligacion": "19",
+        "descripcionObligacion": "PRESUPUESTO DEL GASTO PÚBLICO"
+      },
+      "43360": {
+        "count": 24,
+        "label": "Ejercicio de los egresos presupuestarios",
+        "idObligacion": "19",
+        "descripcionObligacion": "PRESUPUESTO DEL GASTO PÚBLICO"
+      },
+      "43305": {
+        "count": 1,
+        "label": "Resultados de la dictaminación de los estados financieros",
+        "idObligacion": "23",
+        "descripcionObligacion": "DICTÁMENES FINANCIEROS"
+      },
+      "43335": {
+        "count": 96983,
+        "label": "Procedimientos de adjudicación directa",
+        "idObligacion": "26",
+        "descripcionObligacion": "CONTRATOS DE OBRAS, BIENES Y SERVICIOS"
+      },
+      "43336": {
+        "count": 462,
+        "label": "Procedimientos de licitación pública e invitación a cuando menos tres personas",
+        "idObligacion": "26",
+        "descripcionObligacion": "CONTRATOS DE OBRAS, BIENES Y SERVICIOS"
+      },
+      "43337": {
+        "count": 151,
+        "label": "Estadísticas generadas",
+        "idObligacion": "28",
+        "descripcionObligacion": "ESTADÍSTICAS"
+      },
+      "43338": {
+        "count": 701,
+        "label": "Gasto por Capítulo, Concepto y Partida",
+        "idObligacion": "29",
+        "descripcionObligacion": "INFORMACIÓN FINANCIERA"
+      },
+      "43339": {
+        "count": 8,
+        "label": "Informes financieros contables, presupuestales y programáticos",
+        "idObligacion": "29",
+        "descripcionObligacion": "INFORMACIÓN FINANCIERA"
+      },
+      "43372": {
+        "count": 1,
+        "label": "Convenios de coordinación, de concertación con el sector social o privado",
+        "idObligacion": "31",
+        "descripcionObligacion": "CONVENIOS DE COORDINACIÓN "
+      },
+      "43488": {
+        "count": 3476,
+        "label": "Registro de candidatas y candidatos a cargos de elección popular",
+        "idObligacion": "159",
+        "descripcionObligacion": "CANDIDATOS"
+      },
+      "43489": {
+        "count": 2,
+        "label": "Sistema de consulta de candidatas y candidatos a cargos de elección popular",
+        "idObligacion": "159",
+        "descripcionObligacion": "CANDIDATOS"
+      },
+      "43490": {
+        "count": 500,
+        "label": "Candidatas y candidatos electos a cargos de elección popular ",
+        "idObligacion": "159",
+        "descripcionObligacion": "CANDIDATOS"
+      },
+      "43491": {
+        "count": 2,
+        "label": "Sistema de consulta de candidatas y candidatos electos a cargos de elección popular",
+        "idObligacion": "159",
+        "descripcionObligacion": "CANDIDATOS"
+      },
+      "43496": {
+        "count": 328,
+        "label": "Montos de financiamiento público y privado otorgado a partidos políticos, asociaciones y agrupaciones políticas o ciudadanas",
+        "idObligacion": "161",
+        "descripcionObligacion": "FINANCIAMIENTO PÚBLICO A PARTIDOS POLÍTICOS"
+      },
+      "43507": {
+        "count": 2,
+        "label": "Normatividad del INE en materia de encuestas",
+        "idObligacion": "162",
+        "descripcionObligacion": "ENCUESTAS ELECTORALES"
+      },
+      "43508": {
+        "count": 217,
+        "label": "Monitoreo de encuestas electorales, sondeos de opinión y conteos rápidos no institucionales",
+        "idObligacion": "162",
+        "descripcionObligacion": "ENCUESTAS ELECTORALES"
+      },
+      "43509": {
+        "count": 64,
+        "label": "Estudios o encuestas electorales recibidas",
+        "idObligacion": "162",
+        "descripcionObligacion": "ENCUESTAS ELECTORALES"
+      },
+      "43510": {
+        "count": 63,
+        "label": "Informes presentados por la Secretaría Ejecutiva al Consejo General del INE",
+        "idObligacion": "162",
+        "descripcionObligacion": "ENCUESTAS ELECTORALES"
+      },
+      "43511": {
+        "count": 87,
+        "label": "Personas que pretenden efectuar encuestas o conteos electorales",
+        "idObligacion": "162",
+        "descripcionObligacion": "ENCUESTAS ELECTORALES"
+      },
+      "43512": {
+        "count": 35,
+        "label": "Informes presentados por los OPLE al INE",
+        "idObligacion": "162",
+        "descripcionObligacion": "ENCUESTAS ELECTORALES"
+      },
+      "43506": {
+        "count": 605,
+        "label": "Cómputos totales de elecciones y procesos de participación ciudadana",
+        "idObligacion": "164",
+        "descripcionObligacion": "CÓMPUTOS ELECTORALES"
+      },
+      "43495": {
+        "count": 2,
+        "label": "Acuerdos emitidos por la autoridad administrativa electoral respecto al financiamiento",
+        "idObligacion": "265",
+        "descripcionObligacion": "FINANCIAMIENTO PRIVADO A PARTIDOS POLÍTICOS"
+      },
+      "43309": {
+        "count": 745,
+        "label": "Indicadores de interés público",
+        "idObligacion": "378",
+        "descripcionObligacion": "OTRAS GENERALES"
+      },
+      "36783": {
+        "count": 17,
+        "label": "Obligaciones de transparencia de la Ley General",
+        "idObligacion": "379",
+        "descripcionObligacion": "OTRAS ESPECIFICAS"
+      }
+    }
+  },
+  "obligaciones_raw": [
+    {
+      "descripcion": "METAS Y OBJETIVOS DE LAS ÁREAS",
+      "fechaUltimaActualizacion": "2021-04-23 14:40:13",
+      "formato": {
+        "id": 43381,
+        "titulo": "Objetivos y metas institucionales "
+      },
+      "idObligacion": 4,
+      "totalRegistros": 83
+    },
+    {
+      "descripcion": "INDICADORES DE DESEMPEÑO Y DE INTERÉS PÚBLICO",
+      "fechaUltimaActualizacion": "2022-01-15 14:03:50",
+      "formato": {
+        "id": 43382,
+        "titulo": "Indicadores de resultados"
+      },
+      "idObligacion": 5,
+      "totalRegistros": 744
+    },
+    {
+      "descripcion": "PRESUPUESTO DEL GASTO PÚBLICO",
+      "fechaUltimaActualizacion": "2022-02-03 15:34:05",
+      "formato": {
+        "id": 43358,
+        "titulo": "Cuenta pública"
+      },
+      "idObligacion": 19,
+      "totalRegistros": 1
+    },
+    {
+      "descripcion": "PRESUPUESTO DEL GASTO PÚBLICO",
+      "fechaUltimaActualizacion": "2021-06-01 17:18:33",
+      "formato": {
+        "id": 43359,
+        "titulo": "Presupuesto asignado anual"
+      },
+      "idObligacion": 19,
+      "totalRegistros": 1
+    },
+    {
+      "descripcion": "PRESUPUESTO DEL GASTO PÚBLICO",
+      "fechaUltimaActualizacion": "2022-01-19 16:20:39",
+      "formato": {
+        "id": 43360,
+        "titulo": "Ejercicio de los egresos presupuestarios"
+      },
+      "idObligacion": 19,
+      "totalRegistros": 24
+    },
+    {
+      "descripcion": "DICTÁMENES FINANCIEROS",
+      "fechaUltimaActualizacion": "2025-05-21 09:49:30",
+      "formato": {
+        "id": 43305,
+        "titulo": "Resultados de la dictaminación de los estados financieros"
+      },
+      "idObligacion": 23,
+      "totalRegistros": 1
+    },
+    {
+      "descripcion": "CONTRATOS DE OBRAS, BIENES Y SERVICIOS",
+      "fechaUltimaActualizacion": "2023-04-28 19:17:02",
+      "formato": {
+        "id": 43335,
+        "titulo": "Procedimientos de adjudicación directa"
+      },
+      "idObligacion": 26,
+      "totalRegistros": 96983
+    },
+    {
+      "descripcion": "CONTRATOS DE OBRAS, BIENES Y SERVICIOS",
+      "fechaUltimaActualizacion": "2023-04-27 18:47:01",
+      "formato": {
+        "id": 43336,
+        "titulo": "Procedimientos de licitación pública e invitación a cuando menos tres personas"
+      },
+      "idObligacion": 26,
+      "totalRegistros": 462
+    },
+    {
+      "descripcion": "ESTADÍSTICAS",
+      "fechaUltimaActualizacion": "2022-04-28 11:19:52",
+      "formato": {
+        "id": 43337,
+        "titulo": "Estadísticas generadas"
+      },
+      "idObligacion": 28,
+      "totalRegistros": 151
+    },
+    {
+      "descripcion": "INFORMACIÓN FINANCIERA",
+      "fechaUltimaActualizacion": "2022-01-19 22:07:19",
+      "formato": {
+        "id": 43338,
+        "titulo": "Gasto por Capítulo, Concepto y Partida"
+      },
+      "idObligacion": 29,
+      "totalRegistros": 701
+    },
+    {
+      "descripcion": "INFORMACIÓN FINANCIERA",
+      "fechaUltimaActualizacion": "2022-01-19 18:41:55",
+      "formato": {
+        "id": 43339,
+        "titulo": "Informes financieros contables, presupuestales y programáticos"
+      },
+      "idObligacion": 29,
+      "totalRegistros": 8
+    },
+    {
+      "descripcion": "CONVENIOS DE COORDINACIÓN ",
+      "fechaUltimaActualizacion": "2026-07-09 13:42:47",
+      "formato": {
+        "id": 43372,
+        "titulo": "Convenios de coordinación, de concertación con el sector social o privado"
+      },
+      "idObligacion": 31,
+      "totalRegistros": 1
+    },
+    {
+      "descripcion": "CANDIDATOS",
+      "fechaUltimaActualizacion": "2024-08-19 09:40:03",
+      "formato": {
+        "id": 43488,
+        "titulo": "Registro de candidatas y candidatos a cargos de elección popular"
+      },
+      "idObligacion": 159,
+      "totalRegistros": 3476
+    },
+    {
+      "descripcion": "CANDIDATOS",
+      "fechaUltimaActualizacion": "2024-08-19 09:45:31",
+      "formato": {
+        "id": 43489,
+        "titulo": "Sistema de consulta de candidatas y candidatos a cargos de elección popular"
+      },
+      "idObligacion": 159,
+      "totalRegistros": 2
+    },
+    {
+      "descripcion": "CANDIDATOS",
+      "fechaUltimaActualizacion": "2024-08-16 17:02:54",
+      "formato": {
+        "id": 43490,
+        "titulo": "Candidatas y candidatos electos a cargos de elección popular "
+      },
+      "idObligacion": 159,
+      "totalRegistros": 500
+    },
+    {
+      "descripcion": "CANDIDATOS",
+      "fechaUltimaActualizacion": "2024-08-16 17:06:11",
+      "formato": {
+        "id": 43491,
+        "titulo": "Sistema de consulta de candidatas y candidatos electos a cargos de elección popular"
+      },
+      "idObligacion": 159,
+      "totalRegistros": 2
+    },
+    {
+      "descripcion": "FINANCIAMIENTO PÚBLICO A PARTIDOS POLÍTICOS",
+      "fechaUltimaActualizacion": "2022-02-23 13:04:12",
+      "formato": {
+        "id": 43496,
+        "titulo": "Montos de financiamiento público y privado otorgado a partidos políticos, asociaciones y agrupaciones políticas o ciudadanas"
+      },
+      "idObligacion": 161,
+      "totalRegistros": 328
+    },
+    {
+      "descripcion": "ENCUESTAS ELECTORALES",
+      "fechaUltimaActualizacion": "2022-01-17 13:32:20",
+      "formato": {
+        "id": 43507,
+        "titulo": "Normatividad del INE en materia de encuestas"
+      },
+      "idObligacion": 162,
+      "totalRegistros": 2
+    },
+    {
+      "descripcion": "ENCUESTAS ELECTORALES",
+      "fechaUltimaActualizacion": "2022-01-17 13:33:06",
+      "formato": {
+        "id": 43508,
+        "titulo": "Monitoreo de encuestas electorales, sondeos de opinión y conteos rápidos no institucionales"
+      },
+      "idObligacion": 162,
+      "totalRegistros": 217
+    },
+    {
+      "descripcion": "ENCUESTAS ELECTORALES",
+      "fechaUltimaActualizacion": "2022-01-17 13:33:45",
+      "formato": {
+        "id": 43509,
+        "titulo": "Estudios o encuestas electorales recibidas"
+      },
+      "idObligacion": 162,
+      "totalRegistros": 64
+    },
+    {
+      "descripcion": "ENCUESTAS ELECTORALES",
+      "fechaUltimaActualizacion": "2022-01-17 13:34:36",
+      "formato": {
+        "id": 43510,
+        "titulo": "Informes presentados por la Secretaría Ejecutiva al Consejo General del INE"
+      },
+      "idObligacion": 162,
+      "totalRegistros": 63
+    },
+    {
+      "descripcion": "ENCUESTAS ELECTORALES",
+      "fechaUltimaActualizacion": "2022-01-17 13:35:15",
+      "formato": {
+        "id": 43511,
+        "titulo": "Personas que pretenden efectuar encuestas o conteos electorales"
+      },
+      "idObligacion": 162,
+      "totalRegistros": 87
+    },
+    {
+      "descripcion": "ENCUESTAS ELECTORALES",
+      "fechaUltimaActualizacion": "2022-01-17 13:35:50",
+      "formato": {
+        "id": 43512,
+        "titulo": "Informes presentados por los OPLE al INE"
+      },
+      "idObligacion": 162,
+      "totalRegistros": 35
+    },
+    {
+      "descripcion": "CÓMPUTOS ELECTORALES",
+      "fechaUltimaActualizacion": "2024-08-16 16:08:00",
+      "formato": {
+        "id": 43506,
+        "titulo": "Cómputos totales de elecciones y procesos de participación ciudadana"
+      },
+      "idObligacion": 164,
+      "totalRegistros": 605
+    },
+    {
+      "descripcion": "FINANCIAMIENTO PRIVADO A PARTIDOS POLÍTICOS",
+      "fechaUltimaActualizacion": "2022-02-24 12:02:56",
+      "formato": {
+        "id": 43495,
+        "titulo": "Acuerdos emitidos por la autoridad administrativa electoral respecto al financiamiento"
+      },
+      "idObligacion": 265,
+      "totalRegistros": 2
+    },
+    {
+      "descripcion": "OTRAS GENERALES",
+      "fechaUltimaActualizacion": "2022-01-15 13:54:01",
+      "formato": {
+        "id": 43309,
+        "titulo": "Indicadores de interés público"
+      },
+      "idObligacion": 378,
+      "totalRegistros": 745
+    },
+    {
+      "descripcion": "OTRAS ESPECIFICAS",
+      "fechaUltimaActualizacion": "2022-01-10 13:31:06",
+      "formato": {
+        "id": 36783,
+        "titulo": "Obligaciones de transparencia de la Ley General"
+      },
+      "idObligacion": 379,
+      "totalRegistros": 17
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[
+	{"ejercicio":2021,"tipo_procedimiento":"Adjudicación directa","total_contratos":63349,"monto_total_con_impuestos":1181512097.19,"monto_promedio_por_contrato":18650.84,"porcentaje_monto_anual":99.37,"porcentaje_contratos_anual":99.08},
+	{"ejercicio":2021,"tipo_procedimiento":"Otra (especificar)","total_contratos":589,"monto_total_con_impuestos":7486924.76,"monto_promedio_por_contrato":12711.25,"porcentaje_monto_anual":0.63,"porcentaje_contratos_anual":0.92},
+	{"ejercicio":2022,"tipo_procedimiento":"Licitación pública","total_contratos":263,"monto_total_con_impuestos":2066179008.59,"monto_promedio_por_contrato":7856193.95,"porcentaje_monto_anual":66.34,"porcentaje_contratos_anual":0.48},
+	{"ejercicio":2022,"tipo_procedimiento":"Adjudicación directa","total_contratos":54188,"monto_total_con_impuestos":1008017601.52,"monto_promedio_por_contrato":18602.23,"porcentaje_monto_anual":32.36,"porcentaje_contratos_anual":98.78},
+	{"ejercicio":2022,"tipo_procedimiento":"Invitación a cuando menos tres personas","total_contratos":57,"monto_total_con_impuestos":37380786.77,"monto_promedio_por_contrato":655803.28,"porcentaje_monto_anual":1.2,"porcentaje_contratos_anual":0.1},
+	{"ejercicio":2022,"tipo_procedimiento":"Otra (especificar)","total_contratos":346,"monto_total_con_impuestos":2879162.38,"monto_promedio_por_contrato":8321.28,"porcentaje_monto_anual":0.09,"porcentaje_contratos_anual":0.63},
+	{"ejercicio":2022,"tipo_procedimiento":"Otro (especificar)","total_contratos":1,"monto_total_con_impuestos":64625.05,"monto_promedio_por_contrato":64625.05,"porcentaje_monto_anual":0.0,"porcentaje_contratos_anual":0.0},
+	{"ejercicio":2022,"tipo_procedimiento":"No especificado","total_contratos":3,"monto_total_con_impuestos":18387.2,"monto_promedio_por_contrato":6129.07,"porcentaje_monto_anual":0.0,"porcentaje_contratos_anual":0.01},
+	{"ejercicio":2023,"tipo_procedimiento":"Licitación pública","total_contratos":209,"monto_total_con_impuestos":1360313634.05,"monto_promedio_por_contrato":6508677.67,"porcentaje_monto_anual":69.63,"porcentaje_contratos_anual":3.15},
+	{"ejercicio":2023,"tipo_procedimiento":"Adjudicación directa","total_contratos":6290,"monto_total_con_impuestos":544776152.77,"monto_promedio_por_contrato":86609.88,"porcentaje_monto_anual":27.89,"porcentaje_contratos_anual":94.77},
+	{"ejercicio":2023,"tipo_procedimiento":"Invitación a cuando menos tres personas","total_contratos":62,"monto_total_con_impuestos":29488798.44,"monto_promedio_por_contrato":475625.78,"porcentaje_monto_anual":1.51,"porcentaje_contratos_anual":0.93},
+	{"ejercicio":2023,"tipo_procedimiento":"Otro (especificar)","total_contratos":6,"monto_total_con_impuestos":13546106.96,"monto_promedio_por_contrato":2257684.49,"porcentaje_monto_anual":0.69,"porcentaje_contratos_anual":0.09},
+	{"ejercicio":2023,"tipo_procedimiento":"Otra (especificar)","total_contratos":70,"monto_total_con_impuestos":5431338.67,"monto_promedio_por_contrato":77590.55,"porcentaje_monto_anual":0.28,"porcentaje_contratos_anual":1.05}
+]

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿A dónde va el dinero del INE? (2020–2026) — AGIL Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <!-- READING PROGRESS BAR -->
+  <div class="progress-track" aria-hidden="true">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+
+  <!-- FLOATING TOPBAR -->
+  <header class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <a href="https://agilsolutions.com" target="_blank" rel="noopener noreferrer" class="brand-link">
+          <div class="brand-copy">
+            <span class="brand-name">AGIL <span>Inteligencia de Datos</span></span>
+            <span class="brand-sub">Auditoría de Datos Públicos · INE 2020–2026</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="chapter-dots" aria-label="Capítulos de la investigación">
+        <a href="#step-0" class="dot-link active" data-step="0" title="01. Destino del Presupuesto">01</a>
+        <a href="#step-1" class="dot-link" data-step="1" title="02. Publicidad Oficial">02</a>
+        <a href="#step-2" class="dot-link" data-step="2" title="03. Partidos Políticos">03</a>
+        <a href="#step-3" class="dot-link" data-step="3" title="04. Adjudicación Directa vs Licitación">04</a>
+        <a href="#step-4" class="dot-link" data-step="4" title="05. ¿Quién gana las Adjudicaciones Directas?">05</a>
+        <a href="#step-5" class="dot-link" data-step="5" title="06. Mapa Territorial de Contratos">06</a>
+        <a href="#step-6" class="dot-link" data-step="6" title="07. Nómina vs Honorarios">07</a>
+        <a href="#step-7" class="dot-link" data-step="7" title="08. Concentración Salarial">08</a>
+        <a href="#step-8" class="dot-link" data-step="8" title="09. Mapa y Anomalías de Viáticos">09</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== PARALLAX HERO ==================== -->
+  <section class="hero-parallax" id="hero">
+    <div class="parallax-layer layer-grid" id="parallax-grid" aria-hidden="true"></div>
+    <div class="parallax-layer layer-glow" id="parallax-glow" aria-hidden="true"></div>
+    <div class="parallax-layer layer-accent" id="parallax-accent" aria-hidden="true"></div>
+
+    <div class="hero-content" id="hero-content">
+      <div class="eyebrow">Investigación de Datos Públicos · Plataforma Nacional de Transparencia</div>
+      <h1 class="hero-title">
+        ¿A dónde va el dinero del <em>INE</em>?
+      </h1>
+      <p class="hero-lead">
+        Una radiografía ciudadana sobre cómo se reparte el presupuesto electoral en México: por qué casi <strong>8 de cada 10 pesos</strong> se destinan a personal y partidos, qué revela el uso masivo de <strong>adjudicaciones directas</strong>, cuánto ganan los mandos altos y qué focos rojos saltan en viáticos y contratos.
+      </p>
+
+      <div class="hero-metrics">
+        <div class="hero-metric">
+          <span class="hm-val">79.3%</span>
+          <span class="hm-label">del gasto 2025 fue a personal y partidos</span>
+        </div>
+        <div class="hero-metric">
+          <span class="hm-val">98.7%</span>
+          <span class="hm-label">de contratos fueron sin licitación (por volumen)</span>
+        </div>
+        <div class="hero-metric">
+          <span class="hm-val">7.8%</span>
+          <span class="hm-label">de plazas (mandos) absorben 33.7% de la nómina</span>
+        </div>
+        <div class="hero-metric">
+          <span class="hm-val">22.9x</span>
+          <span class="hm-label">sobre el promedio costó el viático más alto</span>
+        </div>
+      </div>
+
+      <a href="#scrolly-story" class="scroll-cue">
+        <span>Desliza para leer la investigación</span>
+        <span class="scroll-arrow">↓</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==================== SCROLLYTELLING SECTION ==================== -->
+  <section class="scrolly-section" id="scrolly-story">
+    <div class="scrolly-container">
+      <!-- LEFT COLUMN: NARRATIVE STEPS -->
+      <div class="scrolly-narrative">
+        <!-- STEP 0: PRESUPUESTO -->
+        <article class="story-step is-active" id="step-0" data-step="0">
+          <span class="step-tag">01 · Destino del Presupuesto</span>
+          <h2 class="step-title">Casi 8 de cada 10 pesos se van antes de comprar una sola urna</h2>
+          <p class="step-body">
+            En 2025 el INE ejerció <strong>$27,820 millones de pesos</strong> —es decir, un <strong>103%</strong> de su presupuesto originalmente aprobado ($27,000 MDP), un sobreejercicio de $820 MDP. Pero lo revelador no es cuánto gastó, sino <strong>en qué se fue</strong>: al comparar los dos ejercicios con desglose completo publicados en la PNT (<strong>2020 y 2025</strong>*), el peso de los <span class="wiki-tip" tabindex="0" data-tip="Capítulo 1000: Sueldos base, compensaciones, honorarios, prestaciones y seguridad social de todo el personal del instituto.">Servicios Personales</span> saltó del <strong>33.8% al 47.1%</strong> del total.
+          </p>
+          <p class="step-note">
+            * Nota de transparencia: en la PNT el INE solo tiene cargado el desglose presupuestal completo por capítulo para 2020 y 2025; entre 2021 y 2024 no figura el mismo corte anual.
+          </p>
+          <div class="step-callout">
+            <span class="callout-num">47.1% Personal · 32.2% Partidos</span>
+            <span class="callout-text">Solo el 20.7% restante en 2025 cubrió renta de oficinas, materiales electorales, tecnología y operación diaria.</span>
+          </div>
+        </article>
+
+        <!-- STEP 1: PUBLICIDAD OFICIAL -->
+        <article class="story-step" id="step-1" data-step="1">
+          <span class="step-tag">02 · Publicidad Oficial (2025)</span>
+          <h2 class="step-title">Televisión: 87 pautas que cuestan 20 veces más que lo digital</h2>
+          <p class="step-body">
+            De los <strong>$147.65 MDP</strong> gastados en comunicación social durante 2025, la <strong>Televisión absorbió el 56.1%</strong> ($82.89 MDP) con apenas 87 contrataciones. El contraste aparece al ver el <strong>ticket promedio por pauta</strong>: cada compra en televisión costó en promedio <strong>$952,815 pesos</strong>, frente a <strong>$46,721</strong> en medios digitales (581 pautas) y apenas <strong>$5,905</strong> en prensa impresa (975 pautas).
+          </p>
+          <div class="step-callout">
+            <span class="callout-num">$952.8k vs. $46.7k</span>
+            <span class="callout-text">Ticket promedio de una pauta en Televisión comparado con una pauta en Medios Digitales.</span>
+          </div>
+        </article>
+
+        <!-- STEP 2: PARTIDOS POLÍTICOS -->
+        <article class="story-step" id="step-2" data-step="2">
+          <span class="step-tag">03 · Dinero a Partidos Políticos</span>
+          <h2 class="step-title">Un solo partido concentra casi un tercio de toda la bolsa pública</h2>
+          <p class="step-body">
+            Por ley, el financiamiento a partidos depende del tamaño del padrón electoral y se dispara en años de elección (+65.5% en 2024, alcanzando <strong>$10,117 MDP</strong>). Al ver la repartición en <strong>porcentaje de la bolsa total</strong>, la concentración es constante: entre 2020 y 2026, <strong>MORENA</strong> ha recibido entre el <strong>30.9% y el 35.5%</strong> del total anual, seguido por el <strong>PAN (~18%)</strong> y el <strong>PRI (~13%–18%)</strong>.
+          </p>
+          <div class="step-callout ine">
+            <span class="callout-num">67.7% en 3 partidos</span>
+            <span class="callout-text">En 2024, MORENA (30.9%), PAN (18.6%) y PRI (18.2%) concentraron más de dos terceras partes de los $10,117 MDP.</span>
+          </div>
+        </article>
+
+        <!-- STEP 3: CONTRATOS AD vs LICITACIÓN -->
+        <article class="story-step" id="step-3" data-step="3">
+          <span class="step-tag">04 · Foco Rojo en Contrataciones</span>
+          <h2 class="step-title">98.7% de los contratos se dieron por adjudicación directa — y representan el 43.7% del dinero</h2>
+          <p class="step-body">
+            Una <span class="wiki-tip" tabindex="0" data-tip="Adjudicación Directa (AD): El organismo elige directamente al proveedor sin concurso abierto. La ley la permite solo como excepción (montos menores, urgencia o proveedor único).">Adjudicación Directa</span> evita la competencia pública. Como referencia de buenas prácticas (OCDE y Ley de Adquisiciones en México), la <strong>licitación pública debe ser la regla</strong> y las excepciones no deberían superar el <strong>20%–30% del monto ejercido</strong>.
+          </p>
+          <p class="step-body" style="margin-top:10px;">
+            En el INE (125,433 contratos de 2021–2023), el <strong>98.7% del número de contratos</strong> y el <strong>43.7% del dinero total ($2,734 MDP)</strong> se asignaron sin licitación pública. Un porcentaje tan alto eleva el riesgo de sobreprecios, fraccionamiento de compras y favoritismo a proveedores recurrentes.
+          </p>
+          <div class="step-callout ine">
+            <span class="callout-num">43.7% del dinero sin licitar</span>
+            <span class="callout-text">Frente al tope recomendado de ~30% en compras públicas. En 2021, el 99.4% del monto reportado fue vía adjudicación directa.</span>
+          </div>
+        </article>
+
+        <!-- STEP 4: A QUIÉN Y EN QUÉ SE FUE LA AD -->
+        <article class="story-step" id="step-4" data-step="4">
+          <span class="step-tag">05 · El Destino de la Adjudicación Directa</span>
+          <h2 class="step-title">¿Qué se compra sin licitar y quiénes son los mayores beneficiarios?</h2>
+          <p class="step-body">
+            Los <strong>$2,734 MDP</strong> adjudicados directamente se dividen en tres grandes bloques casi iguales: <strong>Servicios (32.8%)</strong>, <strong>Arrendamientos de inmuebles (32.2%)</strong> y <strong>Adquisiciones (31.6%)</strong>. Destaca el caso de <strong>personas físicas</strong> que acumulan decenas de contratos directos millonarios (como <em>Elizabeth Valerio Cervantes</em> con 46 contratos por $19.5 MDP, o <em>Tania Rodríguez Quinto</em> con 17 contratos por $17.1 MDP) junto a aseguradoras e inmobiliarias.
+          </p>
+          <div class="step-callout">
+            <span class="callout-num">46 contratos directos</span>
+            <span class="callout-text">acumuló una sola persona física en 2021–2023 ($19.5 MDP), un patrón típico de compras fragmentadas o arrendamientos repetitivos.</span>
+          </div>
+        </article>
+
+        <!-- STEP 5: MAPA GEOGRÁFICO DE CONTRATOS -->
+        <article class="story-step" id="step-5" data-step="5">
+          <span class="step-tag">06 · Mapa Geográfico de Compras</span>
+          <h2 class="step-title">Anomalía en el mapa: ¿por qué Zacatecas concentra 18.4% de todo el gasto nacional?</h2>
+          <p class="step-body">
+            Al mapear los contratos por entidad federativa salta un dato atípico. Fuera de <strong>Oficinas Centrales</strong> ($1,807 MDP, 28.9%), el segundo lugar nacional no es CDMX, Jalisco ni Estado de México, sino <strong>Zacatecas con $1,150 MDP (18.4%)</strong> y un contrato promedio 10 veces superior al resto del país ($391k vs ~$20k), impulsado por grandes contratos de obra pública de <em>Constructora Cronos NG</em> ($1,049 MDP en solo 9 contratos).
+          </p>
+          <div class="step-callout ine">
+            <span class="callout-num">Zacatecas: $1,150 MDP</span>
+            <span class="callout-text">Más que Estado de México ($266M), Jalisco ($250M), Nuevo León ($237M) y CDMX ($212M) juntos.</span>
+          </div>
+        </article>
+
+        <!-- STEP 6: NÓMINA VS HONORARIOS -->
+        <article class="story-step" id="step-6" data-step="6">
+          <span class="step-tag">07 · Estructura Laboral Paralela</span>
+          <h2 class="step-title">Casi 3 de cada 4 trabajadores del INE operan por honorarios, no en plaza fija</h2>
+          <p class="step-body">
+            En 2025, frente a <strong>19,557 trabajadores en <span class="wiki-tip" tabindex="0" data-tip="Plaza de Estructura (Nómina): Empleo permanente del servicio profesional o administrativo con contrato indefinido, antigüedad, ISSSTE, aguinaldo y prestaciones completas.">plaza de estructura</span></strong>, el instituto operó con <strong>55,165 personas en <span class="wiki-tip" tabindex="0" data-tip="Honorarios Asimilados: Contratación temporal por proyecto o proceso electoral. No genera base, antigüedad ni liquidación, y suele tener menos prestaciones que una plaza fija.">honorarios asimilados</span></strong> (73.8% de la fuerza laboral).
+          </p>
+          <p class="step-body" style="margin-top:10px;">
+            <strong>¿Por qué importa?</strong> Aunque el costo promedio por persona en honorarios es 32% menor ($14.7k vs $21.6k/mes), su volumen masivo hace que la factura mensual de honorarios (<strong>$1,265 MDP/mes</strong>) más que duplique a la nómina formal (<strong>$544 MDP/mes</strong>), evidenciando una enorme dependencia de personal eventual sin estabilidad laboral.
+          </p>
+          <div class="step-callout ine">
+            <span class="callout-num">73.8% sin plaza fija</span>
+            <span class="callout-text">55,165 personas en honorarios sostienen la operación territorial, con una brecha de -$6,865/mes frente al personal de estructura.</span>
+          </div>
+        </article>
+
+        <!-- STEP 7: DESIGUALDAD SALARIAL / MANDOS ALTOS -->
+        <article class="story-step" id="step-7" data-step="7">
+          <span class="step-tag">08 · Pirámide Salarial (2025)</span>
+          <h2 class="step-title">El 7.8% de plazas en mandos medios y altos absorbe un tercio de toda la masa salarial</h2>
+          <p class="step-body">
+            Al analizar los <strong>2,536 puestos del tabulador 2025</strong>, la brecha salarial es pronunciada. La <strong>base operativa</strong> (sueldos menores a $25k brutos/mes) representa el <strong>84.3% de las plazas</strong> pero recibe solo el <strong>52.1%</strong> del dinero. En el extremo opuesto, los <strong>mandos altos (&ge;$100k/mes)</strong> son apenas el <strong>0.75% de las plazas</strong> pero absorben el <strong>6.1% de la nómina</strong> —y sumados a los mandos medios ($50k–$100k), el <strong>7.8% de la cúpula concentra el 33.7% del gasto salarial</strong>.
+          </p>
+          <div class="step-callout">
+            <span class="callout-num">$262,634 / mes bruto</span>
+            <span class="callout-text">Sueldo mensual de Consejeros Electorales y Presidencia ($178.3k netos), más de 17 veces el ingreso promedio de un trabajador de honorarios.</span>
+          </div>
+        </article>
+
+        <!-- STEP 8: VIÁTICOS Y ANOMALÍAS -->
+        <article class="story-step" id="step-8" data-step="8">
+          <span class="step-tag">09 · Mapa y Anomalías de Viáticos (2025)</span>
+          <h2 class="step-title">Viajes locales que cuestan hasta 23 veces el promedio nacional</h2>
+          <p class="step-body">
+            El INE reportó <strong>21,764 comisiones en 2025</strong> por $114.05 MDP, con un promedio de <strong>$5,240 por viaje</strong> (mediana de $4,166). Sin embargo, el análisis de valores atípicos revela focos rojos: existen <strong>13 viajes individuales superiores a $50,000 pesos</strong>, todos nacionales. El caso más extremo costó <strong>$120,001 pesos</strong> (22.9x el promedio) para una comisión local en Jalisco, y la <strong>Junta Distrital 09 de Linares, Nuevo León</strong> concentra 10 de los 12 viajes más caros del país (todos entre $51k y $60k).
+          </p>
+          <div class="step-callout ine">
+            <span class="callout-num">$120,001 en un solo viaje</span>
+            <span class="callout-text">Comisión nacional en Tepatitlán / Yahualica, Jalisco (22.9 veces el costo promedio nacional de $5,240).</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- RIGHT COLUMN: STICKY VISUAL STAGE -->
+      <div class="scrolly-stage-col">
+        <div class="sticky-stage" id="sticky-stage">
+          <div class="stage-header">
+            <div class="stage-header-copy">
+              <span class="stage-kicker" id="stage-kicker">01 · Destino del Presupuesto</span>
+              <h3 class="stage-title" id="stage-title">Distribución porcentual del gasto por capítulo</h3>
+            </div>
+            <div class="stage-controls" id="stage-controls"></div>
+          </div>
+
+          <div class="stage-chart-wrap">
+            <div class="stage-chart" id="main-stage-chart"></div>
+          </div>
+
+          <div class="stage-footer">
+            <div class="stage-footer-left">
+              <a class="embed-brand" href="https://agilsolutions.com" target="_blank" rel="noopener noreferrer" title="Ir a AGIL Solutions">
+                <span>AGIL</span>
+              </a>
+              <span class="stage-source" id="stage-source">Fuente: Plataforma Nacional de Transparencia (PNT) · INE</span>
+            </div>
+            <div class="stage-footer-right">
+              <button class="btn-mini-embed" id="btn-embed-current" title="Copiar código para incrustar SOLO esta gráfica en un post">&lt;/&gt; Incrustar</button>
+              <span class="stage-step-counter" id="stage-counter">01 / 09</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EXPLORADOR DE PADRONES ==================== -->
+  <section class="explorer-section" id="explorer">
+    <div class="container">
+      <div class="section-intro">
+        <span class="eyebrow">Consulta Abierta · Verifica Cada Cifra</span>
+        <h2 class="section-h2">Explora los padrones y focos rojos</h2>
+        <p class="section-p">
+          Filtra directamente los registros auditados de la Plataforma Nacional de Transparencia: proveedores de adjudicación directa, top contratistas totales, viajes atípicos sobre el promedio y tabulador salarial 2025.
+        </p>
+      </div>
+
+      <div class="explorer-toolbar">
+        <div class="segmented" id="explorer-switch">
+          <button class="seg-btn active" data-table="adProveedores">Top Adjudicación Directa</button>
+          <button class="seg-btn" data-table="proveedores">Top 50 Proveedores Total</button>
+          <button class="seg-btn" data-table="viaticosOutliers">Viáticos Atípicos (&ge;$30k)</button>
+          <button class="seg-btn" data-table="puestos">Tabulador Salarial 2025</button>
+        </div>
+        <div class="explorer-actions">
+          <input type="search" class="table-search" id="explorer-search" placeholder="Buscar proveedor, RFC, cargo o destino..." />
+          <button class="btn-gold btn-sm" id="btn-descargar-tabla" title="Descargar la tabla actualmente visible en formato CSV">
+            ↓ Descargar CSV
+          </button>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-wrap">
+          <table class="data-table" id="explorer-table">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="table-pagination" id="table-pagination">
+          <span class="pagination-info" id="pagination-info">Mostrando 0 registros</span>
+          <div class="pagination-controls">
+            <button class="page-btn" id="btn-prev-page" disabled>← Anterior</button>
+            <span class="page-indicator" id="page-indicator">1 / 1</span>
+            <button class="page-btn" id="btn-next-page" disabled>Siguiente →</button>
+          </div>
+        </div>
+      </div>
+      <p class="table-footnote">Haz clic en cualquier encabezado de columna para ordenar. Fuente: Elaboración propia con datos públicos de la Plataforma Nacional de Transparencia (PNT), Instituto Nacional Electoral (2020–2026).</p>
+    </div>
+  </section>
+
+  <!-- ==================== REPOSITORIO ABIERTO (GITHUB) ==================== -->
+  <section class="github-section" id="codigo-abierto">
+    <div class="container">
+      <div class="github-card">
+        <div class="github-copy">
+          <span class="eyebrow">Metodología Abierta &amp; Reproducibilidad</span>
+          <h2 class="section-h2">Audita los datos y el código en GitHub</h2>
+          <p class="section-p">
+            Todas las cifras de esta investigación provienen de descargas oficiales de la <strong>Plataforma Nacional de Transparencia (PNT)</strong>. Publicamos el repositorio abierto con los scripts de limpieza, las tablas de datos y las instrucciones para que cualquier ciudadano, periodista o investigador pueda descargar los archivos completos y replicar el análisis.
+          </p>
+        </div>
+        <div class="github-actions">
+          <a class="btn-gold btn-lg" id="github-repo-link" href="https://github.com/agilsolutions/auditoria-ine" target="_blank" rel="noopener noreferrer">
+            Explorar Repositorio en GitHub ↗
+          </a>
+          <span class="github-hint">Incluye scripts, metodología y enlaces de descarga de datos completos.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container footer-inner">
+      <div><strong>AGIL Solutions</strong> · Inteligencia de Datos &amp; Transparencia Pública</div>
+      <div>Fuente oficial: Plataforma Nacional de Transparencia (PNT) · INE (2020–2026)</div>
+    </div>
+  </footer>
+
+  <!-- EMBED MODAL -->
+  <div class="modal-backdrop" id="embed-modal" hidden>
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3>Incrustar gráfica en un artículo</h3>
+        <button class="modal-close" id="modal-close" aria-label="Cerrar">×</button>
+      </div>
+      <p class="modal-desc">
+        Este código inserta <strong>únicamente la gráfica interactiva seleccionada</strong> (sin scroll ni textos superpuestos), ideal para incrustar en una tarjeta <code>/html</code> de Ghost.
+      </p>
+      <div class="modal-field">
+        <label for="embed-chapter-select">Gráfica a incrustar:</label>
+        <select id="embed-chapter-select" class="embed-select">
+          <option value="0">01 · Destino del Presupuesto (% por capítulo)</option>
+          <option value="1">02 · Publicidad Oficial y Ticket Promedio</option>
+          <option value="2">03 · Reparto % a Partidos Políticos</option>
+          <option value="3">04 · Adjudicación Directa vs. Licitaciones</option>
+          <option value="4">05 · ¿En qué y a quién se adjudica directamente?</option>
+          <option value="5">06 · Mapa Geográfico de Contrataciones</option>
+          <option value="6">07 · Nómina de Estructura vs. Honorarios</option>
+          <option value="7">08 · Concentración Salarial en Mandos Altos</option>
+          <option value="8">09 · Mapa y Anomalías de Viáticos</option>
+        </select>
+      </div>
+      <textarea class="embed-code" id="embed-code" readonly rows="4"></textarea>
+      <div class="modal-actions">
+        <button class="btn-gold" id="btn-copy-embed">Copiar código HTML</button>
+        <span class="copy-feedback" id="copy-feedback"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING TOOLTIP (WIKIPEDIA-STYLE) -->
+  <div class="wiki-popover" id="wiki-popover" role="tooltip" hidden></div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

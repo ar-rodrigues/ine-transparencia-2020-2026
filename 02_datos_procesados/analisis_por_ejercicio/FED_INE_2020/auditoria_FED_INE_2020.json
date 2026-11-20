@@ -1,0 +1,13 @@
+{
+  "institucion": "FED - Instituto Nacional Electoral (INE)",
+  "entidad": "Federación",
+  "ejercicio": 2020,
+  "total_formatos_en_catalogo": 23,
+  "formatos_completados_exitosamente": 23,
+  "total_registros_reportados": 3264,
+  "total_registros_descargados": 3264,
+  "porcentaje_cobertura": 100.0,
+  "formatos_incompletos": [],
+  "estado_final": "COMPLETO",
+  "timestamp": "2026-11-10 23:33:52"
+}

@@ -1,0 +1,545 @@
+{
+  "total_registros_descargados": 203,
+  "formatos_presentes": [
+    {
+      "formato": "Monitoreo de las pautas de transmisión en radio y televisión",
+      "filas": 131,
+      "cols": 12,
+      "obligacion": "MONITOREO DE MEDIOS",
+      "archivos": 1
+    },
+    {
+      "formato": "Cuadro general de clasificación archivística, Catálogo de disposición documental, Guía de archivo documental, Programa Anual de Desarrollo Archivístico, Informe Anual de cumplimiento, Actas y dictámenes de baja documental",
+      "filas": 43,
+      "cols": 9,
+      "obligacion": "CATÁLOGO Y GUÍA DE ARCHIVOS",
+      "archivos": 1
+    },
+    {
+      "formato": "Acuerdos emitidos por la autoridad administrativa electoral respecto al financiamiento",
+      "filas": 1,
+      "cols": 11,
+      "obligacion": "FINANCIAMIENTO PRIVADO A PARTIDOS POLÍTICOS",
+      "archivos": 1
+    },
+    {
+      "formato": "Presupuesto asignado anual",
+      "filas": 1,
+      "cols": 11,
+      "obligacion": "PRESUPUESTO DEL GASTO PÚBLICO",
+      "archivos": 1
+    },
+    {
+      "formato": "Tablas de aplicabilidad y de actualización de las obligaciones de transparencia",
+      "filas": 1,
+      "cols": 9,
+      "obligacion": "TABLAS DE APLICABILIDAD",
+      "archivos": 1
+    },
+    {
+      "formato": "Montos de financiamiento público y privado otorgado a partidos políticos, asociaciones y agrupaciones políticas o ciudadanas",
+      "filas": 26,
+      "cols": 17,
+      "obligacion": "FINANCIAMIENTO PÚBLICO A PARTIDOS POLÍTICOS",
+      "archivos": 1
+    }
+  ],
+  "formatos_faltantes_art70": [
+    {
+      "fraccion": "Fracc. I",
+      "nombre": "Normatividad aplicable",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. II",
+      "nombre": "Estructura orgánica completa",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. III",
+      "nombre": "Facultades de cada área",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. IV",
+      "nombre": "Metas y objetivos institucionales",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. V",
+      "nombre": "Indicadores de interés público",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. VI",
+      "nombre": "Indicadores de resultados",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. VII",
+      "nombre": "Directorio de personas servidoras públicas",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. VIII",
+      "nombre": "Remuneraciones brutas y netas (sueldos y salarios)",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. IX",
+      "nombre": "Gastos de viáticos y representación",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. X",
+      "nombre": "Plazas vacantes y ocupadas",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XI",
+      "nombre": "Personal contratado por honorarios",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XII",
+      "nombre": "Declaraciones patrimoniales y de intereses",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XIII",
+      "nombre": "Unidad de Transparencia y Comité",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XIV",
+      "nombre": "Concursos para ocupar cargos públicos",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XV",
+      "nombre": "Subsidios, estímulos y apoyos",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XVI",
+      "nombre": "Condiciones generales de trabajo y sindicatos",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XVII",
+      "nombre": "Información curricular de servidores públicos",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XVIII",
+      "nombre": "Sanciones administrativas a servidores públicos",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XIX",
+      "nombre": "Servicios ofrecidos",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XX",
+      "nombre": "Trámites ofrecidos",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXI (Gasto)",
+      "nombre": "Gasto por capítulo, concepto y partida",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXII",
+      "nombre": "Deuda pública",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXIII",
+      "nombre": "Gastos de publicidad oficial",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXIV",
+      "nombre": "Resultados de auditorías realizadas",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXV",
+      "nombre": "Resultados de dictaminación de estados financieros",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXVI",
+      "nombre": "Personas que usan recursos públicos",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXVII",
+      "nombre": "Concesiones, contratos, convenios, permisos, licencias",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXVIII",
+      "nombre": "Procedimientos de contratación (Adjudicaciones y Licitaciones)",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXIX",
+      "nombre": "Informes emitidos",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXX",
+      "nombre": "Estadísticas generadas",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXXI",
+      "nombre": "Informes financieros contables y presupuestales",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXXII",
+      "nombre": "Padrón oficial de proveedores y contratistas",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXXIII",
+      "nombre": "Convenios de coordinación y concertación",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXXIV",
+      "nombre": "Inventario de bienes muebles e inmuebles",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXXV",
+      "nombre": "Recomendaciones emitidas por organismos de DDHH",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXXVI",
+      "nombre": "Resoluciones en materia de acceso a la información",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXXVII",
+      "nombre": "Resoluciones y laudos emitidos",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXXVIII",
+      "nombre": "Mecanismos de participación ciudadana",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XXXIX",
+      "nombre": "Actas del Comité de Transparencia",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XL",
+      "nombre": "Evaluaciones y encuestas a programas institucionales",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XLI",
+      "nombre": "Estudios financiados con recursos públicos",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XLII",
+      "nombre": "Listado de jubilados y pensionados",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XLIII",
+      "nombre": "Ingresos recibidos por cualquier concepto",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XLIV",
+      "nombre": "Donaciones en dinero o especie realizadas",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XLVI",
+      "nombre": "Actas de sesiones del Consejo General",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    },
+    {
+      "fraccion": "Fracc. XLVII",
+      "nombre": "Listado de solicitudes a empresas de telecomunicaciones",
+      "estado": "PENDIENTE DE CARGA / INICIO DE EJERCICIO 2026",
+      "impacto": "Omisión total en PNT al inicio del ciclo 2026: sin contratos, sin nómina, sin gastos ejecutados"
+    }
+  ],
+  "presupuesto_pa08": {
+    "ejercicio": 2026,
+    "presupuesto_aprobado": 21837221581.0,
+    "link_dof": "https://www.ppef.hacienda.gob.mx/work/models/PP3F2609/PPEF2026/Fiw326fP/docs/22/r22_afpe.pdf",
+    "link_transparencia": "https://www.transparenciapresupuestaria.gob.mx/Datos-Abiertos",
+    "area_responsable": "DIRECCION EJECUTIVA DE ADMINISTRACION"
+  },
+  "partidos_pa05": {
+    "total_partidos": 7,
+    "gran_total_financiamiento_anual_programado": 7368151626.0,
+    "detalle": [
+      {
+        "partido": "morena",
+        "mensual_enero": 449045388.0,
+        "anual_programado": 2615798382.0,
+        "registros": 4,
+        "tipos": [
+          "Público para actividades ordinarias permanentes y específicas"
+        ]
+      },
+      {
+        "partido": "Partido Acción Nacional",
+        "mensual_enero": 222801618.0,
+        "anual_programado": 1297873517.0,
+        "registros": 4,
+        "tipos": [
+          "Público para actividades ordinarias permanentes y específicas"
+        ]
+      },
+      {
+        "partido": "Partido Revolucionario Institucional",
+        "mensual_enero": 168656120.0,
+        "anual_programado": 982462839.0,
+        "registros": 4,
+        "tipos": [
+          "Público para actividades ordinarias permanentes y específicas"
+        ]
+      },
+      {
+        "partido": "Movimiento Ciudadano",
+        "mensual_enero": 166396708.0,
+        "anual_programado": 969301220.0,
+        "registros": 4,
+        "tipos": [
+          "Público para actividades ordinarias permanentes y específicas"
+        ]
+      },
+      {
+        "partido": "Partido Verde Ecologista de México",
+        "mensual_enero": 142844158.0,
+        "anual_programado": 832101904.0,
+        "registros": 4,
+        "tipos": [
+          "Público para actividades ordinarias permanentes y específicas"
+        ]
+      },
+      {
+        "partido": "Partido del Trabajo",
+        "mensual_enero": 115122028.0,
+        "anual_programado": 670613764.0,
+        "registros": 4,
+        "tipos": [
+          "Público para actividades ordinarias permanentes y específicas"
+        ]
+      },
+      {
+        "partido": "Asociaciones y agrupaciones políticas",
+        "mensual_enero": 0.0,
+        "anual_programado": 0.0,
+        "registros": 2,
+        "tipos": [
+          ""
+        ]
+      }
+    ]
+  },
+  "monitoreo_medios": {
+    "total_registros": 131,
+    "promedio_cumplimiento_nacional": 99.32603053435113,
+    "muestra": [
+      {
+        "entidad": "San Luis Potosí",
+        "cumplimiento": "99.57",
+        "tipo_periodo": "ORDINARIO"
+      },
+      {
+        "entidad": "Querétaro",
+        "cumplimiento": "99.31",
+        "tipo_periodo": "ORDINARIO"
+      },
+      {
+        "entidad": "Quintana Roo",
+        "cumplimiento": "99.41",
+        "tipo_periodo": "ORDINARIO"
+      },
+      {
+        "entidad": "Puebla",
+        "cumplimiento": "99.81",
+        "tipo_periodo": "ORDINARIO"
+      },
+      {
+        "entidad": "Oaxaca",
+        "cumplimiento": "98.96",
+        "tipo_periodo": "ORDINARIO"
+      },
+      {
+        "entidad": "Nayarit",
+        "cumplimiento": "99.43",
+        "tipo_periodo": "ORDINARIO"
+      },
+      {
+        "entidad": "Nuevo León",
+        "cumplimiento": "99.61",
+        "tipo_periodo": "ORDINARIO"
+      },
+      {
+        "entidad": "Morelos",
+        "cumplimiento": "99.85",
+        "tipo_periodo": "ORDINARIO"
+      },
+      {
+        "entidad": "Michoacán de Ocampo",
+        "cumplimiento": "99.08",
+        "tipo_periodo": "ORDINARIO"
+      },
+      {
+        "entidad": "México",
+        "cumplimiento": "99.46",
+        "tipo_periodo": "ORDINARIO"
+      },
+      {
+        "entidad": "Jalisco",
+        "cumplimiento": "99.08",
+        "tipo_periodo": "ORDINARIO"
+      },
+      {
+        "entidad": "Hidalgo",
+        "cumplimiento": "98.92",
+        "tipo_periodo": "ORDINARIO"
+      }
+    ]
+  },
+  "archivos_bajas": {
+    "total_registros": 43,
+    "tipos_instrumento": {
+      "Acta de baja documental": 21,
+      "Dictamen de baja documental": 15,
+      "Acta de transferencia secundaria": 5,
+      "Programa Anual de Desarrollo Archivístico": 1,
+      "Informe Anual de cumplimiento": 1
+    },
+    "juntas_con_baja": {
+      "JUNTA DISTRITAL EJECUTIVA NO.34 DE MEXICO - TOLUCA": 3,
+      "JUNTA DISTRITAL EJECUTIVA NO.25 DE MEXICO - CHIMALHUACAN": 3,
+      "JUNTA DISTRITAL EJECUTIVA NO.02 DE MEXICO - TULTEPEC": 3,
+      "UNIDAD TECNICA DE TRANSPARENCIA Y PROTECCION DE DATOS PERSONALES": 3,
+      "JUNTA DISTRITAL EJECUTIVA NO.01 DE CHIAPAS - PALENQUE": 3,
+      "JUNTA DISTRITAL EJECUTIVA NO.21 DE MEXICO - AMECAMECA": 2,
+      "JUNTA DISTRITAL EJECUTIVA NO.16 DE MEXICO - ECATEPEC DE MORELOS": 2,
+      "JUNTA DISTRITAL EJECUTIVA NO.07 DE JALISCO - TONALA": 2
+    }
+  },
+  "analisis_historico_sexenal": [
+    {
+      "ejercicio": "2021",
+      "formatos": 27,
+      "registros": 105305,
+      "presupuesto_aprobado": 26819801594.0,
+      "presupuesto_pagado": 25705010072.18,
+      "contratos_num": 97445,
+      "contratos_monto": 3100074426.910013
+    },
+    {
+      "ejercicio": "2022",
+      "formatos": 29,
+      "registros": 90696,
+      "presupuesto_aprobado": 21575023095.0,
+      "presupuesto_pagado": 21397362125.019993,
+      "contratos_num": 86957,
+      "contratos_monto": 4179595113.4600024
+    },
+    {
+      "ejercicio": "2023",
+      "formatos": 38,
+      "registros": 35246,
+      "presupuesto_aprobado": 20221367571.0,
+      "presupuesto_pagado": 19884838019.6,
+      "contratos_num": 31841,
+      "contratos_monto": 3393197772.0199957
+    },
+    {
+      "ejercicio": "2024",
+      "formatos": 65,
+      "registros": 374898,
+      "presupuesto_aprobado": 32767037027.0,
+      "presupuesto_pagado": 32706119472.480007,
+      "contratos_num": 15924,
+      "contratos_monto": 4155536947.0500154
+    },
+    {
+      "ejercicio": "2025",
+      "formatos": 83,
+      "registros": 935597,
+      "presupuesto_aprobado": 27000056755.0,
+      "presupuesto_pagado": 27820476140.45,
+      "contratos_num": 12189,
+      "contratos_monto": 3515503535.86999
+    },
+    {
+      "ejercicio": "2026 (En curso)",
+      "formatos": 6,
+      "registros": 203,
+      "presupuesto_aprobado": 21837221581.0,
+      "presupuesto_pagado": 0.0,
+      "contratos_num": 0,
+      "contratos_monto": 0.0
+    }
+  ],
+  "calidad": {},
+  "total_registros_reportados": 203
+}

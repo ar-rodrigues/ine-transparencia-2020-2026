@@ -1,0 +1,35 @@
+# Credenciales y secretos (NUNCA SUBIR)
+.env
+.env.local
+.env.*.local
+
+# Carpeta de desarrollo local de consulting-page (sitio corporativo privado de AGIL)
+consulting-page/
+
+# Capas masivas de datos (almacenadas en Backblaze B2, accesibles vía script)
+datos_b2/01_datos_crudos/
+datos_b2/02_datos_limpios/
+
+# Permitir explícitamente la Capa Oro (160 KB) en GitHub para funcionamiento autónomo
+!datos_b2/03_datos_agregados/**/*.parquet
+!datos_b2/03_datos_agregados/**/*.json
+
+# Informes históricos pesados y archivos temporales
+02_datos_procesados/rfcs_por_ejercicio/
+02_datos_procesados/cruce_capitulo1000_honorarios_traslapes.csv
+02_datos_procesados/cruce_capitulo1000_honorarios_personas_traslape.csv
+03_informes_analisis_html/informes_anuales/*.pdf
+
+# Python / Entorno virtual
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+
+# Node / Caches
+node_modules/
+.next/
+*.log
+.DS_Store

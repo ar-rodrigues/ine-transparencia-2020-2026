@@ -1,0 +1,11 @@
+[
+	{"tipo_medio":"Televisión","total_pautas":87,"gasto_total":82894879.29,"gasto_promedio_por_pauta":952814.7,"porcentaje_del_gasto_total":56.14},
+	{"tipo_medio":"Medios digitales","total_pautas":581,"gasto_total":27145010.27,"gasto_promedio_por_pauta":46721.19,"porcentaje_del_gasto_total":18.38},
+	{"tipo_medio":"Otros servicios asociados","total_pautas":65,"gasto_total":15015201.16,"gasto_promedio_por_pauta":231003.09,"porcentaje_del_gasto_total":10.17},
+	{"tipo_medio":"Radio","total_pautas":116,"gasto_total":11754239.71,"gasto_promedio_por_pauta":101329.65,"porcentaje_del_gasto_total":7.96},
+	{"tipo_medio":"Medios impresos","total_pautas":975,"gasto_total":5757422.3,"gasto_promedio_por_pauta":5905.05,"porcentaje_del_gasto_total":3.9},
+	{"tipo_medio":"Otros","total_pautas":104,"gasto_total":2332589.8,"gasto_promedio_por_pauta":22428.75,"porcentaje_del_gasto_total":1.58},
+	{"tipo_medio":"Espectaculares","total_pautas":59,"gasto_total":1860580.95,"gasto_promedio_por_pauta":31535.27,"porcentaje_del_gasto_total":1.26},
+	{"tipo_medio":"Medios Complementarios","total_pautas":29,"gasto_total":877859.47,"gasto_promedio_por_pauta":30271.02,"porcentaje_del_gasto_total":0.59},
+	{"tipo_medio":"Internet","total_pautas":7,"gasto_total":12842.52,"gasto_promedio_por_pauta":1834.65,"porcentaje_del_gasto_total":0.01}
+]

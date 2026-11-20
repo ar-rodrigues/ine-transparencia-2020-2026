@@ -1,0 +1,18 @@
+{
+  "institucion": "FED - Instituto Nacional Electoral (INE)",
+  "ejercicios_analizados": "2020-2026",
+  "fecha_ejecucion": "2026-11-11T00:39:01.326152",
+  "universo_capitulo1000_directorio": 19818,
+  "universo_honorarios_contratos": 74079,
+  "universo_honorarios_personas": 53248,
+  "personas_coincidentes_directorio_honorarios": 3678,
+  "hallazgo_concurrencia_traslape": {
+    "personas_con_traslape": 3438,
+    "contratos_concurrentes": 7753,
+    "monto_total_bruto_contratos_concurrentes": 749083995.14,
+    "monto_total_neto_contratos_concurrentes": 613008132.38
+  },
+  "hallazgo_transiciones_ordenadas": {
+    "personas_transicion_exitosa": 240
+  }
+}

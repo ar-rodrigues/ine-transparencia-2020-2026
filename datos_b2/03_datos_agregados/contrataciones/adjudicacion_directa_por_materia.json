@@ -1,0 +1,8 @@
+[
+	{"materia":"Servicios","total_contratos":41251,"monto_total":897829175.28,"pct_monto":32.65,"pct_contratos":33.04},
+	{"materia":"Arrendamientos","total_contratos":8756,"monto_total":881641083.11,"pct_monto":32.06,"pct_contratos":7.01},
+	{"materia":"Adquisiciones","total_contratos":74632,"monto_total":864199267.14,"pct_monto":31.42,"pct_contratos":59.78},
+	{"materia":"Servicios relacionados con obra pública","total_contratos":85,"monto_total":95923965.5,"pct_monto":3.49,"pct_contratos":0.07},
+	{"materia":"Obra pública","total_contratos":17,"monto_total":10188915.79,"pct_monto":0.37,"pct_contratos":0.01},
+	{"materia":"Sin especificar","total_contratos":94,"monto_total":339257.67,"pct_monto":0.01,"pct_contratos":0.08}
+]

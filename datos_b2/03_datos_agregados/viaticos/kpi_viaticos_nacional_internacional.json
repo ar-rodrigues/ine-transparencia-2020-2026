@@ -1,0 +1,6 @@
+[
+	{"ejercicio":2022,"tipo_viaje":"Nacional","total_comisiones":5,"gasto_total_erogado":1890.0,"gasto_promedio_por_comision":378.0},
+	{"ejercicio":2024,"tipo_viaje":"Nacional","total_comisiones":6,"gasto_total_erogado":16733.5,"gasto_promedio_por_comision":2788.92},
+	{"ejercicio":2025,"tipo_viaje":"Internacional","total_comisiones":2,"gasto_total_erogado":32342.23,"gasto_promedio_por_comision":16171.12},
+	{"ejercicio":2025,"tipo_viaje":"Nacional","total_comisiones":21762,"gasto_total_erogado":114023196.46,"gasto_promedio_por_comision":5239.56}
+]

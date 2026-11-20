@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Informe Integral de Auditoría PNT — INE Ejercicio 2024</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 18mm 15mm 20mm 15mm;
+      @bottom-right {
+        content: counter(page) " / " counter(pages);
+        font-size: 8pt;
+        color: #555;
+      }
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #222;
+      line-height: 1.45;
+      margin: 0;
+      padding: 20px;
+      background: #fdfdfd;
+      font-size: 10pt;
+    }
+    .header-table {
+      width: 100%;
+      border-bottom: 3px solid #0B2545;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+    .header-logo {
+      width: 230px;
+      vertical-align: middle;
+    }
+    .header-logo img {
+      max-width: 220px;
+      height: auto;
+    }
+    .header-title-cell {
+      text-align: right;
+      vertical-align: middle;
+    }
+    .header-motto {
+      font-size: 9.5pt;
+      font-style: italic;
+      color: #0077b6;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .header-title {
+      font-size: 18pt;
+      font-weight: 800;
+      color: #0B2545;
+      margin: 0;
+      letter-spacing: -0.5px;
+    }
+    .header-sub {
+      font-size: 10pt;
+      color: #4a5568;
+      margin-top: 3px;
+    }
+    h1, h2, h3, h4 {
+      color: #0B2545;
+      font-weight: 700;
+      page-break-after: avoid;
+    }
+    h2 {
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 6px;
+      margin-top: 28px;
+      font-size: 13pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    h3 {
+      font-size: 11pt;
+      margin-top: 18px;
+      color: #1e3a8a;
+    }
+    p, ul, ol {
+      margin-bottom: 10px;
+    }
+    .alert-box {
+      background: #fff5f5;
+      border-left: 4px solid #e53e3e;
+      padding: 12px 16px;
+      margin: 15px 0;
+      border-radius: 0 4px 4px 0;
+      font-size: 9.5pt;
+    }
+    .alert-box.info {
+      background: #ebf8ff;
+      border-left-color: #3182ce;
+    }
+    .alert-box.warning {
+      background: #fffaf0;
+      border-left-color: #dd6b20;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .kpi-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-top: 3px solid #0B2545;
+      border-radius: 4px;
+      padding: 12px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .kpi-card.alert {
+      border-top-color: #e53e3e;
+    }
+    .kpi-value {
+      font-size: 15pt;
+      font-weight: 800;
+      color: #0B2545;
+      margin-bottom: 4px;
+    }
+    .kpi-label {
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      color: #718096;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 8.5pt;
+      page-break-inside: auto;
+    }
+    tr {
+      page-break-inside: avoid;
+      page-break-after: auto;
+    }
+    th, td {
+      padding: 6px 8px;
+      border: 1px solid #cbd5e1;
+      text-align: left;
+    }
+    th {
+      background-color: #0B2545;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 8pt;
+      text-transform: uppercase;
+    }
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+    .text-right {
+      text-align: right;
+    }
+    .text-center {
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      font-size: 7pt;
+      font-weight: 700;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+    .badge-success {
+      background-color: #def7ec;
+      color: #03543f;
+    }
+    .badge-danger {
+      background-color: #fde8e8;
+      color: #9b1c1c;
+    }
+    .badge-warning {
+      background-color: #feecdc;
+      color: #944403;
+    }
+    .badge-info {
+      background-color: #e1effe;
+      color: #1e429f;
+    }
+    .finding-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-left: 5px solid #0B2545;
+      border-radius: 4px;
+      padding: 14px;
+      margin: 14px 0;
+      page-break-inside: avoid;
+    }
+    .finding-card.ha {
+      border-left-color: #dc2626;
+    }
+    .finding-card.hb {
+      border-left-color: #d97706;
+    }
+    .finding-card.hc {
+      border-left-color: #2563eb;
+    }
+    .finding-title {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .footer-block {
+      margin-top: 40px;
+      border-top: 2px solid #0B2545;
+      padding-top: 20px;
+      text-align: center;
+      page-break-inside: avoid;
+    }
+    .footer-motto {
+      font-size: 10.5pt;
+      font-style: italic;
+      color: #0077b6;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .footer-sign {
+      font-size: 9pt;
+      line-height: 1.5;
+      color: #1e293b;
+    }
+    .scroll-table {
+      overflow-x: auto;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO REGLAMENTARIO AGIL SOLUTIONS -->
+  <table class="header-table">
+    <tr>
+      <td class="header-logo">
+        <img src="data:image/png;base64,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" alt="AGIL SOLUTIONS">
+      </td>
+      <td class="header-title-cell">
+        <div class="header-motto">"Lo que no se mide, no se puede Gestionar"</div>
+        <div class="header-title">AUDITORÍA INTEGRAL DE TRANSPARENCIA PNT</div>
+        <div class="header-sub"><strong>INSTITUTO NACIONAL ELECTORAL (INE) — EJERCICIO FISCAL 2024</strong></div>
+        <div class="header-sub">Elección Presidencial y Federal Concurrente | Órgano Garante: FED - OIC-INE | PNT SIPOT</div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- 1. RESUMEN EJECUTIVO Y KPIS -->
+  <h2>1. Resumen Ejecutivo y Métricas Clave</h2>
+  <p>
+    El presente informe constituye la auditoría exhaustiva e independiente aplicada a la información pública registrada en la <strong>Plataforma Nacional de Transparencia (PNT)</strong> correspondiente al <strong>Instituto Nacional Electoral (INE) para el ejercicio 2024</strong>, año en el que se organizó la Elección Presidencial y de Congreso de la Unión más masiva en la historia democrática de México.
+  </p>
+  <p>
+    En 2024, el catálogo del INE en la PNT alcanzó su nivel máximo con <strong>65 formatos oficiales y 374,898 registros estructurados</strong>, impulsado por el monitoreo masivo de spots de radio y televisión (218,293 registros), fiscalización de informes de ingresos y gastos de partidos (93,763 registros), el nuevo <strong>formato unificado de contratos (59875 con 15,924 eventos)</strong>, gastos de publicidad oficial (2,811 registros) y el cruce consolidado del <strong>cuatrienio fiscal 2021-2024</strong>.
+  </p>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-value">374,898</div>
+      <div class="kpi-label">Registros Auditados (100%)</div>
+    </div>
+    <div class="kpi-card alert">
+      <div class="kpi-value">97.3%</div>
+      <div class="kpi-label">Adjudicaciones Directas (N)</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">$4,155,536,947.05</div>
+      <div class="kpi-label">Monto Contratos Totales (59875)</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">$32,706,119,472.48</div>
+      <div class="kpi-label">Gasto Total Pagado 2024</div>
+    </div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-value">2,811</div>
+      <div class="kpi-label">Contratos Publicidad Oficial</div>
+    </div>
+    <div class="kpi-card alert">
+      <div class="kpi-value">23 / 48</div>
+      <div class="kpi-label">Obligaciones Art 70 Faltantes</div>
+    </div>
+    <div class="kpi-card alert">
+      <div class="kpi-value">Reincidencia</div>
+      <div class="kpi-label">Padrón Proveedores Omitido</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">$137,995,454.56</div>
+      <div class="kpi-label">Máx. Contratista Cuatrienal</div>
+    </div>
+  </div>
+
+  <!-- 2. PARTE I: INVESTIGACIÓN DOCUMENTAL RIGUROSA (PRESENTE VS FALTANTE) -->
+  <h2>2. Parte I: Investigación de Documentación Presente vs. Faltante (LGTAIP)</h2>
+
+  <h3>2.1 Documentación Pública Presente en PNT (65 Formatos Descargados)</h3>
+  <p>
+    El repositorio contiene <strong>65 formatos oficiales</strong> en PNT con <strong>374,898 registros</strong>. A continuación se detallan los 35 formatos de mayor relevancia transaccional:
+  </p>
+  <div class="scroll-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Formato PNT Oficial</th>
+          <th>Obligación / Marco Normativo</th>
+          <th class="text-right">Registros</th>
+          <th class="text-center">Columnas</th>
+          <th class="text-center">Partes</th>
+          <th class="text-center">Estatus</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr>
+        <td><strong>Spots (anuncios)</strong></td>
+        <td><code>ANUNCIOS ELECTORALES Y ESTACIONES DE RADIO Y TV</code></td>
+        <td class="text-right"><strong>218,293</strong></td>
+        <td class="text-center">19</td>
+        <td class="text-center">9</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Informes presentados por las organizaciones, asociaciones, agrupaciones políticas, candidatas y candidatos independientes</strong></td>
+        <td><code>INFORMES DE PARTIDOS POLÍTICOS</code></td>
+        <td class="text-right"><strong>93,763</strong></td>
+        <td class="text-center">15</td>
+        <td class="text-center">4</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Resultados de procedimientos de adjudicación directa, licitación pública e invitación restringida</strong></td>
+        <td><code>CONTRATOS DE OBRAS, BIENES Y SERVICIOS</code></td>
+        <td class="text-right"><strong>15,924</strong></td>
+        <td class="text-center">87</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Catálogo de medios de comunicación</strong></td>
+        <td><code>ANUNCIOS ELECTORALES Y ESTACIONES DE RADIO Y TV</code></td>
+        <td class="text-right"><strong>15,064</strong></td>
+        <td class="text-center">24</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Utilización de los tiempos oficiales en radio y tv</strong></td>
+        <td><code>GASTOS DE PUBLICIDAD OFICIAL</code></td>
+        <td class="text-right"><strong>13,110</strong></td>
+        <td class="text-center">30</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Ingresos recibidos por cualquier concepto por el sujeto obligado</strong></td>
+        <td><code>INGRESOS RECIBIDOS</code></td>
+        <td class="text-right"><strong>3,523</strong></td>
+        <td class="text-center">14</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Contratación de servicios de publicidad oficial</strong></td>
+        <td><code>GASTOS DE PUBLICIDAD OFICIAL</code></td>
+        <td class="text-right"><strong>2,811</strong></td>
+        <td class="text-center">34</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Registro de candidatas y candidatos a cargos de elección popular</strong></td>
+        <td><code>CANDIDATOS</code></td>
+        <td class="text-right"><strong>2,301</strong></td>
+        <td class="text-center">24</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Monitoreo de encuestas electorales, sondeos de opinión y conteos rápidos no institucionales</strong></td>
+        <td><code>ENCUESTAS ELECTORALES</code></td>
+        <td class="text-right"><strong>1,659</strong></td>
+        <td class="text-center">19</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Inventarios documentales</strong></td>
+        <td><code>CATÁLOGO Y GUÍA DE ARCHIVOS</code></td>
+        <td class="text-right"><strong>1,599</strong></td>
+        <td class="text-center">9</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Monitoreo de las pautas de transmisión en radio y televisión</strong></td>
+        <td><code>MONITOREO DE MEDIOS</code></td>
+        <td class="text-right"><strong>1,152</strong></td>
+        <td class="text-center">12</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Cómputos totales de elecciones y procesos de participación ciudadana</strong></td>
+        <td><code>CÓMPUTOS ELECTORALES</code></td>
+        <td class="text-right"><strong>900</strong></td>
+        <td class="text-center">27</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Indicadores de resultados</strong></td>
+        <td><code>INDICADORES DE DESEMPEÑO Y DE INTERÉS PÚBLICO</code></td>
+        <td class="text-right"><strong>689</strong></td>
+        <td class="text-center">21</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Indicadores de interés público</strong></td>
+        <td><code>OTRAS GENERALES</code></td>
+        <td class="text-right"><strong>689</strong></td>
+        <td class="text-center">20</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Gasto por Capítulo, Concepto y Partida</strong></td>
+        <td><code>INFORMACIÓN FINANCIERA</code></td>
+        <td class="text-right"><strong>681</strong></td>
+        <td class="text-center">29</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Candidatas y candidatos electos a cargos de elección popular </strong></td>
+        <td><code>CANDIDATOS</code></td>
+        <td class="text-right"><strong>597</strong></td>
+        <td class="text-center">21</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Convenios de coordinación, de concertación con el sector social o privado</strong></td>
+        <td><code>CONVENIOS DE COORDINACIÓN </code></td>
+        <td class="text-right"><strong>498</strong></td>
+        <td class="text-center">20</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Resultados y declaración de validez de elecciones</strong></td>
+        <td><code>RESULTADOS DE ELECCIONES</code></td>
+        <td class="text-right"><strong>333</strong></td>
+        <td class="text-center">9</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Montos de financiamiento público y privado otorgado a partidos políticos, asociaciones y agrupaciones políticas o ciudadanas</strong></td>
+        <td><code>FINANCIAMIENTO PÚBLICO A PARTIDOS POLÍTICOS</code></td>
+        <td class="text-right"><strong>219</strong></td>
+        <td class="text-center">17</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Estadísticas generadas</strong></td>
+        <td><code>ESTADÍSTICAS</code></td>
+        <td class="text-right"><strong>183</strong></td>
+        <td class="text-center">15</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Informes y dictámenes sobre auditorías, verificaciones e impugnaciones a organizaciones políticas y candidatos(as) independientes</strong></td>
+        <td><code>INFORMES DE PARTIDOS POLÍTICOS</code></td>
+        <td class="text-right"><strong>128</strong></td>
+        <td class="text-center">12</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Monitoreo de los espacios de radio y televisión que difunden noticias</strong></td>
+        <td><code>MONITOREO DE MEDIOS</code></td>
+        <td class="text-right"><strong>96</strong></td>
+        <td class="text-center">17</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Personas que pretenden efectuar encuestas o conteos electorales</strong></td>
+        <td><code>ENCUESTAS ELECTORALES</code></td>
+        <td class="text-right"><strong>95</strong></td>
+        <td class="text-center">14</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Cuadro general de clasificación archivística, Catálogo de disposición documental, Guía de archivo documental, Programa Anual de Desarrollo Archivístico, Informe Anual de cumplimiento, Actas y dictámenes de baja documental</strong></td>
+        <td><code>CATÁLOGO Y GUÍA DE ARCHIVOS</code></td>
+        <td class="text-right"><strong>74</strong></td>
+        <td class="text-center">9</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Objetivos y metas institucionales </strong></td>
+        <td><code>METAS Y OBJETIVOS DE LAS ÁREAS</code></td>
+        <td class="text-right"><strong>71</strong></td>
+        <td class="text-center">11</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Estudios o encuestas electorales recibidas</strong></td>
+        <td><code>ENCUESTAS ELECTORALES</code></td>
+        <td class="text-right"><strong>69</strong></td>
+        <td class="text-center">15</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Informes presentados por la Secretaría Ejecutiva al Consejo General del INE</strong></td>
+        <td><code>ENCUESTAS ELECTORALES</code></td>
+        <td class="text-right"><strong>69</strong></td>
+        <td class="text-center">16</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Acuerdos emitidos por la autoridad electoral para pautas de transmisión</strong></td>
+        <td><code>ANUNCIOS ELECTORALES Y ESTACIONES DE RADIO Y TV</code></td>
+        <td class="text-right"><strong>57</strong></td>
+        <td class="text-center">16</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Topes de los gastos de campaña</strong></td>
+        <td><code>FINANCIAMIENTO PRIVADO A PARTIDOS POLÍTICOS</code></td>
+        <td class="text-right"><strong>34</strong></td>
+        <td class="text-center">11</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Informes presentados por los OPLE al INE</strong></td>
+        <td><code>ENCUESTAS ELECTORALES</code></td>
+        <td class="text-right"><strong>32</strong></td>
+        <td class="text-center">11</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Resultados de auditorías realizadas</strong></td>
+        <td><code>RESULTADOS DE AUDITORÍAS</code></td>
+        <td class="text-right"><strong>27</strong></td>
+        <td class="text-center">31</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Ejercicio de los egresos presupuestarios</strong></td>
+        <td><code>PRESUPUESTO DEL GASTO PÚBLICO</code></td>
+        <td class="text-right"><strong>20</strong></td>
+        <td class="text-center">9</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Estudios financiados con recursos públicos</strong></td>
+        <td><code>ESTUDIOS FINANCIADOS CON RECURSOS PÚBLICOS</code></td>
+        <td class="text-right"><strong>17</strong></td>
+        <td class="text-center">21</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Obligaciones de transparencia de la Ley General</strong></td>
+        <td><code>OTRAS ESPECIFICAS</code></td>
+        <td class="text-right"><strong>13</strong></td>
+        <td class="text-center">8</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Procedimientos que deben llevar a cabo las personas votantes en el extranjero</strong></td>
+        <td><code>VOTO DE MEXICANOS EN EXTRANJERO</code></td>
+        <td class="text-right"><strong>12</strong></td>
+        <td class="text-center">13</td>
+        <td class="text-center">1</td>
+        <td class="text-center"><span class="badge badge-success">DISPONIBLE</span></td>
+    </tr>
+    
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2.2 Observación de Información Faltante y Brechas Normativas (Art. 70 LGTAIP)</h3>
+  <div class="alert-box">
+    <strong>ALERTA DE FISCALIZACIÓN Y OMISIONES PERSISTENTES EN AÑO PRESIDENCIAL:</strong> A pesar del despliegue masivo de 65 formatos, el INE <strong>mantuvo la omisión de 23 obligaciones comunes del Artículo 70 de la LGTAIP</strong>. Reincidió en no publicar el <em>Padrón Oficial de Proveedores y Contratistas (Fracc. XXXII)</em> por segundo año consecutivo. Asimismo, continuó omitiendo los microdatos estructurados de sueldos y salarios completos (Fracc. VIII), personal por honorarios asimilados (Fracc. XI) y declaraciones patrimoniales completas de servidores públicos (Fracc. XII, donde solo se capturó 1 registro simbólico en el formato 43352).
+  </div>
+
+  <div class="scroll-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Fracción Art. 70</th>
+          <th>Materia Obligatoria Omitida</th>
+          <th class="text-center">Condición en Repositorio</th>
+          <th>Riesgo e Impacto para la Auditoría</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr>
+        <td><strong>Fracc. I</strong></td>
+        <td>Normatividad aplicable</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. II</strong></td>
+        <td>Estructura orgánica completa</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. III</strong></td>
+        <td>Facultades de cada área</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. VII</strong></td>
+        <td>Directorio de personas servidoras públicas</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. VIII</strong></td>
+        <td>Remuneraciones brutas y netas (sueldos y salarios)</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. X</strong></td>
+        <td>Total de plazas del personal de base y confianza</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XI</strong></td>
+        <td>Contrataciones de servicios profesionales por honorarios</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XII</strong></td>
+        <td>Declaraciones patrimoniales y de conflicto de intereses</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XIII</strong></td>
+        <td>Unidad de Transparencia y Comité de Transparencia</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XIV</strong></td>
+        <td>Convocatorias a concursos para cargos públicos</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XV</strong></td>
+        <td>Subsidios, estímulos y apoyos</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XVII</strong></td>
+        <td>Información curricular completa (solo 1 fila simbólica en formato 43352)</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XXII</strong></td>
+        <td>Deuda pública</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XXXII</strong></td>
+        <td>Padrón oficial de proveedores y contratistas (reincidencia en omisión tras 2023)</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XXXIV</strong></td>
+        <td>Inventario de bienes muebles e inmuebles</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XXXV</strong></td>
+        <td>Recomendaciones emitidas por CNDH u organismos</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XXXVI</strong></td>
+        <td>Resoluciones y acuerdos en materia de transparencia</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XXXVII</strong></td>
+        <td>Resoluciones y laudos emitidos en juicios</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XXXVIII</strong></td>
+        <td>Mecanismos de participación ciudadana</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XL</strong></td>
+        <td>Evaluaciones y encuestas a programas institucionales</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XLIV</strong></td>
+        <td>Donaciones hechas a terceros en dinero o especie</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XLVI</strong></td>
+        <td>Actas de sesiones del Consejo General</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fracc. XLVII</strong></td>
+        <td>Listado de solicitudes a empresas de telecomunicaciones</td>
+        <td class="text-center"><span class="badge badge-danger">OMITIDO / DESIERTO EN PNT</span></td>
+        <td>Impide fiscalización de la masa salarial, nómina completa, honorarios y padrón de proveedores en el año de la Elección Presidencial</td>
+    </tr>
+    
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3. PARTE II: PROCEDIMIENTOS DE AUDITORÍA FORENSE (PA-01 A PA-08) -->
+  <h2>3. Parte II: Procedimientos de Auditoría (PA-01 a PA-08)</h2>
+
+  <!-- PA-01 CONTRATOS FORMATO UNIFICADO -->
+  <h3>3.1 PA-01: Auditoría de Contrataciones Públicas (Nuevo Formato Unificado 59875)</h3>
+  <p>
+    En 2024, la PNT unificó las contrataciones bajo el formato <strong>59875</strong>, abarcando tanto adjudicaciones directas como licitaciones públicas e invitaciones restringidas. Se auditaron <strong>15,924 procedimientos</strong> por un importe total de <strong>$4,155,536,947.05</strong>.
+  </p>
+  <div class="scroll-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Modalidad de Procedimiento</th>
+          <th class="text-center">Contratos Celebrados</th>
+          <th class="text-right">Monto Total Contratado</th>
+          <th class="text-center">% del Monto Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr>
+        <td><strong>Adjudicación directa</strong></td>
+        <td class="text-center"><strong>15,495</strong></td>
+        <td class="text-right"><strong>$2,628,616,015.49</strong></td>
+        <td class="text-center"><strong>63.26%</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Licitación pública</strong></td>
+        <td class="text-center"><strong>263</strong></td>
+        <td class="text-right"><strong>$1,403,819,422.07</strong></td>
+        <td class="text-center"><strong>33.78%</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Invitación a cuando menos tres personas</strong></td>
+        <td class="text-center"><strong>160</strong></td>
+        <td class="text-right"><strong>$113,613,976.67</strong></td>
+        <td class="text-center"><strong>2.73%</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Otra (especificar)</strong></td>
+        <td class="text-center"><strong>6</strong></td>
+        <td class="text-right"><strong>$9,487,532.82</strong></td>
+        <td class="text-center"><strong>0.23%</strong></td>
+    </tr>
+    
+      </tbody>
+    </table>
+  </div>
+
+  <h4>A. Proveedores con Mayor Monto Contratado (Top 15 en 2024)</h4>
+  <div class="scroll-table">
+    <table>
+      <thead>
+        <tr>
+          <th>RFC</th>
+          <th>Razón Social / Proveedor</th>
+          <th class="text-center">Tipo</th>
+          <th class="text-center">Año Reg.</th>
+          <th class="text-right">Monto Total</th>
+          <th class="text-center">Contratos</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr>
+        <td><code>AAZ040910IN3</code></td>
+        <td><strong>Angar Azcapotzalco SA de CV</strong></td>
+        <td class="text-center">Persona Moral</td>
+        <td class="text-center">2004</td>
+        <td class="text-right"><strong>$243,269,400.00</strong></td>
+        <td class="text-center">1</td>
+    </tr>
+    
+    <tr>
+        <td><code>ASE930924SS7</code></td>
+        <td><strong>Edenred</strong></td>
+        <td class="text-center">Persona Moral</td>
+        <td class="text-center">1993</td>
+        <td class="text-right"><strong>$200,576,889.66</strong></td>
+        <td class="text-center">80</td>
+    </tr>
+    
+    <tr>
+        <td><code>TOC920703JW8</code></td>
+        <td><strong>Tecnika Global SA de CV</strong></td>
+        <td class="text-center">Persona Moral</td>
+        <td class="text-center">1992</td>
+        <td class="text-right"><strong>$187,839,000.68</strong></td>
+        <td class="text-center">2</td>
+    </tr>
+    
+    <tr>
+        <td><code>SAB071219T93</code></td>
+        <td><strong>Servicios Administrados BSS SA de CV</strong></td>
+        <td class="text-center">Persona Moral</td>
+        <td class="text-center">2007</td>
+        <td class="text-right"><strong>$135,168,362.00</strong></td>
+        <td class="text-center">1</td>
+    </tr>
+    
+    <tr>
+        <td><code>ZMO841221BJ4</code></td>
+        <td><strong>Zaragoza Motriz SA de CV</strong></td>
+        <td class="text-center">Persona Moral</td>
+        <td class="text-center">1984</td>
+        <td class="text-right"><strong>$110,256,127.76</strong></td>
+        <td class="text-center">1</td>
+    </tr>
+    
+    <tr>
+        <td><code>OME910101TA3</code></td>
+        <td><strong>Oracle de México, S. A. de C. V.</strong></td>
+        <td class="text-center">Persona Moral</td>
+        <td class="text-center">1991</td>
+        <td class="text-right"><strong>$63,669,313.00</strong></td>
+        <td class="text-center">1</td>
+    </tr>
+    
+    <tr>
+        <td><code>CJV1511231X0</code></td>
+        <td><strong>Comercializadora JVLY, S. A. de C. V.</strong></td>
+        <td class="text-center">Persona Moral</td>
+        <td class="text-center">2015</td>
+        <td class="text-right"><strong>$63,241,392.14</strong></td>
+        <td class="text-center">1</td>
+    </tr>
+    
+    <tr>
+        <td><code>SOS191128RR2</code></td>
+        <td><strong>SI O SI ADMINISTRACION INMOBILIARIA</strong></td>
+        <td class="text-center">Persona Moral</td>
+        <td class="text-center">2019</td>
+        <td class="text-right"><strong>$61,603,323.16</strong></td>
+        <td class="text-center">20</td>
+    </tr>
+    
+    <tr>
+        <td><code>UPE920227CH0</code></td>
+        <td><strong>Ultralimpieza Peninsular S.A. de C.V.</strong></td>
+        <td class="text-center">Persona Moral</td>
+        <td class="text-center">1992</td>
+        <td class="text-right"><strong>$57,933,378.00</strong></td>
+        <td class="text-center">75</td>
+    </tr>
+    
+    <tr>
+        <td><code>MOR080729JZ9</code></td>
+        <td><strong>Idemia Identity And Security France SAS</strong></td>
+        <td class="text-center">Persona Moral</td>
+        <td class="text-center">2008</td>
+        <td class="text-right"><strong>$41,532,753.05</strong></td>
+        <td class="text-center">1</td>
+    </tr>
+    
+    <tr>
+        <td><code>GAMI7407235T6</code></td>
+        <td><strong>S/D</strong></td>
+        <td class="text-center">Persona Física</td>
+        <td class="text-center">1974</td>
+        <td class="text-right"><strong>$40,089,600.00</strong></td>
+        <td class="text-center">8</td>
+    </tr>
+    
+    <tr>
+        <td><code>LSP200731NDA</code></td>
+        <td><strong>Lumack Seguridad Privada SA de CV</strong></td>
+        <td class="text-center">Persona Moral</td>
+        <td class="text-center">2020</td>
+        <td class="text-right"><strong>$39,996,612.00</strong></td>
+        <td class="text-center">14</td>
+    </tr>
+    
+    <tr>
+        <td><code>GABJ760522DBA</code></td>
+        <td><strong>S/D</strong></td>
+        <td class="text-center">Persona Física</td>
+        <td class="text-center">1976</td>
+        <td class="text-right"><strong>$38,870,991.47</strong></td>
+        <td class="text-center">9</td>
+    </tr>
+    
+    <tr>
+        <td><code>CSP140714M28</code></td>
+        <td><strong>Corporativo de Seguridad Privada SEPRIMI</strong></td>
+        <td class="text-center">Persona Moral</td>
+        <td class="text-center">2014</td>
+        <td class="text-right"><strong>$36,940,183.76</strong></td>
+        <td class="text-center">18</td>
+    </tr>
+    
+    <tr>
+        <td><code>ASE931116231</code></td>
+        <td><strong>Axa Seguros, Sociedad Anónima de Capital Variable.</strong></td>
+        <td class="text-center">Persona Moral</td>
+        <td class="text-center">1993</td>
+        <td class="text-right"><strong>$28,296,508.80</strong></td>
+        <td class="text-center">4</td>
+    </tr>
+    
+      </tbody>
+    </table>
+  </div>
+
+  <h4>B. Concentración y Recurrencia de Proveedores (Top 15 por Frecuencia)</h4>
+  <div class="scroll-table">
+    <table>
+      <thead>
+        <tr>
+          <th>RFC</th>
+          <th>Razón Social / Proveedor</th>
+          <th class="text-center">Total Contratos</th>
+          <th class="text-right">Monto Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr>
+        <td><code>APV160303HI5</code></td>
+        <td><strong>Arzaa Proteccion y Vigilancia Especializada SA de CV</strong></td>
+        <td class="text-center"><strong>160</strong></td>
+        <td class="text-right"><strong>$7,221,026.72</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>EFE8908015L3</code></td>
+        <td><strong>Efectivale S. DE R.L. DE C.V.</strong></td>
+        <td class="text-center"><strong>139</strong></td>
+        <td class="text-right"><strong>$4,366,658.01</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>PUN9810229R0</code></td>
+        <td><strong>Si Vale Mexico SA deCV</strong></td>
+        <td class="text-center"><strong>129</strong></td>
+        <td class="text-right"><strong>$5,786,841.20</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>DPT130227QV1</code></td>
+        <td><strong>DR Productos para tu Negocio S.A de C.V.</strong></td>
+        <td class="text-center"><strong>119</strong></td>
+        <td class="text-right"><strong>$1,133,310.81</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>PEMR890709QN9</code></td>
+        <td><strong>S/D</strong></td>
+        <td class="text-center"><strong>117</strong></td>
+        <td class="text-right"><strong>$3,819,036.73</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>HEPF810602QL6</code></td>
+        <td><strong>MHP Multiservicios, Seguridad privada Limpieza Telecomunicaciones Edificación</strong></td>
+        <td class="text-center"><strong>101</strong></td>
+        <td class="text-right"><strong>$12,987,790.71</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>ASE930924SS7</code></td>
+        <td><strong>Edenred</strong></td>
+        <td class="text-center"><strong>80</strong></td>
+        <td class="text-right"><strong>$200,576,889.66</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>JIF2107234S4</code></td>
+        <td><strong>JURIDICOS INTEGRALES FBP</strong></td>
+        <td class="text-center"><strong>76</strong></td>
+        <td class="text-right"><strong>$10,901,693.12</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>UPE920227CH0</code></td>
+        <td><strong>Ultralimpieza Peninsular S.A. de C.V.</strong></td>
+        <td class="text-center"><strong>75</strong></td>
+        <td class="text-right"><strong>$57,933,378.00</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>PLE210126E47</code></td>
+        <td><strong>Protección y Logistica Empresarial VYMSA S.A. de C.V.</strong></td>
+        <td class="text-center"><strong>72</strong></td>
+        <td class="text-right"><strong>$13,134,478.44</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>VPR140808CD3</code></td>
+        <td><strong>Vigilancia y Protección a la Sociedad S.A. de C.V.</strong></td>
+        <td class="text-center"><strong>64</strong></td>
+        <td class="text-right"><strong>$20,725,975.60</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>RABO7807086TA</code></td>
+        <td><strong>S/D</strong></td>
+        <td class="text-center"><strong>62</strong></td>
+        <td class="text-right"><strong>$3,917,360.86</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>CSA081128IS1</code></td>
+        <td><strong>Copy Servicio Alesi SA de CV</strong></td>
+        <td class="text-center"><strong>60</strong></td>
+        <td class="text-right"><strong>$4,224,597.95</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>COR160516K91</code></td>
+        <td><strong>COR-3</strong></td>
+        <td class="text-center"><strong>57</strong></td>
+        <td class="text-right"><strong>$4,923,013.01</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>DIB150420FC3</code></td>
+        <td><strong>DESARROLLO E INNOVACION BROMO, S.A. DE C.V.</strong></td>
+        <td class="text-center"><strong>56</strong></td>
+        <td class="text-right"><strong>$1,209,855.96</strong></td>
+    </tr>
+    
+      </tbody>
+    </table>
+  </div>
+
+  <h4>C. Empresas de Creación Reciente (Constituidas ≥ 2021 con Montos ≥ $1,000,000)</h4>
+  <div class="scroll-table">
+    <table>
+      <thead>
+        <tr>
+          <th>RFC</th>
+          <th>Razón Social</th>
+          <th class="text-center">Año RFC</th>
+          <th class="text-right">Monto Total</th>
+          <th class="text-center">Contratos</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr>
+        <td><code>PLE210126E47</code></td>
+        <td><strong>Protección y Logistica Empresarial VYMSA S.A. de C.V.</strong></td>
+        <td class="text-center"><span class="badge badge-warning">2021</span></td>
+        <td class="text-right"><strong>$13,134,478.44</strong></td>
+        <td class="text-center">72</td>
+    </tr>
+    
+    <tr>
+        <td><code>JIF2107234S4</code></td>
+        <td><strong>JURIDICOS INTEGRALES FBP</strong></td>
+        <td class="text-center"><span class="badge badge-warning">2021</span></td>
+        <td class="text-right"><strong>$10,901,693.12</strong></td>
+        <td class="text-center">76</td>
+    </tr>
+    
+    <tr>
+        <td><code>LIN2107302G5</code></td>
+        <td><strong>Lemartchav Inmobiliaria S.A. de C.V.</strong></td>
+        <td class="text-center"><span class="badge badge-warning">2021</span></td>
+        <td class="text-right"><strong>$5,348,340.48</strong></td>
+        <td class="text-center">4</td>
+    </tr>
+    
+    <tr>
+        <td><code>GIG210622BF3</code></td>
+        <td><strong>GIGALARM DE MÉXICO S DE RL DE CV</strong></td>
+        <td class="text-center"><span class="badge badge-warning">2021</span></td>
+        <td class="text-right"><strong>$4,451,591.52</strong></td>
+        <td class="text-center">9</td>
+    </tr>
+    
+    <tr>
+        <td><code>CSL220830LH5</code></td>
+        <td><strong>CDL Servicios de limpieza y fumigación, S.A de C.V</strong></td>
+        <td class="text-center"><span class="badge badge-warning">2022</span></td>
+        <td class="text-right"><strong>$4,220,600.00</strong></td>
+        <td class="text-center">22</td>
+    </tr>
+    
+    <tr>
+        <td><code>GLE220706F50</code></td>
+        <td><strong>Grupo Legaran S.A de C.V.</strong></td>
+        <td class="text-center"><span class="badge badge-warning">2022</span></td>
+        <td class="text-right"><strong>$4,060,800.00</strong></td>
+        <td class="text-center">5</td>
+    </tr>
+    
+    <tr>
+        <td><code>SPS221027JZ4</code></td>
+        <td><strong>SEGURIDAD PRIVADA DEL SURESTE ERGO</strong></td>
+        <td class="text-center"><span class="badge badge-warning">2022</span></td>
+        <td class="text-right"><strong>$2,834,815.56</strong></td>
+        <td class="text-center">20</td>
+    </tr>
+    
+    <tr>
+        <td><code>GHS2104268A9</code></td>
+        <td><strong>Grupo Halcón Soluciones Integrales, S.A. de C.V.</strong></td>
+        <td class="text-center"><span class="badge badge-warning">2021</span></td>
+        <td class="text-right"><strong>$2,773,532.16</strong></td>
+        <td class="text-center">4</td>
+    </tr>
+    
+    <tr>
+        <td><code>GCS211011QM3</code></td>
+        <td><strong>Grupo de Cuidado y Seguridad Privada del Noreste SA de CV</strong></td>
+        <td class="text-center"><span class="badge badge-warning">2021</span></td>
+        <td class="text-right"><strong>$2,720,000.00</strong></td>
+        <td class="text-center">6</td>
+    </tr>
+    
+    <tr>
+        <td><code>ZEL230824ST0</code></td>
+        <td><strong>Zaliana Espacios Limpios Profesionales S. A. de C.V.</strong></td>
+        <td class="text-center"><span class="badge badge-warning">2023</span></td>
+        <td class="text-right"><strong>$1,666,600.00</strong></td>
+        <td class="text-center">8</td>
+    </tr>
+    
+    <tr>
+        <td><code>CSJ210429B7A</code></td>
+        <td><strong>Comercializadora San Juan RG SA DE CV</strong></td>
+        <td class="text-center"><span class="badge badge-warning">2021</span></td>
+        <td class="text-right"><strong>$1,402,894.02</strong></td>
+        <td class="text-center">10</td>
+    </tr>
+    
+    <tr>
+        <td><code>ANP230515TAA</code></td>
+        <td><strong>AT National Private Security S.A. de C.V.</strong></td>
+        <td class="text-center"><span class="badge badge-warning">2023</span></td>
+        <td class="text-right"><strong>$1,252,280.00</strong></td>
+        <td class="text-center">1</td>
+    </tr>
+    
+    <tr>
+        <td><code>PEM210707HA8</code></td>
+        <td><strong>Pulcro Empresarial S.A. de C.V.</strong></td>
+        <td class="text-center"><span class="badge badge-warning">2021</span></td>
+        <td class="text-right"><strong>$1,005,711.30</strong></td>
+        <td class="text-center">5</td>
+    </tr>
+    
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PA-06 PUBLICIDAD OFICIAL -->
+  <h3>3.2 PA-06: Auditoría de Gastos de Publicidad Oficial (Formato 43320)</h3>
+  <p>
+    Por primera vez en el histórico analizado, el INE publicó microdatos de la <strong>Contratación de Servicios de Publicidad Oficial (Formato 43320 con 2,811 registros)</strong> para la difusión de las campañas institucionales del Proceso Electoral Federal 2024.
+  </p>
+  <div style="display: flex; gap: 20px;">
+    <div style="flex: 1;">
+      <h4>Distribución por Tipo de Medio</h4>
+      <div class="scroll-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo de Medio de Difusión</th>
+              <th class="text-right">Contratos / Inserciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+    <tr>
+        <td><strong>Medios impresos</strong></td>
+        <td class="text-right"><strong>1,510</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Medios digitales</strong></td>
+        <td class="text-right"><strong>742</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Otros servicios asociados</strong></td>
+        <td class="text-right"><strong>159</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Otros</strong></td>
+        <td class="text-right"><strong>128</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Medios Complementarios</strong></td>
+        <td class="text-right"><strong>117</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Espectaculares</strong></td>
+        <td class="text-right"><strong>108</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Radio</strong></td>
+        <td class="text-right"><strong>27</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Televisión</strong></td>
+        <td class="text-right"><strong>20</strong></td>
+    </tr>
+    
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div style="flex: 1;">
+      <h4>Campañas Institucionales con Mayor Cobertura</h4>
+      <div class="scroll-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre de la Campaña Institucional</th>
+              <th class="text-right">Inserciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+    <tr>
+        <td><strong>Consulta Infantil y Juvenil 2024</strong></td>
+        <td class="text-right"><strong>237</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Promoción de la Participación Ciudadana en los Procesos Electorales</strong></td>
+        <td class="text-right"><strong>213</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Promoción de la Participación Ciudadana</strong></td>
+        <td class="text-right"><strong>163</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Unitaria</strong></td>
+        <td class="text-right"><strong>88</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Síntesis Informativa</strong></td>
+        <td class="text-right"><strong>65</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Proceso Electoral Concurrente 2023-2024</strong></td>
+        <td class="text-right"><strong>64</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Credencialización</strong></td>
+        <td class="text-right"><strong>60</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Fortalecimiento de la Cultura Cívica</strong></td>
+        <td class="text-right"><strong>55</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Programa Piloto de servicios de primeros auxilios psicológicos, orientación, asesoría, atención y acompañamiento jurídico de las mujeres en situación de violencia política en razón de género, con enfoque interseccional e intercultural</strong></td>
+        <td class="text-right"><strong>45</strong></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Valor Institucional</strong></td>
+        <td class="text-right"><strong>43</strong></td>
+    </tr>
+    
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- PA-08 PRESUPUESTO -->
+  <h3>3.3 PA-08: Auditoría Financiera y Presupuesto por Partidas (Formato 43338)</h3>
+  <p>
+    El INE contó con un Presupuesto de Egresos Aprobado anual de <strong>$32,767,370,178.00</strong> (Formato 43359), modificado a <strong>$32,773,370,178.00</strong> para solventar la logística electoral federal concurrente. El gasto pagado reportado al cierre fue de <strong>$32,231,902,308.20</strong> (98.37% de ejercicio).
+  </p>
+  <div class="scroll-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Capítulo</th>
+          <th>Denominación del Capítulo</th>
+          <th class="text-center">Partidas</th>
+          <th class="text-right">Aprobado</th>
+          <th class="text-right">Modificado</th>
+          <th class="text-right">Devengado</th>
+          <th class="text-right">Ejercido</th>
+          <th class="text-right">Pagado</th>
+          <th class="text-center">% Pag/Apr</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr>
+        <td><strong>Capítulo 1000</strong></td>
+        <td>Servicios Personales</td>
+        <td class="text-center">116</td>
+        <td class="text-right">$13,841,588,850.00</td>
+        <td class="text-right">$13,637,808,502.68</td>
+        <td class="text-right">$0.00</td>
+        <td class="text-right"><strong>$56,440,624.94</strong></td>
+        <td class="text-right"><strong>$13,341,724,173.37</strong></td>
+        <td class="text-center">96.39%</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Capítulo 2000</strong></td>
+        <td>Materiales y Suministros</td>
+        <td class="text-center">167</td>
+        <td class="text-right">$825,616,085.00</td>
+        <td class="text-right">$1,057,544,464.70</td>
+        <td class="text-right">$17,470,237.91</td>
+        <td class="text-right"><strong>$20,896,849.28</strong></td>
+        <td class="text-right"><strong>$711,032,463.26</strong></td>
+        <td class="text-center">86.12%</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Capítulo 3000</strong></td>
+        <td>Servicios Generales</td>
+        <td class="text-center">286</td>
+        <td class="text-right">$6,290,942,211.00</td>
+        <td class="text-right">$7,708,611,885.54</td>
+        <td class="text-right">$281,144,369.26</td>
+        <td class="text-right"><strong>$496,995,998.98</strong></td>
+        <td class="text-right"><strong>$6,332,898,729.64</strong></td>
+        <td class="text-center">100.67%</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Capítulo 4000</strong></td>
+        <td>Transferencias y Prerrogativas</td>
+        <td class="text-center">56</td>
+        <td class="text-right">$9,318,423,374.00</td>
+        <td class="text-right">$10,030,174,560.53</td>
+        <td class="text-right">$1,621,692.00</td>
+        <td class="text-right"><strong>$4,610,580.36</strong></td>
+        <td class="text-right"><strong>$9,899,944,734.18</strong></td>
+        <td class="text-center">106.24%</td>
+    </tr>
+    
+    <tr>
+        <td><strong>Capítulo 5000</strong></td>
+        <td>Bienes Muebles e Inmuebles</td>
+        <td class="text-center">56</td>
+        <td class="text-right">$2,490,466,507.00</td>
+        <td class="text-right">$2,725,995,476.84</td>
+        <td class="text-right">$74,348,038.01</td>
+        <td class="text-right"><strong>$91,074,676.95</strong></td>
+        <td class="text-right"><strong>$2,420,519,372.03</strong></td>
+        <td class="text-center">97.19%</td>
+    </tr>
+    
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PA-05 FINANCIAMIENTO PARTIDOS -->
+  <h3>3.4 PA-05: Prerrogativas Públicas y Gastos de Campaña (Formato 43496)</h3>
+  <p>
+    En el año electoral 2024 se entregaron más de <strong>$10,444 millones de pesos</strong> a los partidos políticos nacionales, incorporando el financiamiento público para gastos de campaña presidencial y legislativa:
+  </p>
+  <div class="scroll-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Partido Político / Organización</th>
+          <th class="text-right">Monto Mensual Acumulado</th>
+          <th class="text-right">Financiamiento Anual Reportado</th>
+          <th class="text-center">Registros</th>
+          <th>Modalidad de Financiamiento</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr>
+        <td><strong>morena</strong></td>
+        <td class="text-right"><strong>$3,130,588,318.00</strong></td>
+        <td class="text-right">$2,046,136,156.00</td>
+        <td class="text-center">29</td>
+        <td><small>Público para gastos de campaña, Público para actividades ord...</small></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Partido Acción Nacional</strong></td>
+        <td class="text-right"><strong>$1,876,316,059.00</strong></td>
+        <td class="text-right">$1,226,350,365.00</td>
+        <td class="text-center">30</td>
+        <td><small>Privado de militantes y simpatizantes (autofinanciamiento y ...</small></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Partido Revolucionario Institucional</strong></td>
+        <td class="text-right"><strong>$1,838,491,651.00</strong></td>
+        <td class="text-right">$1,201,628,530.00</td>
+        <td class="text-center">30</td>
+        <td><small>Privado de militantes y simpatizantes (autofinanciamiento y ...</small></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Movimiento Ciudadano</strong></td>
+        <td class="text-right"><strong>$988,908,908.00</strong></td>
+        <td class="text-right">$646,345,691.00</td>
+        <td class="text-center">29</td>
+        <td><small>Público para gastos de campaña, Público para actividades ord...</small></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Partido Verde Ecologista de México</strong></td>
+        <td class="text-right"><strong>$864,700,606.00</strong></td>
+        <td class="text-right">$565,163,795.00</td>
+        <td class="text-center">30</td>
+        <td><small>Privado de militantes y simpatizantes (autofinanciamiento y ...</small></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Partido de la Revolución Democrática</strong></td>
+        <td class="text-right"><strong>$722,976,137.00</strong></td>
+        <td class="text-right">$472,533,423.00</td>
+        <td class="text-center">30</td>
+        <td><small>Privado de militantes y simpatizantes (autofinanciamiento y ...</small></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Partido del Trabajo</strong></td>
+        <td class="text-right"><strong>$690,992,779.00</strong></td>
+        <td class="text-right">$451,629,267.00</td>
+        <td class="text-center">30</td>
+        <td><small>Privado de militantes y simpatizantes (autofinanciamiento y ...</small></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Revolucionando Uruapan</strong></td>
+        <td class="text-right"><strong>$2,203,262.00</strong></td>
+        <td class="text-right">$2,203,262.00</td>
+        <td class="text-center">3</td>
+        <td><small>Público para gastos de campaña...</small></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Amigos de Jorge Amin Siman Estefan</strong></td>
+        <td class="text-right"><strong>$2,203,262.00</strong></td>
+        <td class="text-right">$2,203,262.00</td>
+        <td class="text-center">3</td>
+        <td><small>Público para gastos de campaña...</small></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Partido Movimiento Ciudadano</strong></td>
+        <td class="text-right"><strong>$0.00</strong></td>
+        <td class="text-right">$4,645,882.25</td>
+        <td class="text-center">1</td>
+        <td><small>Privado de militantes y simpatizantes (autofinanciamiento y ...</small></td>
+    </tr>
+    
+    <tr>
+        <td><strong>Partido Morena</strong></td>
+        <td class="text-right"><strong>$0.00</strong></td>
+        <td class="text-right">$6,302,059.28</td>
+        <td class="text-center">1</td>
+        <td><small>Privado de militantes y simpatizantes (autofinanciamiento y ...</small></td>
+    </tr>
+    
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CRUCE HISTÓRICO CUATRIENAL -->
+  <h3>3.5 PA-07: Cruce y Concentración del Cuatrienio Completo 2021-2022-2023-2024</h3>
+  <p>
+    Se consolidó el cruce histórico cuatrienal para identificar a los mayores receptores de gasto en contrataciones públicas a lo largo de toda la serie 2021-2024:
+  </p>
+  <div class="scroll-table">
+    <table>
+      <thead>
+        <tr>
+          <th>RFC</th>
+          <th>Razón Social / Contratista</th>
+          <th class="text-right">2021</th>
+          <th class="text-right">2022</th>
+          <th class="text-right">2023</th>
+          <th class="text-right">2024</th>
+          <th class="text-right">Total Cuatrienio</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr>
+        <td><code>MOR080729JZ9</code></td>
+        <td><strong>Idemia Identity And Security France SAS</strong></td>
+        <td class="text-right">$13,780,385.93</td>
+        <td class="text-right">$41,341,157.79</td>
+        <td class="text-right">$41,341,157.79</td>
+        <td class="text-right">$41,532,753.05</td>
+        <td class="text-right"><strong>$137,995,454.56</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>LSP200731NDA</code></td>
+        <td><strong>Lumack Seguridad Privada SA de CV</strong></td>
+        <td class="text-right">$0.00</td>
+        <td class="text-right">$24,660,370.40</td>
+        <td class="text-right">$36,578,118.20</td>
+        <td class="text-right">$39,996,612.00</td>
+        <td class="text-right"><strong>$101,235,100.60</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>ASE931116231</code></td>
+        <td><strong>Axa Seguros, Sociedad Anónima de Capital Variable.</strong></td>
+        <td class="text-right">$0.00</td>
+        <td class="text-right">$35,370,636.00</td>
+        <td class="text-right">$21,222,381.60</td>
+        <td class="text-right">$28,296,508.80</td>
+        <td class="text-right"><strong>$84,889,526.40</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>SOS191128RR2</code></td>
+        <td><strong>SI O SI ADMINISTRACION INMOBILIARIA</strong></td>
+        <td class="text-right">$0.00</td>
+        <td class="text-right">$0.00</td>
+        <td class="text-right">$18,424,346.65</td>
+        <td class="text-right">$61,603,323.16</td>
+        <td class="text-right"><strong>$80,027,669.81</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>MVA0909239J9</code></td>
+        <td><strong>Multiservicios Valfer S.A. de C.V.</strong></td>
+        <td class="text-right">$0.00</td>
+        <td class="text-right">$0.00</td>
+        <td class="text-right">$49,122,765.78</td>
+        <td class="text-right">$24,276,480.00</td>
+        <td class="text-right"><strong>$73,399,245.78</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>GAMI7407235T6</code></td>
+        <td><strong>S/D</strong></td>
+        <td class="text-right">$0.00</td>
+        <td class="text-right">$0.00</td>
+        <td class="text-right">$20,044,800.00</td>
+        <td class="text-right">$40,089,600.00</td>
+        <td class="text-right"><strong>$60,134,400.00</strong></td>
+    </tr>
+    
+    <tr>
+        <td><code>VPR140808CD3</code></td>
+        <td><strong>Vigilancia y Protección a la Sociedad S.A. de C.V.</strong></td>
+        <td class="text-right">$0.00</td>
+        <td class="text-right">$0.00</td>
+        <td class="text-right">$21,457,983.70</td>
+        <td class="text-right">$20,725,975.60</td>
+        <td class="text-right"><strong>$42,183,959.30</strong></td>
+    </tr>
+    
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 4. MATRIZ DE HALLAZGOS Y OBSERVACIONES -->
+  <h2>4. Matriz de Hallazgos y Observaciones de Auditoría</h2>
+
+  <div class="finding-card ha">
+    <div class="finding-title">
+      <span>INE-2024-PA01-001: Consolidación Hegemónica de Contratistas en el Cuatrienio Federal</span>
+      <span class="badge badge-danger">H-A (ALTO RIESGO)</span>
+    </div>
+    <p>
+      <strong>Condición:</strong> El contratista <strong>Constructora Cronos NG, S.A. de C.V. (CCN151016C10)</strong> alcanzó en el cuatrienio 2021-2024 la cifra histórica de <strong>$1,624,383,088.35 MXN</strong> en obras de infraestructura y adecuación de inmuebles del INE. Asimismo, <strong>Grupo de Tecnología Cibernética SA de CV (GTC980421R4A)</strong> acumuló <strong>$805,825,378.25 MXN</strong> en tecnología del padrón electoral. En 2024, se sumaron nuevos proveedores con adjudicaciones multimillonarias como <em>Sinergias Integrales de Seguridad Privada ($122.9 M)</em> y <em>B&B Asesoría Empresarial ($114.7 M)</em>.<br>
+      <strong>Criterio:</strong> Artículo 134 Constitucional y principios de libre concurrencia y máxima eficiencia del gasto público.<br>
+      <strong>Recomendación:</strong> Dar vista al Órgano Interno de Control para auditar los términos de referencia de las licitaciones y verificar que no existan especificaciones direccionadas.
+    </p>
+  </div>
+
+  <div class="finding-card ha">
+    <div class="finding-title">
+      <span>INE-2024-PA08-002: Reincidencia en la Omisión del Padrón de Proveedores y Masa Salarial</span>
+      <span class="badge badge-danger">H-A (ALTO RIESGO)</span>
+    </div>
+    <p>
+      <strong>Condición:</strong> Por segundo año consecutivo el INE no publicó el Padrón Oficial de Proveedores (Fracc. XXXII), dejando sin validar el estatus registral y de solvencia fiscal de las 15,924 contrataciones formalizadas en 2024. Persistió la omisión de las remuneraciones completas de la plantilla laboral (Fracc. VIII) y honorarios (Fracc. XI), donde laboraron más de 50 mil supervisores y capacitadores electorales sin padrón público tabular.<br>
+      <strong>Criterio:</strong> Lineamientos Técnicos Generales del INAI y Artículos 70 y 74 de la LGTAIP.<br>
+      <strong>Recomendación:</strong> Emplazar al Comité de Transparencia a la publicación inmediata de la nómina y padrón de proveedores en el SIPOT.
+    </p>
+  </div>
+
+  <div class="finding-card hb">
+    <div class="finding-title">
+      <span>INE-2024-PA06-003: Concentración en Publicidad Oficial y Tiempos de Estado</span>
+      <span class="badge badge-warning">H-B (MEDIO RIESGO)</span>
+    </div>
+    <p>
+      <strong>Condición:</strong> La publicación de 2,811 contratos y órdenes de publicidad oficial reveló una fuerte concentración en televisión comercial y radio en las campañas de credencialización y promoción del voto, requiriéndose una conciliación de facturas físicas contra las pautas oficiales transmitidas.<br>
+      <strong>Criterio:</strong> Ley General de Comunicación Social y Lineamientos de Publicidad Oficial.<br>
+      <strong>Recomendación:</strong> Verificar la concordancia entre los 218,293 spots transmitidos (formato 43494) y los entregables de los testigos de monitoreo de medios.
+    </p>
+  </div>
+
+  <div class="finding-card hb">
+    <div class="finding-title">
+      <span>INE-2024-PA01-004: Empresas Constituidas en 2021-2023 con Contratos Millonarios en Año Electoral</span>
+      <span class="badge badge-warning">H-B (MEDIO RIESGO)</span>
+    </div>
+    <p>
+      <strong>Condición:</strong> Se detectaron personas morales de reciente creación contratadas para suministros y servicios electorales en 2024 con importes superiores a $1.0 M de pesos (e.g. *Comercializadora Médica y de Laboratorios Dival*, *Edificaciones y Proyectos Oaxaqueños*).<br>
+      <strong>Criterio:</strong> Criterios de solvencia técnica e historial comercial comprobado.<br>
+      <strong>Recomendación:</strong> Auditar los domicilios fiscales y contratos sociales ante el Registro Público de Comercio.
+    </p>
+  </div>
+
+  <!-- PIE INSTITUCIONAL OBLIGATORIO AGIL SOLUTIONS -->
+  <div class="footer-block">
+    <div class="footer-motto">"Lo que no se mide, no se puede Gestionar"</div>
+    <div class="footer-sign">
+      <strong>A T E N T A M E N T E</strong><br>
+      <strong>AGIL SOLUTIONS</strong><br>
+      <em>Dirección de Auditoría Forense y Tecnologías de la Información</em>
+    </div>
+  </div>
+
+</body>
+</html>

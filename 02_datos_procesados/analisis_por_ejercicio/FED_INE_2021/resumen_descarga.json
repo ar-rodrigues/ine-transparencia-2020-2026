@@ -1,0 +1,218 @@
+[
+  {
+    "id": "43335",
+    "label": "Procedimientos de adjudicación directa",
+    "count": 96983,
+    "downloaded": 96983,
+    "status": "OK",
+    "archivos": 4
+  },
+  {
+    "id": "43488",
+    "label": "Registro de candidatas y candidatos a cargos de elección popular",
+    "count": 3476,
+    "downloaded": 3476,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43309",
+    "label": "Indicadores de interés público",
+    "count": 745,
+    "downloaded": 745,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43382",
+    "label": "Indicadores de resultados",
+    "count": 744,
+    "downloaded": 744,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43338",
+    "label": "Gasto por Capítulo, Concepto y Partida",
+    "count": 701,
+    "downloaded": 701,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43506",
+    "label": "Cómputos totales de elecciones y procesos de participación ciudadana",
+    "count": 605,
+    "downloaded": 605,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43490",
+    "label": "Candidatas y candidatos electos a cargos de elección popular ",
+    "count": 500,
+    "downloaded": 500,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43336",
+    "label": "Procedimientos de licitación pública e invitación a cuando menos tres personas",
+    "count": 462,
+    "downloaded": 462,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43496",
+    "label": "Montos de financiamiento público y privado otorgado a partidos políticos, asociaciones y agrupaciones políticas o ciudadanas",
+    "count": 328,
+    "downloaded": 328,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43508",
+    "label": "Monitoreo de encuestas electorales, sondeos de opinión y conteos rápidos no institucionales",
+    "count": 217,
+    "downloaded": 217,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43337",
+    "label": "Estadísticas generadas",
+    "count": 151,
+    "downloaded": 151,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43511",
+    "label": "Personas que pretenden efectuar encuestas o conteos electorales",
+    "count": 87,
+    "downloaded": 87,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43381",
+    "label": "Objetivos y metas institucionales ",
+    "count": 83,
+    "downloaded": 83,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43509",
+    "label": "Estudios o encuestas electorales recibidas",
+    "count": 64,
+    "downloaded": 64,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43510",
+    "label": "Informes presentados por la Secretaría Ejecutiva al Consejo General del INE",
+    "count": 63,
+    "downloaded": 63,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43512",
+    "label": "Informes presentados por los OPLE al INE",
+    "count": 35,
+    "downloaded": 35,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43360",
+    "label": "Ejercicio de los egresos presupuestarios",
+    "count": 24,
+    "downloaded": 24,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "36783",
+    "label": "Obligaciones de transparencia de la Ley General",
+    "count": 17,
+    "downloaded": 17,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43339",
+    "label": "Informes financieros contables, presupuestales y programáticos",
+    "count": 8,
+    "downloaded": 8,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43489",
+    "label": "Sistema de consulta de candidatas y candidatos a cargos de elección popular",
+    "count": 2,
+    "downloaded": 2,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43491",
+    "label": "Sistema de consulta de candidatas y candidatos electos a cargos de elección popular",
+    "count": 2,
+    "downloaded": 2,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43507",
+    "label": "Normatividad del INE en materia de encuestas",
+    "count": 2,
+    "downloaded": 2,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43495",
+    "label": "Acuerdos emitidos por la autoridad administrativa electoral respecto al financiamiento",
+    "count": 2,
+    "downloaded": 2,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43358",
+    "label": "Cuenta pública",
+    "count": 1,
+    "downloaded": 1,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43359",
+    "label": "Presupuesto asignado anual",
+    "count": 1,
+    "downloaded": 1,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43305",
+    "label": "Resultados de la dictaminación de los estados financieros",
+    "count": 1,
+    "downloaded": 1,
+    "status": "OK",
+    "archivos": 1
+  },
+  {
+    "id": "43372",
+    "label": "Convenios de coordinación, de concertación con el sector social o privado",
+    "count": 1,
+    "downloaded": 1,
+    "status": "OK",
+    "archivos": 1
+  }
+]

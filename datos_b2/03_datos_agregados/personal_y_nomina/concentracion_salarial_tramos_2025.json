@@ -1,0 +1,6 @@
+[
+	{"tramo":"Mandos Altos (>= $100k/mes)","orden":1,"plazas":1055.0,"pct_plazas":0.75,"masa_mensual_bruta":154767207.89,"pct_masa":6.09},
+	{"tramo":"Mandos Medios ($50k–$100k)","orden":2,"plazas":9870.0,"pct_plazas":7.05,"masa_mensual_bruta":700711789.93,"pct_masa":27.57},
+	{"tramo":"Operativo Esp. ($25k–$50k)","orden":3,"plazas":10992.0,"pct_plazas":7.86,"masa_mensual_bruta":361808031.83,"pct_masa":14.24},
+	{"tramo":"Base Operativa (< $25k)","orden":4,"plazas":117988.0,"pct_plazas":84.33,"masa_mensual_bruta":1324303628.92,"pct_masa":52.11}
+]

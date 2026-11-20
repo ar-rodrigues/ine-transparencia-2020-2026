@@ -1,0 +1,7 @@
+[
+	{"ejercicio":2020,"es_anio_electoral":false,"monto_total_ejercicio":5138530861.0,"variacion_nominal_anual":null,"variacion_pct_anual":null,"partidos_con_registro":10},
+	{"ejercicio":2021,"es_anio_electoral":true,"monto_total_ejercicio":6996114615.51,"variacion_nominal_anual":1857583754.51,"variacion_pct_anual":36.15,"partidos_con_registro":12},
+	{"ejercicio":2023,"es_anio_electoral":false,"monto_total_ejercicio":6114096979.0,"variacion_nominal_anual":-882017636.51,"variacion_pct_anual":-12.61,"partidos_con_registro":7},
+	{"ejercicio":2024,"es_anio_electoral":true,"monto_total_ejercicio":10117380982.0,"variacion_nominal_anual":4003284003.0,"variacion_pct_anual":65.48,"partidos_con_registro":9},
+	{"ejercicio":2026,"es_anio_electoral":false,"monto_total_ejercicio":1264866020.0,"variacion_nominal_anual":-8852514962.0,"variacion_pct_anual":-87.5,"partidos_con_registro":7}
+]
