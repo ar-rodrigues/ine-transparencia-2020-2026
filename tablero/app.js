@@ -149,22 +149,40 @@ async function loadMexicoGeo() {
 }
 
 // ==================== ESCENAS DEL SCROLLYTELLING (9 CAPÍTULOS) ====================
-function setStageMeta({ kicker, title, source = PNT_SOURCE, stepIndex, controlsHtml = "" }) {
+function setStageMeta({ kicker, title, source = PNT_SOURCE, stepIndex, controlsHtml = "" }, opts = {}) {
+  if (opts.controlsEl) {
+    if (opts.sourceEl) opts.sourceEl.textContent = source;
+    opts.controlsEl.innerHTML = controlsHtml;
+    return opts.controlsEl;
+  }
   document.getElementById("stage-kicker").textContent = kicker;
   document.getElementById("stage-title").textContent = title;
   document.getElementById("stage-source").textContent = source;
   document.getElementById("stage-counter").textContent = `0${stepIndex + 1} / 09`;
-  document.getElementById("stage-controls").innerHTML = controlsHtml;
+  const ctrlEl = document.getElementById("stage-controls");
+  ctrlEl.innerHTML = controlsHtml;
+  return ctrlEl;
 }
 
-function renderStep(stepIndex) {
-  if (!state.stageChart) return;
-  state.activeStep = stepIndex;
+function bindStageToggle(ctrlEl, attr, stateKey, stepIndex, opts) {
+  ctrlEl.querySelectorAll(`[${attr}]`).forEach((b) =>
+    b.addEventListener("click", () => {
+      state[stateKey] = b.getAttribute(attr);
+      renderStep(stepIndex, opts);
+    })
+  );
+}
 
-  document.querySelectorAll(".story-step").forEach((el) => el.classList.toggle("is-active", Number(el.dataset.step) === stepIndex));
-  document.querySelectorAll(".dot-link").forEach((el) => el.classList.toggle("active", Number(el.dataset.step) === stepIndex));
+function renderStep(stepIndex, opts = {}) {
+  const chart = opts.chart || state.stageChart;
+  if (!chart) return;
 
-  const chart = state.stageChart;
+  if (!opts.chart) {
+    state.activeStep = stepIndex;
+    document.querySelectorAll(".story-step").forEach((el) => el.classList.toggle("is-active", Number(el.dataset.step) === stepIndex));
+    document.querySelectorAll(".dot-link").forEach((el) => el.classList.toggle("active", Number(el.dataset.step) === stepIndex));
+  }
+
   chart.clear();
 
   // --- 01: DESTINO DEL PRESUPUESTO (% APILADO 2020 VS 2025 EN UNA SOLA GRÁFICA) ---
@@ -184,12 +202,15 @@ function renderStep(stepIndex) {
       { key: "5000", label: "Bienes Muebles e Inmuebles", color: COLORS.purple },
     ];
 
-    setStageMeta({
-      kicker: "01 · Destino del Presupuesto (% del Gasto Total)",
-      title: "¿A dónde se fue cada peso del INE? Comparativa 2020 vs. 2025",
-      source: `${PNT_SOURCE} · Ejercicios con desglose completo por capítulo`,
-      stepIndex,
-    });
+    setStageMeta(
+      {
+        kicker: "01 · Destino del Presupuesto (% del Gasto Total)",
+        title: "¿A dónde se fue cada peso del INE? Comparativa 2020 vs. 2025",
+        source: `${PNT_SOURCE} · Ejercicios con desglose completo por capítulo`,
+        stepIndex,
+      },
+      opts
+    );
 
     chart.setOption({
       animationDuration: 650,
@@ -248,23 +269,21 @@ function renderStep(stepIndex) {
     const pub = (state.data.publicidad || []).slice(0, 6);
     const mode = state.pubMode;
 
-    setStageMeta({
-      kicker: "02 · Publicidad Oficial 2025 ($147.65 MDP)",
-      title: mode === "participacion" ? "Distribución del gasto publicitario por medio (%)" : "Ticket promedio por pauta contratada (MXN)",
-      source: `${PNT_SOURCE} · Comunicación Social 2025`,
-      stepIndex,
-      controlsHtml: `
+    const ctrlEl = setStageMeta(
+      {
+        kicker: "02 · Publicidad Oficial 2025 ($147.65 MDP)",
+        title: mode === "participacion" ? "Distribución del gasto publicitario por medio (%)" : "Ticket promedio por pauta contratada (MXN)",
+        source: `${PNT_SOURCE} · Comunicación Social 2025`,
+        stepIndex,
+        controlsHtml: `
         <div class="segmented">
           <button class="seg-btn ${mode === "participacion" ? "active" : ""}" data-pubmode="participacion">% del Gasto</button>
           <button class="seg-btn ${mode === "ticket" ? "active" : ""}" data-pubmode="ticket">Ticket Promedio / Pauta</button>
         </div>`,
-    });
-    document.querySelectorAll("[data-pubmode]").forEach((b) =>
-      b.addEventListener("click", () => {
-        state.pubMode = b.dataset.pubmode;
-        renderStep(1);
-      })
+      },
+      opts
     );
+    bindStageToggle(ctrlEl, "data-pubmode", "pubMode", 1, opts);
 
     if (mode === "participacion") {
       chart.setOption({
@@ -338,23 +357,21 @@ function renderStep(stepIndex) {
   // --- 03: PARTIDOS POLÍTICOS (PORCENTAJES POR PARTIDO + EVOLUCIÓN) ---
   if (stepIndex === 2) {
     const mode = state.partidosMode;
-    setStageMeta({
-      kicker: "03 · Financiamiento Público a Partidos",
-      title: mode === "pct" ? "Reparto porcentual de la bolsa pública por partido (2020–2026)" : "Evolución de la bolsa total: años ordinarios vs. electorales",
-      source: `${PNT_SOURCE} · Prerrogativas a Partidos Políticos`,
-      stepIndex,
-      controlsHtml: `
+    const ctrlEl = setStageMeta(
+      {
+        kicker: "03 · Financiamiento Público a Partidos",
+        title: mode === "pct" ? "Reparto porcentual de la bolsa pública por partido (2020–2026)" : "Evolución de la bolsa total: años ordinarios vs. electorales",
+        source: `${PNT_SOURCE} · Prerrogativas a Partidos Políticos`,
+        stepIndex,
+        controlsHtml: `
         <div class="segmented">
           <button class="seg-btn ${mode === "pct" ? "active" : ""}" data-pmode="pct">% por Partido</button>
           <button class="seg-btn ${mode === "bolsa" ? "active" : ""}" data-pmode="bolsa">Bolsa Total ($)</button>
         </div>`,
-    });
-    document.querySelectorAll("[data-pmode]").forEach((b) =>
-      b.addEventListener("click", () => {
-        state.partidosMode = b.dataset.pmode;
-        renderStep(2);
-      })
+      },
+      opts
     );
+    bindStageToggle(ctrlEl, "data-pmode", "partidosMode", 2, opts);
 
     if (mode === "pct") {
       const years = [2020, 2021, 2023, 2024, 2026];
@@ -453,12 +470,15 @@ function renderStep(stepIndex) {
 
     const pct = (v, t) => Number(((v / t) * 100).toFixed(1));
 
-    setStageMeta({
-      kicker: "04 · Foco Rojo en Compras Públicas (2021–2023)",
-      title: "Volumen de contratos vs. Dinero ejercido por procedimiento",
-      source: `${PNT_SOURCE} · 125,433 contratos auditados ($6,257 MDP)`,
-      stepIndex,
-    });
+    setStageMeta(
+      {
+        kicker: "04 · Foco Rojo en Compras Públicas (2021–2023)",
+        title: "Volumen de contratos vs. Dinero ejercido por procedimiento",
+        source: `${PNT_SOURCE} · 125,433 contratos auditados ($6,257 MDP)`,
+        stepIndex,
+      },
+      opts
+    );
 
     chart.setOption({
       animationDuration: 650,
@@ -532,23 +552,21 @@ function renderStep(stepIndex) {
   // --- 05: DESTINO DE LA ADJUDICACIÓN DIRECTA (SERVICIOS VS PROVEEDORES) ---
   if (stepIndex === 4) {
     const mode = state.adMode;
-    setStageMeta({
-      kicker: "05 · Adjudicación Directa ($2,734 MDP)",
-      title: mode === "materia" ? "¿Qué servicios se contratan sin licitar?" : "Top 10 beneficiarios de Adjudicación Directa",
-      source: `${PNT_SOURCE} · Adjudicaciones Directas 2021–2023`,
-      stepIndex,
-      controlsHtml: `
+    const ctrlEl = setStageMeta(
+      {
+        kicker: "05 · Adjudicación Directa ($2,734 MDP)",
+        title: mode === "materia" ? "¿Qué servicios se contratan sin licitar?" : "Top 10 beneficiarios de Adjudicación Directa",
+        source: `${PNT_SOURCE} · Adjudicaciones Directas 2021–2023`,
+        stepIndex,
+        controlsHtml: `
         <div class="segmented">
           <button class="seg-btn ${mode === "materia" ? "active" : ""}" data-admode="materia">Por Servicio / Materia</button>
           <button class="seg-btn ${mode === "proveedores" ? "active" : ""}" data-admode="proveedores">Top Beneficiarios</button>
         </div>`,
-    });
-    document.querySelectorAll("[data-admode]").forEach((b) =>
-      b.addEventListener("click", () => {
-        state.adMode = b.dataset.admode;
-        renderStep(4);
-      })
+      },
+      opts
     );
+    bindStageToggle(ctrlEl, "data-admode", "adMode", 4, opts);
 
     if (mode === "materia") {
       const mat = (state.data.adMateria || []).filter((r) => r.monto_total > 1e6).reverse();
@@ -616,12 +634,15 @@ function renderStep(stepIndex) {
   // --- 06: MAPA GEOGRÁFICO DE CONTRATACIONES EN MÉXICO ---
   if (stepIndex === 5) {
     const estados = (state.data.contratacionesEstados || []).filter((r) => r.cve_inegi !== "00");
-    setStageMeta({
-      kicker: "06 · Mapa Geográfico de Compras (Sin Oficinas Centrales)",
-      title: "Gasto contratado por Entidad Federativa (2021–2023)",
-      source: `${PNT_SOURCE} · Oficinas Centrales suma aparte $1,807 MDP (28.9%)`,
-      stepIndex,
-    });
+    setStageMeta(
+      {
+        kicker: "06 · Mapa Geográfico de Compras (Sin Oficinas Centrales)",
+        title: "Gasto contratado por Entidad Federativa (2021–2023)",
+        source: `${PNT_SOURCE} · Oficinas Centrales suma aparte $1,807 MDP (28.9%)`,
+        stepIndex,
+      },
+      opts
+    );
 
     if (state.mexicoGeoLoaded) {
       const mapData = estados.map((r) => ({
@@ -677,12 +698,15 @@ function renderStep(stepIndex) {
     const totPers = comp.reduce((a, b) => a + b.total_personas_unicas, 0);
     const totMasa = comp.reduce((a, b) => a + b.masa_mensual_bruta, 0);
 
-    setStageMeta({
-      kicker: "07 · Estructura Laboral (2025)",
-      title: "Personal en Plaza Fija vs. Honorarios (% Personas y % Gasto Mensual)",
-      source: `${PNT_SOURCE} · Padrón de Personal y Honorarios 2025`,
-      stepIndex,
-    });
+    setStageMeta(
+      {
+        kicker: "07 · Estructura Laboral (2025)",
+        title: "Personal en Plaza Fija vs. Honorarios (% Personas y % Gasto Mensual)",
+        source: `${PNT_SOURCE} · Padrón de Personal y Honorarios 2025`,
+        stepIndex,
+      },
+      opts
+    );
 
     const plaza = comp.find((r) => r.regimen_contratacion.includes("Nómina")) || comp[0];
     const hon = comp.find((r) => r.regimen_contratacion.includes("Honorarios")) || comp[1];
@@ -742,23 +766,21 @@ function renderStep(stepIndex) {
   // --- 08: PIRÁMIDE SALARIAL Y MANDOS ALTOS ---
   if (stepIndex === 7) {
     const mode = state.salarioMode;
-    setStageMeta({
-      kicker: "08 · Distribución Salarial 2025",
-      title: mode === "concentracion" ? "% de Plazas vs. % de la Nómina por Nivel Salarial" : "Top 10 Puestos Mejor Pagados (Bruto vs. Neto Mensual)",
-      source: `${PNT_SOURCE} · Tabulador Salarial 2025 (2,536 cargos)`,
-      stepIndex,
-      controlsHtml: `
+    const ctrlEl = setStageMeta(
+      {
+        kicker: "08 · Distribución Salarial 2025",
+        title: mode === "concentracion" ? "% de Plazas vs. % de la Nómina por Nivel Salarial" : "Top 10 Puestos Mejor Pagados (Bruto vs. Neto Mensual)",
+        source: `${PNT_SOURCE} · Tabulador Salarial 2025 (2,536 cargos)`,
+        stepIndex,
+        controlsHtml: `
         <div class="segmented">
           <button class="seg-btn ${mode === "concentracion" ? "active" : ""}" data-salmode="concentracion">Concentración %</button>
           <button class="seg-btn ${mode === "cupula" ? "active" : ""}" data-salmode="cupula">Sueldos Top 10</button>
         </div>`,
-    });
-    document.querySelectorAll("[data-salmode]").forEach((b) =>
-      b.addEventListener("click", () => {
-        state.salarioMode = b.dataset.salmode;
-        renderStep(7);
-      })
+      },
+      opts
     );
+    bindStageToggle(ctrlEl, "data-salmode", "salarioMode", 7, opts);
 
     if (mode === "concentracion") {
       const tramos = state.data.salariosTramos || [];
@@ -831,23 +853,21 @@ function renderStep(stepIndex) {
   // --- 09: MAPA Y ANOMALÍAS DE VIÁTICOS ---
   if (stepIndex === 8) {
     const mode = state.viaticosMode;
-    setStageMeta({
-      kicker: "09 · Viáticos y Comisiones Oficiales (2025)",
-      title: mode === "mapa" ? "Mapa Nacional de Gasto en Viáticos ($114.05 MDP)" : "Viajes Atípicos vs. Promedio Nacional ($5,240)",
-      source: `${PNT_SOURCE} · 21,764 comisiones registradas en 2025`,
-      stepIndex,
-      controlsHtml: `
+    const ctrlEl = setStageMeta(
+      {
+        kicker: "09 · Viáticos y Comisiones Oficiales (2025)",
+        title: mode === "mapa" ? "Mapa Nacional de Gasto en Viáticos ($114.05 MDP)" : "Viajes Atípicos vs. Promedio Nacional ($5,240)",
+        source: `${PNT_SOURCE} · 21,764 comisiones registradas en 2025`,
+        stepIndex,
+        controlsHtml: `
         <div class="segmented">
           <button class="seg-btn ${mode === "mapa" ? "active" : ""}" data-vmode="mapa">Mapa de México</button>
           <button class="seg-btn ${mode === "outliers" ? "active" : ""}" data-vmode="outliers">Focos Rojos (&ge;10x prom.)</button>
         </div>`,
-    });
-    document.querySelectorAll("[data-vmode]").forEach((b) =>
-      b.addEventListener("click", () => {
-        state.viaticosMode = b.dataset.vmode;
-        renderStep(8);
-      })
+      },
+      opts
     );
+    bindStageToggle(ctrlEl, "data-vmode", "viaticosMode", 8, opts);
 
     if (mode === "mapa" && state.mexicoGeoLoaded) {
       const estados = state.data.viaticosEstados || [];
@@ -1266,7 +1286,62 @@ function wireUI() {
     }
   });
 
-  window.addEventListener("resize", () => state.stageChart && state.stageChart.resize());
+  window.addEventListener("resize", () => {
+    if (state.stageChart) state.stageChart.resize();
+    (state.mobileCharts || []).forEach((c) => c.resize());
+    if (window.innerWidth <= 980 && Object.keys(state.data || {}).length > 0) {
+      setupMobileCharts();
+    }
+  });
+}
+
+function setupMobileCharts() {
+  if (window.innerWidth > 980) return;
+  if (!state.mobileCharts) state.mobileCharts = [];
+  document.querySelectorAll(".story-step").forEach((stepEl) => {
+    if (stepEl.dataset.mobileInit === "1") return;
+    stepEl.dataset.mobileInit = "1";
+    const stepIndex = Number(stepEl.dataset.step);
+
+    const box = document.createElement("div");
+    box.className = "mobile-stage-box";
+    box.innerHTML = `
+      <div class="mobile-stage-controls"></div>
+      <div class="mobile-stage-chart"></div>
+      <div class="mobile-stage-source"></div>
+    `;
+    stepEl.appendChild(box);
+
+    const controlsEl = box.querySelector(".mobile-stage-controls");
+    const chartDiv = box.querySelector(".mobile-stage-chart");
+    const sourceEl = box.querySelector(".mobile-stage-source");
+
+    const initThisChart = () => {
+      if (chartDiv.dataset.rendered === "1") return;
+      chartDiv.dataset.rendered = "1";
+      const mobileChart = echarts.init(chartDiv, null, { renderer: "canvas" });
+      state.mobileCharts.push(mobileChart);
+      renderStep(stepIndex, { chart: mobileChart, controlsEl, sourceEl });
+      if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(() => mobileChart.resize()).observe(chartDiv);
+      }
+    };
+
+    if (typeof IntersectionObserver !== "undefined") {
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            initThisChart();
+            io.disconnect();
+          }
+        },
+        { rootMargin: "250px 0px" }
+      );
+      io.observe(box);
+    } else {
+      initThisChart();
+    }
+  });
 }
 
 // ==================== BOOTSTRAP ====================
@@ -1299,6 +1374,7 @@ function wireUI() {
   if (!document.body.classList.contains("is-embed-chart")) {
     setupParallaxAndProgress();
     setupScrollyObserver();
+    setupMobileCharts();
     renderExplorerTable();
   }
 })();
