@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """
-Utilidad: Descargador Oficial de Capas de Datos — Observatorio INE (2020–2026)
+Utilidad: Descargador Oficial de Carpetas de Datos — Observatorio INE (2020–2026)
 AGIL Solutions · Inteligencia de Datos
 
-Permite descargar bajo demanda las capas de datos del proyecto desde Backblaze B2:
-  - Capa Oro   (~160 KB) : 21 tablas analíticas y KPIs precalculados (Parquet/JSON)
-  - Capa Plata (~122 MB) : Bases deduplicadas y normalizadas (125k contratos, nómina, viáticos)
-  - Capa Bronce (~1.5 GB): JSONs y CSVs crudos originales descargados de la PNT
+Permite descargar bajo demanda los conjuntos de datos del proyecto desde Backblaze B2:
+  - 03_datos_agregados (~160 KB) : 21 tablas analíticas y KPIs precalculados (Parquet/JSON)
+  - 02_datos_limpios   (~122 MB) : Bases deduplicadas y normalizadas (125k contratos, nómina, viáticos)
+  - 01_datos_crudos    (~1.5 GB) : JSONs y CSVs crudos originales descargados de la PNT
 
 Uso:
-  python3 scripts/utilidades/descargar_datos_b2.py --capa oro
-  python3 scripts/utilidades/descargar_datos_b2.py --capa plata
-  python3 scripts/utilidades/descargar_datos_b2.py --capa bronce
+  python3 scripts/utilidades/descargar_datos_b2.py --capa agregados
+  python3 scripts/utilidades/descargar_datos_b2.py --capa limpios
+  python3 scripts/utilidades/descargar_datos_b2.py --capa crudos
   python3 scripts/utilidades/descargar_datos_b2.py --capa todas
 """
 
@@ -36,6 +36,9 @@ DEFAULT_ENDPOINT = "https://s3.us-east-005.backblazeb2.com"
 DEFAULT_BUCKET = "ine-data-lake"
 
 PREFIXES = {
+    "agregados": "03_datos_agregados/",
+    "limpios": "02_datos_limpios/",
+    "crudos": "01_datos_crudos/",
     "oro": "03_datos_agregados/",
     "plata": "02_datos_limpios/",
     "bronce": "01_datos_crudos/",
@@ -101,9 +104,9 @@ def main():
     parser = argparse.ArgumentParser(description="Descarga capas de datos del INE desde Backblaze B2.")
     parser.add_argument(
         "--capa",
-        choices=["oro", "plata", "bronce", "todas"],
-        default="oro",
-        help="Capa de datos a descargar (oro: 160KB, plata: 122MB, bronce: 1.5GB, todas: 1.6GB)",
+        choices=["agregados", "limpios", "crudos", "todas", "oro", "plata", "bronce"],
+        default="agregados",
+        help="Conjunto de datos a descargar (agregados: ~160KB, limpios: ~122MB, crudos: ~1.5GB, todas: ~1.6GB)",
     )
     parser.add_argument("--destino", default=str(DATOS_DIR), help="Directorio local de destino")
     parser.add_argument("--bucket", default=os.getenv("B2_BUCKET_NAME", DEFAULT_BUCKET), help="Nombre del bucket B2")
@@ -114,7 +117,7 @@ def main():
 
     s3 = obtener_cliente_s3()
 
-    capas = ["oro", "plata", "bronce"] if args.capa == "todas" else [args.capa]
+    capas = ["agregados", "limpios", "crudos"] if args.capa == "todas" else [args.capa]
 
     print("=" * 65)
     print("  OBSERVATORIO INE (2020–2026) · DESCARGADOR DE DATOS B2")

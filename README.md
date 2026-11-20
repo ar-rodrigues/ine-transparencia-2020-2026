@@ -4,7 +4,7 @@
 
 [![Licencia](https://img.shields.io/badge/licencia-MIT-gold.svg)](LICENSE)
 [![Datos: PNT](https://img.shields.io/badge/fuente-PNT%20%C2%B7%20INE-crimson.svg)](https://consultapublicamx.inai.org.mx/vtransparencia/)
-[![Formato](https://img.shields.io/badge/datos-Apache%20Parquet%20%7C%20DuckDB-blue.svg)](#arquitectura-de-datos)
+[![Formato](https://img.shields.io/badge/datos-Apache%20Parquet%20%7C%20DuckDB-blue.svg)](#estructura-del-proyecto-y-datos)
 
 Investigación visual, pipeline de ingeniería de datos y repositorio auditable sobre más de **$27,820 millones de pesos ejercidos**, **125,433 contratos públicos**, el tabulador de **2,536 cargos salariales** y los registros de viáticos del Instituto Nacional Electoral (INE) para los ejercicios fiscales 2020 a 2026, obtenidos directamente de la **Plataforma Nacional de Transparencia (PNT)**.
 
@@ -23,20 +23,20 @@ Investigación visual, pipeline de ingeniería de datos y repositorio auditable 
 
 ---
 
-## 🏛️ Arquitectura de Datos (*Medallion Architecture*)
+## 🏛️ Estructura del Proyecto y Datos
 
-El lago de datos está estructurado en tres capas reproducibles almacenadas en **Backblaze B2**:
+El proyecto organiza los datos en tres directorios de procesamiento continuo:
 
 ```text
 INE/
 ├── datos_b2/
-│   ├── 01_datos_crudos/      # Capa Bronce (~1.5 GB): JSONs y CSVs sin alterar de la PNT
-│   ├── 02_datos_limpios/     # Capa Plata  (~122 MB): Tablas Parquet normalizadas y deduplicadas
-│   └── 03_datos_agregados/   # Capa Oro    (~160 KB): 21 tablas analíticas y KPIs (Parquet + JSON)
+│   ├── 01_datos_crudos/      # Descargas originales sin alterar de la PNT (JSON y CSV, ~1.5 GB)
+│   ├── 02_datos_limpios/     # Bases normalizadas y deduplicadas en formato Parquet (~122 MB)
+│   └── 03_datos_agregados/   # 21 tablas analíticas y KPIs precalculados (Parquet + JSON, ~160 KB)
 │
 ├── scripts/                  # Pipelines automatizados de limpieza y agregación
 │   ├── etl/                  # Scripts de transformación Python + DuckDB
-│   └── utilidades/           # Descargador B2 y exportador Parquet -> CSV/JSON
+│   └── utilidades/           # Descargador desde B2 y exportador a CSV
 │
 └── tablero/                  # Especial interactivo Scrollytelling + Parallax (HTML5 / ECharts)
 ```
@@ -52,7 +52,7 @@ cd ine-transparencia-2020-2026
 ```
 
 ### 2. Levantar el Tablero Interactivo
-El tablero no requiere NodeJS ni compilaciones pesadas. Utiliza **DuckDB-WASM** y **Apache ECharts** cargados desde el navegador consumiendo la **Capa Oro** incluida en el repositorio:
+El tablero no requiere NodeJS ni compilaciones pesadas. Utiliza **DuckDB-WASM** y **Apache ECharts** cargados desde el navegador consumiendo directamente los datos de `03_datos_agregados/` incluidos en este repositorio:
 ```bash
 python3 -m http.server 8765
 ```
@@ -60,22 +60,25 @@ Abre en tu navegador: `http://localhost:8765/tablero/`
 
 ---
 
-## 📦 Descarga de Datos desde Backblaze B2
+## 📦 Descarga de Datos Completos
 
-El repositorio incluye un script CLI oficial para descargar cualquiera de las capas de datos:
+El repositorio incluye un script CLI para descargar cualquiera de los directorios de datos bajo demanda desde el almacenamiento distribuido en Backblaze B2:
 
 ```bash
-# Instalar dependencia
+# Instalar dependencias
 pip install boto3
 
-# Descargar Capa Oro (160 KB - Parquets agregados)
-python3 scripts/utilidades/descargar_datos_b2.py --capa oro
+# Descargar datos agregados (21 tablas analíticas Parquet y JSON, ~160 KB)
+python3 scripts/utilidades/descargar_datos_b2.py --capa agregados
 
-# Descargar Capa Plata (122 MB - 125k contratos, nómina, viáticos en Parquet)
-python3 scripts/utilidades/descargar_datos_b2.py --capa plata
+# Descargar bases limpias procesadas (125k contratos, nómina y viáticos en Parquet, ~122 MB)
+python3 scripts/utilidades/descargar_datos_b2.py --capa limpios
 
-# Descargar Capa Bronce (1.5 GB - JSONs crudos de la PNT)
-python3 scripts/utilidades/descargar_datos_b2.py --capa bronce
+# Descargar datos crudos originales de la PNT (JSONs y CSVs completos, ~1.5 GB)
+python3 scripts/utilidades/descargar_datos_b2.py --capa crudos
+
+# Descargar todos los conjuntos
+python3 scripts/utilidades/descargar_datos_b2.py --capa todas
 ```
 
 ### Consultas rápidas con DuckDB CLI (sin servidor de base de datos)
@@ -86,33 +89,6 @@ duckdb -c "SELECT ranking, proveedor_nombre, total_contratos, monto_total FROM '
 # Exportar cualquier tabla agregada a CSV
 python3 scripts/utilidades/exportar_agregados.py --formato csv
 ```
-
----
-
-## 🧩 Incrustar Gráficas en Ghost o Sitios Web
-
-Cada una de las 9 gráficas interactivas se puede incrustar de forma individual y responsiva en cualquier post o página web usando un `<iframe>` limpio:
-
-```html
-<iframe 
-  src="https://tu-dominio.com/tablero/?embed=chart&step=3" 
-  width="100%" 
-  height="560" 
-  style="border:none;border-radius:14px;background:#080808;overflow:hidden;" 
-  scrolling="no" 
-  loading="lazy">
-</iframe>
-```
-*Parámetro `step` (0 al 8):*
-- `0`: Destino del Presupuesto (Comparativa 2020 vs 2025)
-- `1`: Publicidad Oficial y Ticket Promedio
-- `2`: Reparto a Partidos Políticos
-- `3`: Adjudicaciones Directas vs. Licitaciones (Foco Rojo)
-- `4`: ¿En qué y a quién se adjudica directamente?
-- `5`: Mapa Geográfico de Contrataciones (México)
-- `6`: Estructura Laboral: Nómina vs. Honorarios
-- `7`: Pirámide Salarial y Mandos Altos
-- `8`: Mapa Nacional y Anomalías de Viáticos
 
 ---
 
