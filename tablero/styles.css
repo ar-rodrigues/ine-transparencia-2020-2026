@@ -930,8 +930,14 @@ body.is-embed-full .scrolly-stage-col {
 .github-actions {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 10px;
+}
+
+.github-actions .btn-lg {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
 }
 
 .github-hint {
