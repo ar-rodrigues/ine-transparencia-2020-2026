@@ -1204,6 +1204,41 @@ function wireUI() {
   document.getElementById("btn-embed-current")?.addEventListener("click", () => openEmbedModal(Math.max(0, state.activeStep)));
   document.getElementById("embed-chapter-select")?.addEventListener("change", (e) => updateEmbedSnippet(e.target.value));
 
+  // Modal de descarga B2 (Capa Plata)
+  const vaultModal = document.getElementById("vault-modal");
+  document.getElementById("btn-open-vault")?.addEventListener("click", async () => {
+    if (vaultModal) {
+      vaultModal.hidden = false;
+      const tbody = document.querySelector("#vault-download-table tbody");
+      if (!tbody.children.length) {
+        try {
+          const resp = await fetch("./catalogo_descargas_b2.json");
+          const items = await resp.json();
+          tbody.innerHTML = items
+            .map(
+              (item) => `<tr>
+                <td><span class="badge-mini">${item.dominio}</span></td>
+                <td><strong>${item.archivo}</strong></td>
+                <td><span class="badge-mini">${item.formato}</span></td>
+                <td class="num">${typeof item.tamano_mb === "number" ? item.tamano_mb + " MB" : item.tamano_mb}</td>
+                <td class="num"><a class="btn-gold btn-sm" href="${item.url}" target="_blank" rel="noopener noreferrer">↓ Descargar</a></td>
+              </tr>`
+            )
+            .join("");
+        } catch {
+          tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:20px;">Cargando catálogo...</td></tr>`;
+        }
+      }
+    }
+  });
+
+  document.getElementById("vault-modal-close")?.addEventListener("click", () => {
+    if (vaultModal) vaultModal.hidden = true;
+  });
+  vaultModal?.addEventListener("click", (e) => {
+    if (e.target.id === "vault-modal") vaultModal.hidden = true;
+  });
+
   document.getElementById("modal-close")?.addEventListener("click", () => (document.getElementById("embed-modal").hidden = true));
   document.getElementById("embed-modal")?.addEventListener("click", (e) => {
     if (e.target.id === "embed-modal") e.target.hidden = true;

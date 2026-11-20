@@ -929,6 +929,29 @@ body.is-embed-full .scrolly-stage-col {
   gap: 14px;
 }
 
+.modal-card.modal-card-wide {
+  max-width: 820px;
+}
+
+.parquet-help-callout {
+  background: rgba(201, 168, 76, 0.08);
+  border-left: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.parquet-help-callout strong {
+  color: var(--gold-light);
+}
+
+.parquet-help-callout a {
+  color: var(--cyan);
+  text-decoration: underline;
+}
+
 .modal-head { display: flex; justify-content: space-between; align-items: center; }
 .modal-head h3 { font-family: var(--font-serif); font-size: 20px; }
 .modal-close { background: transparent; border: none; color: var(--text-muted); font-size: 26px; cursor: pointer; }

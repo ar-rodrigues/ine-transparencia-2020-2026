@@ -1,0 +1,173 @@
+[
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Acuerdos Consejo General",
+    "archivo": "acuerdos_consejo_general_2022_2026.csv",
+    "formato": "CSV",
+    "tamano_mb": "6.0 KB",
+    "ruta": "02_datos_limpios/acuerdos_consejo_general/acuerdos_consejo_general_2022_2026.csv",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/acuerdos_consejo_general/acuerdos_consejo_general_2022_2026.csv?AWSAccessKeyId=0058015f395f6c10000000001&Signature=r6vgQf3N4hltkm%2F%2BLKlvTy36lFQ%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Acuerdos Consejo General",
+    "archivo": "acuerdos_consejo_general_2022_2026.parquet",
+    "formato": "PARQUET",
+    "tamano_mb": "8.9 KB",
+    "ruta": "02_datos_limpios/acuerdos_consejo_general/acuerdos_consejo_general_2022_2026.parquet",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/acuerdos_consejo_general/acuerdos_consejo_general_2022_2026.parquet?AWSAccessKeyId=0058015f395f6c10000000001&Signature=ygt%2Be9rFfsEni2aOuNkIehIlrJs%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Contrataciones",
+    "archivo": "adjudicaciones_directas_2021_2023.parquet",
+    "formato": "PARQUET",
+    "tamano_mb": 71.54,
+    "ruta": "02_datos_limpios/contrataciones/adjudicaciones_directas_2021_2023.parquet",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/contrataciones/adjudicaciones_directas_2021_2023.parquet?AWSAccessKeyId=0058015f395f6c10000000001&Signature=xL2uoBhvTqqaUJqbFqHPNJG%2BTlc%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Contrataciones",
+    "archivo": "contrataciones_ine_consolidadas_2021_2023.parquet",
+    "formato": "PARQUET",
+    "tamano_mb": 8.75,
+    "ruta": "02_datos_limpios/contrataciones/contrataciones_ine_consolidadas_2021_2023.parquet",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/contrataciones/contrataciones_ine_consolidadas_2021_2023.parquet?AWSAccessKeyId=0058015f395f6c10000000001&Signature=wMB%2FfrrADUOq3xo8KdzH1527XYM%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Contrataciones",
+    "archivo": "licitaciones_publicas_2022_2023.parquet",
+    "formato": "PARQUET",
+    "tamano_mb": "224.0 KB",
+    "ruta": "02_datos_limpios/contrataciones/licitaciones_publicas_2022_2023.parquet",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/contrataciones/licitaciones_publicas_2022_2023.parquet?AWSAccessKeyId=0058015f395f6c10000000001&Signature=QiYvKFog05Q53yzIh4W7JF55jpo%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Contrataciones",
+    "archivo": "padron_proveedores_2022_2025.parquet",
+    "formato": "PARQUET",
+    "tamano_mb": "67.0 KB",
+    "ruta": "02_datos_limpios/contrataciones/padron_proveedores_2022_2025.parquet",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/contrataciones/padron_proveedores_2022_2025.parquet?AWSAccessKeyId=0058015f395f6c10000000001&Signature=UD1GxkxiVCTZuPgmsj1u4QTHuqI%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Contrataciones",
+    "archivo": "top_contratos_mayores_ine.csv",
+    "formato": "CSV",
+    "tamano_mb": "240.7 KB",
+    "ruta": "02_datos_limpios/contrataciones/top_contratos_mayores_ine.csv",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/contrataciones/top_contratos_mayores_ine.csv?AWSAccessKeyId=0058015f395f6c10000000001&Signature=DcNnwrTPNDL5s7ZWw%2BzYx1DbJa4%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Financiamiento Partidos",
+    "archivo": "financiamiento_partidos_2020_2026.csv",
+    "formato": "CSV",
+    "tamano_mb": "508.2 KB",
+    "ruta": "02_datos_limpios/financiamiento_partidos/financiamiento_partidos_2020_2026.csv",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/financiamiento_partidos/financiamiento_partidos_2020_2026.csv?AWSAccessKeyId=0058015f395f6c10000000001&Signature=d4D2IIvdfZBXQ%2Fxpae6ze%2Frd2VA%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Financiamiento Partidos",
+    "archivo": "financiamiento_partidos_2020_2026.parquet",
+    "formato": "PARQUET",
+    "tamano_mb": "23.8 KB",
+    "ruta": "02_datos_limpios/financiamiento_partidos/financiamiento_partidos_2020_2026.parquet",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/financiamiento_partidos/financiamiento_partidos_2020_2026.parquet?AWSAccessKeyId=0058015f395f6c10000000001&Signature=TETUozPxe1uL4eNaVko8Yk4oCaQ%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Personal Y Nomina",
+    "archivo": "contrataciones_honorarios_2025.parquet",
+    "formato": "PARQUET",
+    "tamano_mb": 9.46,
+    "ruta": "02_datos_limpios/personal_y_nomina/contrataciones_honorarios_2025.parquet",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/personal_y_nomina/contrataciones_honorarios_2025.parquet?AWSAccessKeyId=0058015f395f6c10000000001&Signature=5lRwfkD8kZszGN6BreD%2FlSwG8z0%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Personal Y Nomina",
+    "archivo": "padron_historico_empleados_2020_2026.parquet",
+    "formato": "PARQUET",
+    "tamano_mb": 16.64,
+    "ruta": "02_datos_limpios/personal_y_nomina/padron_historico_empleados_2020_2026.parquet",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/personal_y_nomina/padron_historico_empleados_2020_2026.parquet?AWSAccessKeyId=0058015f395f6c10000000001&Signature=ibMc5vpJKA8ESrQ%2BvrXRlw%2BBURY%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Personal Y Nomina",
+    "archivo": "remuneraciones_personal_2025.parquet",
+    "formato": "PARQUET",
+    "tamano_mb": 3.77,
+    "ruta": "02_datos_limpios/personal_y_nomina/remuneraciones_personal_2025.parquet",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/personal_y_nomina/remuneraciones_personal_2025.parquet?AWSAccessKeyId=0058015f395f6c10000000001&Signature=QAW281Ys57Ilndn6oLXCdOAuVDQ%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Personal Y Nomina",
+    "archivo": "resumen_sueldos_por_cargo_2025.csv",
+    "formato": "CSV",
+    "tamano_mb": "612.6 KB",
+    "ruta": "02_datos_limpios/personal_y_nomina/resumen_sueldos_por_cargo_2025.csv",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/personal_y_nomina/resumen_sueldos_por_cargo_2025.csv?AWSAccessKeyId=0058015f395f6c10000000001&Signature=lriJbJJgYn97SVzS60vUiWI9Ld8%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Presupuesto",
+    "archivo": "presupuesto_partidas_2020_2025.csv",
+    "formato": "CSV",
+    "tamano_mb": "702.6 KB",
+    "ruta": "02_datos_limpios/presupuesto/presupuesto_partidas_2020_2025.csv",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/presupuesto/presupuesto_partidas_2020_2025.csv?AWSAccessKeyId=0058015f395f6c10000000001&Signature=Ayqx9b%2BHfOZs1W6ipScX5atRgHg%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Presupuesto",
+    "archivo": "presupuesto_partidas_2020_2025.parquet",
+    "formato": "PARQUET",
+    "tamano_mb": "60.9 KB",
+    "ruta": "02_datos_limpios/presupuesto/presupuesto_partidas_2020_2025.parquet",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/presupuesto/presupuesto_partidas_2020_2025.parquet?AWSAccessKeyId=0058015f395f6c10000000001&Signature=xEqZ8kd0J9iqWJToRZZNPg5NrNQ%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Publicidad Oficial",
+    "archivo": "publicidad_oficial_2025.csv",
+    "formato": "CSV",
+    "tamano_mb": 3.4,
+    "ruta": "02_datos_limpios/publicidad_oficial/publicidad_oficial_2025.csv",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/publicidad_oficial/publicidad_oficial_2025.csv?AWSAccessKeyId=0058015f395f6c10000000001&Signature=Qxc24mhoq6UZgdPh21Xmvgqxq4w%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Publicidad Oficial",
+    "archivo": "publicidad_oficial_2025.parquet",
+    "formato": "PARQUET",
+    "tamano_mb": "306.8 KB",
+    "ruta": "02_datos_limpios/publicidad_oficial/publicidad_oficial_2025.parquet",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/publicidad_oficial/publicidad_oficial_2025.parquet?AWSAccessKeyId=0058015f395f6c10000000001&Signature=QHKZU2LFMkypHhvx2%2Bn4LDMzoj8%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Viaticos",
+    "archivo": "gastos_viaticos_comisiones_2022_2025.parquet",
+    "formato": "PARQUET",
+    "tamano_mb": 1.59,
+    "ruta": "02_datos_limpios/viaticos/gastos_viaticos_comisiones_2022_2025.parquet",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/viaticos/gastos_viaticos_comisiones_2022_2025.parquet?AWSAccessKeyId=0058015f395f6c10000000001&Signature=TvALdTzjX9BoLtEGLH%2FEMGMBOpg%3D&Expires=1795815380"
+  },
+  {
+    "capa": "Plata (Limpia)",
+    "dominio": "Viaticos",
+    "archivo": "top_gastos_viaticos_mayores.csv",
+    "formato": "CSV",
+    "tamano_mb": 3.17,
+    "ruta": "02_datos_limpios/viaticos/top_gastos_viaticos_mayores.csv",
+    "url": "https://s3.us-east-005.backblazeb2.com/ine-data-lake/02_datos_limpios/viaticos/top_gastos_viaticos_mayores.csv?AWSAccessKeyId=0058015f395f6c10000000001&Signature=zdWjq5Hh5Do5TqElTDDSf7WWszQ%3D&Expires=1795815380"
+  }
+]

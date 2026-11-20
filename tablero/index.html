@@ -305,9 +305,12 @@
           </p>
         </div>
         <div class="github-actions">
-          <a class="btn-gold btn-lg" id="github-repo-link" href="https://github.com/agilsolutions/auditoria-ine" target="_blank" rel="noopener noreferrer">
+          <a class="btn-gold btn-lg" id="github-repo-link" href="https://github.com/ar-rodrigues/ine-transparencia-2020-2026" target="_blank" rel="noopener noreferrer">
             Explorar Repositorio en GitHub ↗
           </a>
+          <button class="btn-ghost btn-lg" id="btn-open-vault" style="margin-top: 8px;">
+            ↓ Descargar Bases Limpias (Parquet / B2)
+          </button>
           <span class="github-hint">Incluye scripts, metodología y enlaces de descarga de datos completos.</span>
         </div>
       </div>
@@ -321,6 +324,43 @@
       <div>Fuente oficial: Plataforma Nacional de Transparencia (PNT) · INE (2020–2026)</div>
     </div>
   </footer>
+
+  <!-- VAULT DOWNLOAD MODAL (CAPA PLATA B2 & EXCEL COMPATIBILITY) -->
+  <div class="modal-backdrop" id="vault-modal" hidden>
+    <div class="modal-card modal-card-wide">
+      <div class="modal-head">
+        <h3>Descarga de Bases de Datos (Capa Plata · Backblaze B2)</h3>
+        <button class="modal-close" id="vault-modal-close" aria-label="Cerrar">×</button>
+      </div>
+      <p class="modal-desc">
+        Selecciona y descarga los archivos normalizados y deduplicados de la auditoría. Los archivos <code>.parquet</code> concentran millones de datos en un tamaño comprimido.
+      </p>
+
+      <div class="parquet-help-callout">
+        <strong>💡 ¿Cómo abrir archivos Parquet?</strong>
+        <p>
+          • <strong>En Excel / Power BI:</strong> En Excel ve a <em>Datos → Obtener datos → Desde un archivo → Desde Parquet</em> (o mediante Power Query).<br />
+          • <strong>Sin instalar nada en navegador:</strong> Puedes arrastrar el archivo a <a href="https://duckdb.org/docs/api/wasm" target="_blank" rel="noopener">DuckDB-WASM</a> o a visores como <a href="https://parquet-viewer-online.com/" target="_blank" rel="noopener">Parquet Viewer Online</a>.<br />
+          • <strong>En Python / R / DuckDB CLI:</strong> <code>duckdb -c "SELECT * FROM 'archivo.parquet' LIMIT 20;"</code>
+        </p>
+      </div>
+
+      <div class="table-wrap" style="max-height: 380px; margin-top: 10px;">
+        <table class="data-table" id="vault-download-table">
+          <thead>
+            <tr>
+              <th>Dominio</th>
+              <th>Archivo</th>
+              <th>Formato</th>
+              <th class="num">Tamaño</th>
+              <th class="num">Descargar</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
   <!-- EMBED MODAL -->
   <div class="modal-backdrop" id="embed-modal" hidden>
