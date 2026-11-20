@@ -731,7 +731,35 @@ body.is-embed-full .scrolly-stage-col {
   overflow: hidden;
 }
 
-.table-wrap { max-height: 440px; overflow: auto; }
+.table-wrap {
+  max-height: 440px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 168, 76, 0.45) rgba(255, 255, 255, 0.03);
+}
+
+.table-wrap::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.table-wrap::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.table-wrap::-webkit-scrollbar-thumb {
+  background: rgba(201, 168, 76, 0.35);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.table-wrap::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 168, 76, 0.65);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
 
 .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 
