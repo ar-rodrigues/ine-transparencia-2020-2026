@@ -1168,20 +1168,38 @@ body.is-embed-full .scrolly-stage-col {
     gap: 12px;
   }
   #explorer-switch {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 8px;
     width: 100%;
-    padding: 6px;
-    border-radius: 14px;
+    padding: 4px 2px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+  }
+  #explorer-switch::-webkit-scrollbar {
+    display: none;
   }
   #explorer-switch .seg-btn {
-    text-align: center;
-    justify-content: center;
-    padding: 9px 8px;
-    font-size: 11px;
-    line-height: 1.25;
-    border-radius: 9px;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 8px 16px;
+    font-size: 12.5px;
+    font-weight: 500;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-strong);
+    color: var(--text-muted);
+  }
+  #explorer-switch .seg-btn.active {
+    background: rgba(201, 168, 76, 0.14);
+    border-color: var(--gold);
+    color: var(--gold-light);
+    font-weight: 600;
   }
   .explorer-actions {
     display: flex;

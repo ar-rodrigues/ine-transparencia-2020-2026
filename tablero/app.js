@@ -11,7 +11,7 @@ const PNT_SOURCE = "Fuente: Plataforma Nacional de Transparencia (PNT) · INE";
 
 const DATA_TABLES = [
   { key: "capitulos", rel: "presupuesto/ejecucion_presupuestal_capitulos" },
-  { key: "publicidad", rel: "publicidad_oficial/gasto_publicidad_por_medio_2025" },
+  { key: "publicidad", rel: "resumen_ejecutivo/medios_2025" },
   { key: "partidosCiclo", rel: "financiamiento_partidos/comparativa_electoral_vs_ordinario" },
   { key: "partidosAnual", rel: "financiamiento_partidos/kpi_financiamiento_anual_partidos" },
   { key: "procedimientos", rel: "contrataciones/kpi_procedimientos_contratacion" },
@@ -722,7 +722,7 @@ function renderStep(stepIndex, opts = {}) {
             name: "Contrataciones",
             type: "map",
             map: "mexico",
-            roam: !isMob,
+            roam: true,
             zoom: isMob ? 1.05 : 1.15,
             top: isMob ? 6 : "middle",
             itemStyle: { areaColor: "#1a1a1a", borderColor: "rgba(255,255,255,0.22)", borderWidth: 0.7 },
@@ -972,7 +972,7 @@ function renderStep(stepIndex, opts = {}) {
             name: "Viáticos",
             type: "map",
             map: "mexico",
-            roam: !isMob,
+            roam: true,
             zoom: isMob ? 1.05 : 1.15,
             top: isMob ? 6 : "middle",
             itemStyle: { areaColor: "#1a1a1a", borderColor: "rgba(255,255,255,0.22)", borderWidth: 0.7 },
