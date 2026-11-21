@@ -163,6 +163,36 @@ function bindStageToggle(ctrlEl, attr, stateKey, stepIndex, opts) {
   );
 }
 
+function syncMapZoomControls(chart, show, defaultZoom = 1.1) {
+  const host = chart?.getDom?.();
+  if (!host) return;
+  host.querySelectorAll(".map-zoom-controls").forEach((el) => el.remove());
+  if (!show) return;
+
+  const box = document.createElement("div");
+  box.className = "map-zoom-controls";
+  box.innerHTML = `
+    <button type="button" class="map-zoom-btn" data-z="in" title="Acercar">+</button>
+    <button type="button" class="map-zoom-btn" data-z="out" title="Alejar">−</button>
+    <button type="button" class="map-zoom-btn" data-z="reset" title="Restablecer">⟲</button>
+  `;
+  box.querySelectorAll(".map-zoom-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const action = btn.dataset.z;
+      const curZoom = chart.getOption()?.series?.[0]?.zoom || defaultZoom;
+      if (action === "in") {
+        chart.setOption({ series: [{ zoom: Math.min(3.5, Number((curZoom * 1.45).toFixed(2))) }] });
+      } else if (action === "out") {
+        chart.setOption({ series: [{ zoom: Math.max(1, Number((curZoom / 1.45).toFixed(2))) }] });
+      } else {
+        chart.setOption({ series: [{ zoom: defaultZoom, center: null }] });
+      }
+    });
+  });
+  host.appendChild(box);
+}
+
 function renderStep(stepIndex, opts = {}) {
   const chart = opts.chart || state.stageChart;
   if (!chart) return;
@@ -174,6 +204,7 @@ function renderStep(stepIndex, opts = {}) {
   }
 
   chart.clear();
+  syncMapZoomControls(chart, false);
   const isMob = chart.getWidth() < 480;
 
   // --- 01: DESTINO DEL PRESUPUESTO (% APILADO 2020 VS 2025 EN UNA SOLA GRÁFICA) ---
@@ -722,7 +753,8 @@ function renderStep(stepIndex, opts = {}) {
             name: "Contrataciones",
             type: "map",
             map: "mexico",
-            roam: true,
+            roam: isMob ? "move" : true,
+            scaleLimit: { min: 1, max: 3.5 },
             zoom: isMob ? 1.05 : 1.15,
             top: isMob ? 6 : "middle",
             itemStyle: { areaColor: "#1a1a1a", borderColor: "rgba(255,255,255,0.22)", borderWidth: 0.7 },
@@ -731,6 +763,7 @@ function renderStep(stepIndex, opts = {}) {
           },
         ],
       });
+      syncMapZoomControls(chart, true, isMob ? 1.05 : 1.15);
     }
     return;
   }
@@ -972,7 +1005,8 @@ function renderStep(stepIndex, opts = {}) {
             name: "Viáticos",
             type: "map",
             map: "mexico",
-            roam: true,
+            roam: isMob ? "move" : true,
+            scaleLimit: { min: 1, max: 3.5 },
             zoom: isMob ? 1.05 : 1.15,
             top: isMob ? 6 : "middle",
             itemStyle: { areaColor: "#1a1a1a", borderColor: "rgba(255,255,255,0.22)", borderWidth: 0.7 },
@@ -981,6 +1015,7 @@ function renderStep(stepIndex, opts = {}) {
           },
         ],
       });
+      syncMapZoomControls(chart, true, isMob ? 1.05 : 1.15);
     } else {
       const top = (state.data.viaticosOutliers || []).slice(0, 12).reverse();
       chart.setOption({
