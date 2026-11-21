@@ -1275,4 +1275,72 @@ body.is-embed-full .scrolly-stage-col {
     margin-top: 10px;
     padding: 12px 14px;
   }
+
+  /* ==================== MODAL DE DESCARGA COMO TARJETAS EN MÓVIL ==================== */
+  .modal-backdrop {
+    padding: 58px 12px 16px;
+    align-items: flex-start;
+  }
+  .modal-card {
+    padding: 18px 16px;
+    max-height: calc(100vh - 76px);
+    overflow-y: auto;
+  }
+  .vault-wrap {
+    max-height: 52vh;
+    overflow-y: auto;
+    padding: 4px 2px;
+    background: transparent;
+    border: none;
+  }
+  #vault-download-table,
+  #vault-download-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  #vault-download-table thead {
+    display: none;
+  }
+  #vault-download-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "domain size"
+      "file file"
+      "btn btn";
+    gap: 8px 10px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+  }
+  #vault-download-table tbody td {
+    padding: 0;
+    border: none;
+  }
+  #vault-download-table tbody td:nth-child(1) { grid-area: domain; text-align: left; }
+  #vault-download-table tbody td:nth-child(2) {
+    grid-area: file;
+    text-align: left;
+    font-size: 12.5px;
+    word-break: break-all;
+    line-height: 1.35;
+  }
+  #vault-download-table tbody td:nth-child(3) {
+    grid-area: size;
+    text-align: right;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  #vault-download-table tbody td:nth-child(4) { grid-area: btn; }
+  #vault-download-table tbody td:nth-child(4) .btn-gold {
+    width: 100%;
+    justify-content: center;
+    padding: 9px 12px;
+    font-size: 12.5px;
+  }
 }

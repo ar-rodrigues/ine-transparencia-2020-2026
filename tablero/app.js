@@ -112,11 +112,19 @@ async function initDataEngine() {
 }
 
 async function loadTable(item) {
-  if (state.data[item.key]) return state.data[item.key];
-  const resp = await fetch(`${DATA_ROOT}/${item.rel}.json`);
-  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-  state.data[item.key] = await resp.json();
-  return state.data[item.key];
+  if (state.data[item.key] && state.data[item.key].length > 0) return state.data[item.key];
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const resp = await fetch(`${DATA_ROOT}/${item.rel}.json`, { cache: attempt > 0 ? "reload" : "default" });
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      const json = await resp.json();
+      state.data[item.key] = json;
+      return json;
+    } catch {
+      if (attempt === 1) return [];
+    }
+  }
+  return [];
 }
 
 async function loadMexicoGeo() {
@@ -249,6 +257,15 @@ function renderStep(stepIndex, opts = {}) {
 
   // --- 02: PUBLICIDAD OFICIAL (PARTICIPACIÓN % Y TICKET MEDIO POR PAUTA) ---
   if (stepIndex === 1) {
+    if (!state.data.publicidad || state.data.publicidad.length === 0) {
+      const item = DATA_TABLES.find((t) => t.key === "publicidad");
+      if (item) {
+        loadTable(item).then((rows) => {
+          if (rows.length > 0) renderStep(1, opts);
+        });
+        return;
+      }
+    }
     const pub = (state.data.publicidad || []).slice(0, 6);
     const mode = state.pubMode;
 
@@ -325,7 +342,7 @@ function renderStep(stepIndex, opts = {}) {
             return `<b>${r.tipo_medio}</b><br/>Ticket promedio: <b>${fmtExactMXN(r.gasto_promedio_por_pauta)}</b><br/>Total de pautas: ${fmtInt(r.total_pautas)}<br/>Gasto acumulado: ${fmtMoney(r.gasto_total)}`;
           },
         },
-        grid: { left: isMob ? 6 : 12, right: isMob ? 64 : 64, top: 14, bottom: 16, containLabel: true },
+        grid: { left: isMob ? 4 : 12, right: isMob ? 58 : 64, top: 14, bottom: 16, containLabel: true },
         xAxis: {
           type: "value",
           splitNumber: isMob ? 3 : 5,
@@ -334,7 +351,10 @@ function renderStep(stepIndex, opts = {}) {
         },
         yAxis: {
           type: "category",
-          data: sorted.map((r) => `${r.tipo_medio} (${r.total_pautas})`),
+          data: sorted.map((r) => {
+            const label = isMob ? r.tipo_medio.replace("Otros servicios asociados", "Otros serv.") : r.tipo_medio;
+            return `${label} (${r.total_pautas})`;
+          }),
           axisLabel: { color: "#f5f2ec", fontSize: isMob ? 10 : 11.5 },
         },
         series: [
@@ -354,7 +374,7 @@ function renderStep(stepIndex, opts = {}) {
             })),
           },
         ],
-      });
+      }, true);
     }
     return;
   }
@@ -822,12 +842,14 @@ function renderStep(stepIndex, opts = {}) {
         grid: { left: isMob ? 6 : 16, right: isMob ? 10 : 20, top: isMob ? 46 : 40, bottom: 20, containLabel: true },
         xAxis: {
           type: "category",
-          data: tramos.map((r) => r.tramo.replace(" (", "\n(")),
-          axisLabel: { color: "#f5f2ec", fontSize: isMob ? 9.5 : 11, interval: 0 },
+          data: tramos.map((r) =>
+            isMob ? r.tramo.replace(" (", "\n(").replace(" ", "\n") : r.tramo.replace(" (", "\n(")
+          ),
+          axisLabel: { color: "#f5f2ec", fontSize: isMob ? 9 : 11, lineHeight: isMob ? 11 : 14, interval: 0 },
         },
         yAxis: {
           type: "value",
-          axisLabel: { color: COLORS.axis, fontFamily: "JetBrains Mono", formatter: "{value}%" },
+          axisLabel: { color: COLORS.axis, fontFamily: "JetBrains Mono", fontSize: isMob ? 10 : 11, formatter: "{value}%" },
           splitLine: { lineStyle: { color: COLORS.grid } },
         },
         series: [
@@ -835,14 +857,14 @@ function renderStep(stepIndex, opts = {}) {
             name: "% de Plazas",
             type: "bar",
             itemStyle: { color: "rgba(245,242,236,0.28)", borderRadius: [6, 6, 0, 0] },
-            label: { show: true, position: "top", color: COLORS.axis, fontFamily: "JetBrains Mono", fontSize: 11, formatter: "{c}%" },
+            label: { show: true, position: "top", color: COLORS.axis, fontFamily: "JetBrains Mono", fontSize: isMob ? 9 : 11, formatter: "{c}%" },
             data: tramos.map((r) => r.pct_plazas),
           },
           {
             name: "% de la Masa Salarial",
             type: "bar",
             itemStyle: { color: COLORS.ine, borderRadius: [6, 6, 0, 0] },
-            label: { show: true, position: "top", color: COLORS.goldLight, fontFamily: "JetBrains Mono", fontWeight: "bold", fontSize: 11, formatter: "{c}%" },
+            label: { show: true, position: "top", color: COLORS.goldLight, fontFamily: "JetBrains Mono", fontWeight: "bold", fontSize: isMob ? 9 : 11, formatter: "{c}%" },
             data: tramos.map((r) => r.pct_masa),
           },
         ],
@@ -972,28 +994,31 @@ function renderStep(stepIndex, opts = {}) {
             return `<b>${r.ciudad_destino}, ${r.estado_destino}</b><br/>Cargo: ${r.cargo}<br/>Área: ${r.area_adscripcion}<br/>Importe: <b>${fmtExactMXN(r.importe_total_erogado)}</b> (<b>${r.veces_promedio}x</b> el promedio nacional)`;
           },
         },
-        grid: { left: isMob ? 4 : 10, right: isMob ? 50 : 64, top: 24, bottom: 12, containLabel: true },
+        grid: { left: isMob ? 4 : 10, right: isMob ? 42 : 64, top: 24, bottom: 12, containLabel: true },
         xAxis: {
           type: "value",
-          splitNumber: isMob ? 3 : 5,
+          splitNumber: isMob ? 2 : 5,
           axisLabel: { color: COLORS.axis, fontFamily: "JetBrains Mono", fontSize: isMob ? 10 : 11, formatter: (v) => `$${(v / 1e3).toFixed(0)}k` },
           splitLine: { lineStyle: { color: COLORS.grid } },
         },
         yAxis: {
           type: "category",
-          data: top.map((r, i) => `#${12 - i} ${r.ciudad_destino} (${r.estado_destino.slice(0, 3).toUpperCase()})`),
+          data: top.map((r, i) => {
+            const city = isMob && r.ciudad_destino.length > 14 ? r.ciudad_destino.slice(0, 14) + "…" : r.ciudad_destino;
+            return `#${12 - i} ${city} (${r.estado_destino.slice(0, 3).toUpperCase()})`;
+          }),
           axisLabel: { color: "#f5f2ec", fontSize: isMob ? 9.5 : 11 },
         },
         series: [
           {
             type: "bar",
             itemStyle: { color: COLORS.ine, borderRadius: [0, 6, 6, 0] },
-            label: { show: true, position: "right", color: COLORS.goldLight, fontFamily: "JetBrains Mono", fontSize: 10.5, formatter: (p) => `${top[p.dataIndex].veces_promedio}x` },
+            label: { show: true, position: "right", color: COLORS.goldLight, fontFamily: "JetBrains Mono", fontSize: isMob ? 9.5 : 10.5, formatter: (p) => `${top[p.dataIndex].veces_promedio}x` },
             data: top.map((r) => r.importe_total_erogado),
             markLine: {
               symbol: "none",
               lineStyle: { color: COLORS.emerald, type: "dashed", width: 2 },
-              label: { color: COLORS.emerald, fontFamily: "JetBrains Mono", fontSize: 10, position: "end", formatter: "Promedio nacional ($5.2k)" },
+              label: { color: COLORS.emerald, fontFamily: "JetBrains Mono", fontSize: isMob ? 9.5 : 10, position: "end", formatter: isMob ? "Prom. $5.2k" : "Promedio nacional ($5.2k)" },
               data: [{ xAxis: 5240.56 }],
             },
           },
