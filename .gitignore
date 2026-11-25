@@ -33,3 +33,6 @@ node_modules/
 .next/
 *.log
 .DS_Store
+
+# Reglas y config local del editor (no versionar)
+.cursor/
